@@ -4,6 +4,8 @@ using UnityEngine.InputSystem;
 public class LittleCatController : MonoBehaviour
 {
     Animator animator;
+    public StarterAssets.StarterAssetsInputs input;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -17,9 +19,16 @@ public class LittleCatController : MonoBehaviour
         {
             animator.SetTrigger("greeting");
         }
-        if (Input.GetAxis("Vertical") != 0 || Input.GetAxis("Horizontal") != 0)
+
+        float moveX = Input.GetAxis("Horizontal");
+        float moveY = Input.GetAxis("Vertical");
+        float speed = new Vector2(moveX, moveY).magnitude;
+        animator.SetFloat("Speed", speed);
+
+        if (input.sprint)
         {
-            animator.SetTrigger("walk");
+            animator.SetFloat("Speed", 2);
         }
+
     }
 }
