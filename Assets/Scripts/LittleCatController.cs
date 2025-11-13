@@ -17,7 +17,7 @@ public class LittleCatController : MonoBehaviour
     {
         if (Mouse.current != null && Mouse.current.leftButton.wasPressedThisFrame)
         {
-            animator.SetTrigger("greeting");
+            animator.SetTrigger("attack");
         }
 
         float moveX = Input.GetAxis("Horizontal");
