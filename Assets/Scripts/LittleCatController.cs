@@ -17,7 +17,7 @@ public class LittleCatController : MonoBehaviour
     {
         if (Mouse.current != null && Mouse.current.leftButton.wasPressedThisFrame)
         {
-            animator.SetTrigger("greeting");
+            animator.SetTrigger("attack");
         }
 
         float moveX = Input.GetAxis("Horizontal");
@@ -28,6 +28,11 @@ public class LittleCatController : MonoBehaviour
         if (input.sprint)
         {
             animator.SetFloat("Speed", 2);
+        }
+
+        if(input.jump)
+        {
+            animator.SetTrigger("jump");
         }
 
     }
