@@ -30,5 +30,10 @@ public class LittleCatController : MonoBehaviour
             animator.SetFloat("Speed", 2);
         }
 
+        if(input.jump)
+        {
+            animator.SetTrigger("jump");
+        }
+
     }
 }
