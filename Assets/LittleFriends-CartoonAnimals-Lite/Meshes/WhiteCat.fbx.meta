@@ -1,12 +1,5 @@
 fileFormatVersion: 2
-guid: d7061d2ec501adb4da1e842bf1f2be57
-AssetOrigin:
-  serializedVersion: 1
-  productId: 262505
-  packageName: Little Friends - Cartoon Animals - Lite
-  packageVersion: 1.0.0
-  assetPath: Assets/LittleFriends-CartoonAnimals-Lite/Meshes/LittleCat.fbx
-  uploadId: 630772
+guid: 3d5faa6612d3fd44aac68baceb477685
 ModelImporter:
   serializedVersion: 24200
   internalIDToNameTable:
@@ -57,12 +50,12 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Body
-    second: {fileID: 2100000, guid: 96642f27c06172444914b2c718fdbf58, type: 2}
+    second: {fileID: 2100000, guid: 7d833526d148ad7419183ac7deaf69ac, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Ears_Cat
-    second: {fileID: 2100000, guid: 3107d330da78afb41a299544b45f385d, type: 2}
+    second: {fileID: 2100000, guid: ce90aadd992cdba4da9d476aea59819f, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
@@ -72,7 +65,7 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: EyelidsTail_Cat
-    second: {fileID: 2100000, guid: 44722e5b469a26147b3a5c497b7f24b9, type: 2}
+    second: {fileID: 2100000, guid: 61bb95f9ae6c77c42a04259e0712b913, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
