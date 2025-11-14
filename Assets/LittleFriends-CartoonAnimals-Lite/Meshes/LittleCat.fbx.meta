@@ -1,7 +1,14 @@
 fileFormatVersion: 2
 guid: d7061d2ec501adb4da1e842bf1f2be57
+AssetOrigin:
+  serializedVersion: 1
+  productId: 262505
+  packageName: Little Friends - Cartoon Animals - Lite
+  packageVersion: 1.0.0
+  assetPath: Assets/LittleFriends-CartoonAnimals-Lite/Meshes/LittleCat.fbx
+  uploadId: 630772
 ModelImporter:
-  serializedVersion: 21202
+  serializedVersion: 24200
   internalIDToNameTable:
   - first:
       74: -5894026091853549063
@@ -83,8 +90,6 @@ ModelImporter:
     optimizeGameObjects: 0
     removeConstantScaleCurves: 1
     motionNodeName: 
-    rigImportErrors: 
-    rigImportWarnings: 
     animationImportErrors: 
     animationImportWarnings: 
     animationRetargetingWarnings: 
@@ -397,6 +402,7 @@ ModelImporter:
     addColliders: 0
     useSRGBMaterialColor: 1
     sortHierarchyByName: 1
+    importPhysicalCameras: 1
     importVisibility: 1
     importBlendShapes: 1
     importCameras: 1
@@ -414,6 +420,9 @@ ModelImporter:
     maxBonesPerVertex: 4
     minBoneWeight: 0.001
     optimizeBones: 1
+    generateMeshLods: 0
+    meshLodGenerationFlags: 0
+    maximumMeshLod: -1
     meshOptimizationFlags: -1
     indexFormat: 0
     secondaryUVAngleDistortion: 8
@@ -424,6 +433,7 @@ ModelImporter:
     secondaryUVMinObjectScale: 1
     secondaryUVPackMargin: 4
     useFileScale: 1
+    strictVertexDataChecks: 0
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0
@@ -722,14 +732,9 @@ ModelImporter:
   humanoidOversampling: 1
   avatarSetup: 1
   addHumanoidExtraRootOnlyWhenUsingAvatar: 1
+  importBlendShapeDeformPercent: 0
+  remapMaterialsIfMaterialImportModeIsNone: 1
   additionalBone: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 
-AssetOrigin:
-  serializedVersion: 1
-  productId: 262505
-  packageName: Little Friends - Cartoon Animals - Lite
-  packageVersion: 1.0.0
-  assetPath: Assets/LittleFriends-CartoonAnimals-Lite/Meshes/LittleCat.fbx
-  uploadId: 630772

@@ -5,6 +5,7 @@ public class LittleCatController : MonoBehaviour
 {
     Animator animator;
     public StarterAssets.StarterAssetsInputs input;
+    public bool isAttacking = false;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -15,12 +16,15 @@ public class LittleCatController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Mouse.current != null && Mouse.current.leftButton.wasPressedThisFrame)
+        if (Mouse.current != null && Mouse.current.leftButton.wasPressedThisFrame && !isAttacking)
         {
-            animator.SetTrigger("greeting");
+            isAttacking = true;
+            animator.SetTrigger("attack");
+            input.MoveInput(new Vector2(0, 0));
         }
 
         float moveX = Input.GetAxis("Horizontal");
+
         float moveY = Input.GetAxis("Vertical");
         float speed = new Vector2(moveX, moveY).magnitude;
         animator.SetFloat("Speed", speed);
@@ -30,5 +34,16 @@ public class LittleCatController : MonoBehaviour
             animator.SetFloat("Speed", 2);
         }
 
+        if(input.jump)
+        {
+            animator.SetTrigger("jump");
+        }
+
+    }
+
+    public void AttackFinished()
+    {
+        isAttacking = false;
+        input.MoveInput(new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")));
     }
 }
