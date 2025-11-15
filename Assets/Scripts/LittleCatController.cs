@@ -16,7 +16,8 @@ public class LittleCatController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Mouse.current != null && Mouse.current.leftButton.wasPressedThisFrame && !isAttacking)
+        // new input system
+        if (Mouse.current != null && Mouse.current.leftButton.wasPressedThisFrame && !isAttacking || Input.GetMouseButtonDown(0) && !isAttacking)
         {
             isAttacking = true;
             animator.SetTrigger("attack");
@@ -34,7 +35,7 @@ public class LittleCatController : MonoBehaviour
             animator.SetFloat("Speed", 2);
         }
 
-        if(input.jump)
+        if (input.jump)
         {
             animator.SetTrigger("jump");
         }
