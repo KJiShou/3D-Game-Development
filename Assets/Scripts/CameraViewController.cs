@@ -1,34 +1,61 @@
 using Cinemachine;
+using StarterAssets;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-
 public class CameraViewController : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     public CinemachineVirtualCamera virtualCamera;
+    public StarterAssetsInputs input;
+
     public float zoomSpeed = 10f;
+    public float sprintFOVIncrease = 15f;   // how much wider when sprinting
+    public float smoothSpeed = 10f;
+
     public float minFOV = 20f;
     public float maxFOV = 90f;
-    // Update is called once per frame
+
+    private float baseFOV = 60f; // will update dynamically with scroll
+    private float targetFOV;
+
+    void Start()
+    {
+        // Start with camera's current default FOV
+        baseFOV = virtualCamera.m_Lens.FieldOfView;
+        targetFOV = baseFOV;
+    }
+
     void Update()
     {
-        if (virtualCamera != null)
-        {
-            float scroll;
-            if (Mouse.current.scroll != null)
-            {
-                scroll = Mouse.current.scroll.ReadValue().y;
-            }
-            else
-            {
-                scroll = Input.GetAxis("Mouse ScrollWheel") * 10;
-            }
+        if (virtualCamera == null) return;
 
-            float currentFOV = virtualCamera.m_Lens.FieldOfView;
-            currentFOV -= scroll * zoomSpeed;
-            currentFOV = Mathf.Clamp(currentFOV, minFOV, maxFOV);
-            virtualCamera.m_Lens.FieldOfView = currentFOV;
+        // --------- 1. Mouse Scroll (Zoom) ----------
+        float scroll = 0f;
+
+        if (Mouse.current != null && Mouse.current.scroll != null)
+        {
+            scroll = Mouse.current.scroll.ReadValue().y;
+            scroll *= 0.1f;  // New Input System scroll is large; reduce it
         }
+        else
+        {
+            scroll = Input.GetAxis("Mouse ScrollWheel");
+        }
+
+        if (scroll != 0)
+        {
+            baseFOV -= scroll * zoomSpeed;
+            baseFOV = Mathf.Clamp(baseFOV, minFOV, maxFOV);
+        }
+
+        // --------- 2. Sprint FOV Offset ----------
+        float sprintOffset = input.sprint ? sprintFOVIncrease : 0f;
+
+        // Target FOV
+        targetFOV = Mathf.Clamp(baseFOV + sprintOffset, minFOV, maxFOV);
+
+        // --------- 3. Smooth Transition ----------
+        virtualCamera.m_Lens.FieldOfView =
+            Mathf.Lerp(virtualCamera.m_Lens.FieldOfView, targetFOV, Time.deltaTime * smoothSpeed);
     }
 }

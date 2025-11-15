@@ -1,3 +1,4 @@
+using StarterAssets;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -6,11 +7,13 @@ public class LittleCatController : MonoBehaviour
     Animator animator;
     public StarterAssets.StarterAssetsInputs input;
     public bool isAttacking = false;
+    private ThirdPersonController thirdPersonController;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         animator = GetComponent<Animator>();
+        thirdPersonController = GetComponent<ThirdPersonController>();
     }
 
     // Update is called once per frame
@@ -27,12 +30,12 @@ public class LittleCatController : MonoBehaviour
         float moveX = Input.GetAxis("Horizontal");
 
         float moveY = Input.GetAxis("Vertical");
-        float speed = new Vector2(moveX, moveY).magnitude;
-        animator.SetFloat("Speed", speed);
+        float speed = new Vector2(moveX, moveY).magnitude ;
+        animator.SetFloat("Speed", speed * thirdPersonController.MoveSpeed);
 
         if (input.sprint)
         {
-            animator.SetFloat("Speed", 2);
+            animator.SetFloat("Speed", speed * thirdPersonController.SprintSpeed);
         }
 
         if (input.jump)
@@ -45,6 +48,6 @@ public class LittleCatController : MonoBehaviour
     public void AttackFinished()
     {
         isAttacking = false;
-        input.MoveInput(new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")));
+        input.MoveInput(new Vector2(Input.GetAxis("Horizontal") * thirdPersonController.MoveSpeed, Input.GetAxis("Vertical") * thirdPersonController.MoveSpeed));
     }
 }
