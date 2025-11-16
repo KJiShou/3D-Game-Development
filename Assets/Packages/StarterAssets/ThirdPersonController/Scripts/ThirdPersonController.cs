@@ -30,8 +30,14 @@ namespace StarterAssets
         public float SpeedChangeRate = 10.0f;
 
         public AudioClip LandingAudioClip;
+        public AudioClip JumpAudioClip;
         public AudioClip[] FootstepAudioClips;
         [Range(0, 1)] public float FootstepAudioVolume = 0.5f;
+
+        public bool _jump = false;
+        private bool wasGrounded = true;
+        private float _lastJumpSoundTime = -1f;
+        public float JumpSoundCooldown = 0.1f;
 
         [Space(10)]
         [Tooltip("The height the player can jump")]
@@ -184,6 +190,15 @@ namespace StarterAssets
             Grounded = Physics.CheckSphere(spherePosition, GroundedRadius, GroundLayers,
                 QueryTriggerInteraction.Ignore);
 
+            // ---- Landing Sound ----
+            if (!wasGrounded && Grounded)
+            {
+                AudioSource.PlayClipAtPoint(LandingAudioClip, transform.TransformPoint(_controller.center), FootstepAudioVolume);
+            }
+
+            // store grounded state for next frame
+            wasGrounded = Grounded;
+
             // update animator if using character
             if (_hasAnimator)
             {
@@ -319,6 +334,11 @@ namespace StarterAssets
                 {
                     // the square root of H * -2 * G = how much velocity needed to reach desired height
                     _verticalVelocity = Mathf.Sqrt(JumpHeight * -2f * Gravity);
+                    if (Time.time - _lastJumpSoundTime > JumpSoundCooldown)
+                    {
+                        _lastJumpSoundTime = Time.time;
+                        AudioSource.PlayClipAtPoint(JumpAudioClip, transform.position, FootstepAudioVolume);
+                    }
 
                     // update animator if using character
                     if (_hasAnimator)
@@ -403,5 +423,13 @@ namespace StarterAssets
                 AudioSource.PlayClipAtPoint(LandingAudioClip, transform.TransformPoint(_controller.center), FootstepAudioVolume);
             }
         }
+
+        //private void OnJump(AnimationEvent animationEvent)
+        //{
+        //    if (animationEvent.animatorClipInfo.weight > 0.5f)
+        //    {
+        //        AudioSource.PlayClipAtPoint(JumpAudioClip, transform.TransformPoint(_controller.center), FootstepAudioVolume);
+        //    }
+        //}
     }
 }
