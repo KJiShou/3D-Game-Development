@@ -32,7 +32,7 @@ public class CameraViewController : MonoBehaviour
         // --------- 1. Mouse Scroll (Zoom) ----------
         float scroll = 0f;
 
-        if (Mouse.current != null && Mouse.current.scroll != null)
+        if (Mouse.current != null && Mouse.current.scroll != null && Mouse.current.scroll.ReadValue().y != 0)
         {
             scroll = Mouse.current.scroll.ReadValue().y;
             scroll *= 0.1f;  // New Input System scroll is large; reduce it
@@ -53,6 +53,7 @@ public class CameraViewController : MonoBehaviour
 
         // Target FOV
         targetFOV = Mathf.Clamp(baseFOV + sprintOffset, minFOV, maxFOV);
+        // Debug.Log("target FOV: " + targetFOV);
 
         // --------- 3. Smooth Transition ----------
         virtualCamera.m_Lens.FieldOfView =

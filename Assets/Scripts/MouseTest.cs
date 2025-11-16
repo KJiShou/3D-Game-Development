@@ -68,10 +68,12 @@ public class MouseCamera : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log("New Mouse delta: " + Mouse.current.delta.ReadValue());
-        Debug.Log("New Mouse pos: " + Mouse.current.position.ReadValue());
+        //Debug.Log("New Mouse delta: " + Mouse.current.delta.ReadValue());
+        //Debug.Log("New Mouse pos: " + Mouse.current.position.ReadValue());
 
-        Debug.Log("Old Mouse delta: " + new Vector2(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y")));
-        Debug.Log("Old Mouse pos: " + new Vector2(Input.mousePosition.x, Input.mousePosition.y));
+        //Debug.Log("Old Mouse delta: " + new Vector2(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y")));
+        //Debug.Log("Old Mouse pos: " + new Vector2(Input.mousePosition.x, Input.mousePosition.y));
+
+        // Debug.Log("Scroll wheel: " + Input.GetAxis("Mouse ScrollWheel"));
     }
 }
