@@ -15,7 +15,6 @@ GameObject:
   - component: {fileID: 6911367559390529446}
   - component: {fileID: 8798549777075097241}
   - component: {fileID: 199736857092439982}
-  - component: {fileID: 500468410140589946}
   m_Layer: 8
   m_Name: Chichi
   m_TagString: Player
@@ -77,14 +76,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26e54e5a728a9234ab24fcf1460ed8a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isAttacking: 0
   MoveSpeed: 20
   SprintSpeed: 40
   RotationSmoothTime: 0.12
   SpeedChangeRate: 10
   LandingAudioClip: {fileID: 8300000, guid: 87f3d60c1111e1244a9816a076f8cb41, type: 3}
+  JumpAudioClip: {fileID: 8300000, guid: 87f3d60c1111e1244a9816a076f8cb41, type: 3}
+  attackAudioClip: {fileID: 8300000, guid: 3285321afce99f749aa6bedafed70434, type: 3}
   FootstepAudioClips:
   - {fileID: 8300000, guid: 87f3d60c1111e1244a9816a076f8cb41, type: 3}
-  FootstepAudioVolume: 0.181
+  FootstepAudioVolume: 0.495
+  _jump: 0
+  JumpSoundCooldown: 0.1
   JumpHeight: 1
   Gravity: -15
   JumpTimeout: 0
@@ -256,20 +260,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &500468410140589946
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 287376000499110731}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 32cfd6f260d74cb4f968b6205613dc78, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::LittleCatController
-  input: {fileID: 8798549777075097241}
-  isAttacking: 0
 --- !u!1 &5751014057570097039
 GameObject:
   m_ObjectHideFlags: 0
