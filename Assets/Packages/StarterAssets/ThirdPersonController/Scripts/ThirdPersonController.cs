@@ -2,6 +2,8 @@
 using UnityEngine;
 #if ENABLE_INPUT_SYSTEM 
 using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.XR;
+using UnityEngine.Windows;
 #endif
 
 /* Note: animations are called via the controller for both the character and capsule using animator null checks
@@ -15,6 +17,7 @@ namespace StarterAssets
 #endif
     public class ThirdPersonController : MonoBehaviour
     {
+        public bool isAttacking = false;
         [Header("Player")]
         [Tooltip("Move speed of the character in m/s")]
         public float MoveSpeed = 2.0f;
@@ -30,8 +33,15 @@ namespace StarterAssets
         public float SpeedChangeRate = 10.0f;
 
         public AudioClip LandingAudioClip;
+        public AudioClip JumpAudioClip;
+        public AudioClip attackAudioClip;
         public AudioClip[] FootstepAudioClips;
         [Range(0, 1)] public float FootstepAudioVolume = 0.5f;
+
+        public bool _jump = false;
+        private bool wasGrounded = true;
+        private float _lastJumpSoundTime = -1f;
+        public float JumpSoundCooldown = 0.1f;
 
         [Space(10)]
         [Tooltip("The height the player can jump")]
@@ -98,6 +108,7 @@ namespace StarterAssets
         private int _animIDJump;
         private int _animIDFreeFall;
         private int _animIDMotionSpeed;
+        private int _animIDAttack;
 
 #if ENABLE_INPUT_SYSTEM 
         private PlayerInput _playerInput;
@@ -136,7 +147,6 @@ namespace StarterAssets
         private void Start()
         {
             _cinemachineTargetYaw = CinemachineCameraTarget.transform.rotation.eulerAngles.y;
-
             _hasAnimator = TryGetComponent(out _animator);
             _controller = GetComponent<CharacterController>();
             _input = GetComponent<StarterAssetsInputs>();
@@ -155,6 +165,12 @@ namespace StarterAssets
 
         private void Update()
         {
+            // new input system
+            if (Mouse.current != null && Mouse.current.leftButton.isPressed && !isAttacking || UnityEngine.Input.GetMouseButtonDown(0) && !isAttacking)
+            {
+                Attack();
+            }
+
             _hasAnimator = TryGetComponent(out _animator);
 
             JumpAndGravity();
@@ -174,6 +190,7 @@ namespace StarterAssets
             _animIDJump = Animator.StringToHash("Jump");
             _animIDFreeFall = Animator.StringToHash("FreeFall");
             _animIDMotionSpeed = Animator.StringToHash("MotionSpeed");
+            _animIDAttack = Animator.StringToHash("Attack");
         }
 
         private void GroundedCheck()
@@ -183,6 +200,15 @@ namespace StarterAssets
                 transform.position.z);
             Grounded = Physics.CheckSphere(spherePosition, GroundedRadius, GroundLayers,
                 QueryTriggerInteraction.Ignore);
+
+            // ---- Landing Sound ----
+            if (!wasGrounded && Grounded)
+            {
+                AudioSource.PlayClipAtPoint(LandingAudioClip, transform.TransformPoint(_controller.center), FootstepAudioVolume);
+            }
+
+            // store grounded state for next frame
+            wasGrounded = Grounded;
 
             // update animator if using character
             if (_hasAnimator)
@@ -204,7 +230,7 @@ namespace StarterAssets
             }
             else if (!LockCameraPosition)
             {
-                Vector2 look = new Vector2(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y"));
+                Vector2 look = new Vector2(UnityEngine.Input.GetAxis("Mouse X"), UnityEngine.Input.GetAxis("Mouse Y"));
 
                 if (look.sqrMagnitude >= _threshold)
                 {
@@ -304,7 +330,6 @@ namespace StarterAssets
                 // update animator if using character
                 if (_hasAnimator)
                 {
-                    _animator.SetBool(_animIDJump, false);
                     _animator.SetBool(_animIDFreeFall, false);
                 }
 
@@ -317,16 +342,21 @@ namespace StarterAssets
                 // Jump
                 if (_input.jump && _jumpTimeoutDelta <= 0.0f)
                 {
-                    // the square root of H * -2 * G = how much velocity needed to reach desired height
                     _verticalVelocity = Mathf.Sqrt(JumpHeight * -2f * Gravity);
+                    if (Time.time - _lastJumpSoundTime > JumpSoundCooldown)
+                    {
+                        _lastJumpSoundTime = Time.time;
+                        AudioSource.PlayClipAtPoint(JumpAudioClip, transform.position, FootstepAudioVolume);
+                    }
 
-                    // update animator if using character
                     if (_hasAnimator)
                     {
-                        _animator.SetBool(_animIDJump, true);
+                        _animator.SetTrigger(_animIDJump);
                     }
-                }
 
+                    // ADD THIS LINE:
+                    _input.jump = false;
+                }
                 // jump timeout
                 if (_jumpTimeoutDelta >= 0.0f)
                 {
@@ -402,6 +432,18 @@ namespace StarterAssets
             {
                 AudioSource.PlayClipAtPoint(LandingAudioClip, transform.TransformPoint(_controller.center), FootstepAudioVolume);
             }
+        }
+
+        void Attack()
+        {
+            isAttacking = true;
+            _animator.SetTrigger(_animIDAttack);
+            AudioSource.PlayClipAtPoint(attackAudioClip, transform.TransformPoint(_controller.center), FootstepAudioVolume);
+        }
+
+        public void AttackFinished()
+        {
+            isAttacking = false;
         }
     }
 }
