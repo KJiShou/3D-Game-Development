@@ -7,6 +7,7 @@ public class TreeInteraction : MonoBehaviour
     public GameObject treeModel;
     private MeshRenderer treeMeshRenderer;
     private BoxCollider treeBoxCollider;
+    public ParticleSystem breakParticle;
 
     public float pushDistance = 0.5f;  
 
@@ -25,6 +26,7 @@ public class TreeInteraction : MonoBehaviour
 
     public void HitTree()
     {
+        PlayBreakEffect();
         // disable tree
         if (treeModel != null)
         {
@@ -46,5 +48,17 @@ public class TreeInteraction : MonoBehaviour
         Vector3 targetPos = treeLog.GetComponent<Transform>().position + forward.normalized * pushDistance;
 
         treeLog.transform.position = targetPos;
+    }
+
+    void PlayBreakEffect()
+    {
+        if (breakParticle != null)
+        {
+            ParticleSystem fx = Instantiate(breakParticle, afterInteract.transform.position, Quaternion.identity);
+
+            fx.Play();
+
+            Destroy(fx.gameObject, fx.main.duration + fx.main.startLifetimeMultiplier);
+        }
     }
 }
