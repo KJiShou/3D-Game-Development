@@ -396,4 +396,5 @@ MonoBehaviour:
   afterInteract: {fileID: 6979479533906799645}
   treeLog: {fileID: 670259557724188491}
   treeModel: {fileID: 8045396967038321553}
+  breakParticle: {fileID: 614420075973184709, guid: 1a483cdfdab53d347b2466b8dca091f1, type: 3}
   pushDistance: 0.5
