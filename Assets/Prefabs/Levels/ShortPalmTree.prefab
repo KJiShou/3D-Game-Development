@@ -15,7 +15,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &583942345890641294
 Transform:
   m_ObjectHideFlags: 0
@@ -103,6 +103,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: b9245e4c0a8531c439ed2265edf24574, type: 3}
       insertIndex: -1
       addedObject: {fileID: 3321870961006674693}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: b9245e4c0a8531c439ed2265edf24574, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8921163926951394825}
   m_SourcePrefab: {fileID: 100100000, guid: b9245e4c0a8531c439ed2265edf24574, type: 3}
 --- !u!4 &146064796805346801 stripped
 Transform:
@@ -161,7 +164,19 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 112
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
+--- !u!114 &8921163926951394825
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 670259557724188491}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c6603d63e34c754c8aaaa9b37a35424, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TreeLogPush
 --- !u!1001 &5648800923331708256
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -275,15 +290,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 76245444cbf78894b8ddff24cc5bdcf8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.12949872
+      value: 31.734951
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 76245444cbf78894b8ddff24cc5bdcf8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.4749994
+      value: 4.2966627e-18
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 76245444cbf78894b8ddff24cc5bdcf8, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.17414093
+      value: 1178.4951
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 76245444cbf78894b8ddff24cc5bdcf8, type: 3}
       propertyPath: m_LocalRotation.w
@@ -331,6 +346,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 76245444cbf78894b8ddff24cc5bdcf8, type: 3}
       insertIndex: -1
       addedObject: {fileID: 7285228921902638233}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 76245444cbf78894b8ddff24cc5bdcf8, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 140958485335981715}
   m_SourcePrefab: {fileID: 100100000, guid: 76245444cbf78894b8ddff24cc5bdcf8, type: 3}
 --- !u!4 &7272518755499071787 stripped
 Transform:
@@ -363,3 +381,19 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.2, y: 1.5, z: 0.2}
   m_Center: {x: 0, y: 0.8, z: 0}
+--- !u!114 &140958485335981715
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8045396967038321553}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7096fd69eab7964ab8d4b02ef845bca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TreeInteraction
+  afterInteract: {fileID: 6979479533906799645}
+  treeLog: {fileID: 670259557724188491}
+  treeModel: {fileID: 8045396967038321553}
+  pushDistance: 0.5

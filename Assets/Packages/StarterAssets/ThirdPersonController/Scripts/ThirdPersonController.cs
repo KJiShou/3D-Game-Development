@@ -2,6 +2,7 @@
 using UnityEngine;
 #if ENABLE_INPUT_SYSTEM 
 using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.XR;
 using UnityEngine.Windows;
 #endif
 
@@ -16,7 +17,6 @@ namespace StarterAssets
 #endif
     public class ThirdPersonController : MonoBehaviour
     {
-        Animator animator;
         public bool isAttacking = false;
         [Header("Player")]
         [Tooltip("Move speed of the character in m/s")]
@@ -108,6 +108,7 @@ namespace StarterAssets
         private int _animIDJump;
         private int _animIDFreeFall;
         private int _animIDMotionSpeed;
+        private int _animIDAttack;
 
 #if ENABLE_INPUT_SYSTEM 
         private PlayerInput _playerInput;
@@ -146,7 +147,6 @@ namespace StarterAssets
         private void Start()
         {
             _cinemachineTargetYaw = CinemachineCameraTarget.transform.rotation.eulerAngles.y;
-            animator = GetComponent<Animator>();
             _hasAnimator = TryGetComponent(out _animator);
             _controller = GetComponent<CharacterController>();
             _input = GetComponent<StarterAssetsInputs>();
@@ -166,29 +166,11 @@ namespace StarterAssets
         private void Update()
         {
             // new input system
-            if (Mouse.current != null && Mouse.current.leftButton.wasPressedThisFrame && !isAttacking || UnityEngine.Input.GetMouseButtonDown(0) && !isAttacking)
+            if (Mouse.current != null && Mouse.current.leftButton.isPressed && !isAttacking || UnityEngine.Input.GetMouseButtonDown(0) && !isAttacking)
             {
-                isAttacking = true;
-                animator.SetTrigger("attack");
-                AudioSource.PlayClipAtPoint(attackAudioClip, transform.TransformPoint(_controller.center), FootstepAudioVolume);
-                _input.MoveInput(new Vector2(0, 0));
+                Attack();
             }
 
-            float moveX = UnityEngine.Input.GetAxis("Horizontal");
-
-            float moveY = UnityEngine.Input.GetAxis("Vertical");
-            float speed = new Vector2(moveX, moveY).magnitude;
-            animator.SetFloat("Speed", speed * MoveSpeed);
-
-            if (_input.sprint)
-            {
-                animator.SetFloat("Speed", speed * SprintSpeed);
-            }
-
-            if (_input.jump)
-            {
-                animator.SetTrigger("jump");
-            }
             _hasAnimator = TryGetComponent(out _animator);
 
             JumpAndGravity();
@@ -208,6 +190,7 @@ namespace StarterAssets
             _animIDJump = Animator.StringToHash("Jump");
             _animIDFreeFall = Animator.StringToHash("FreeFall");
             _animIDMotionSpeed = Animator.StringToHash("MotionSpeed");
+            _animIDAttack = Animator.StringToHash("Attack");
         }
 
         private void GroundedCheck()
@@ -347,7 +330,6 @@ namespace StarterAssets
                 // update animator if using character
                 if (_hasAnimator)
                 {
-                    _animator.SetBool(_animIDJump, false);
                     _animator.SetBool(_animIDFreeFall, false);
                 }
 
@@ -360,7 +342,6 @@ namespace StarterAssets
                 // Jump
                 if (_input.jump && _jumpTimeoutDelta <= 0.0f)
                 {
-                    // the square root of H * -2 * G = how much velocity needed to reach desired height
                     _verticalVelocity = Mathf.Sqrt(JumpHeight * -2f * Gravity);
                     if (Time.time - _lastJumpSoundTime > JumpSoundCooldown)
                     {
@@ -368,13 +349,14 @@ namespace StarterAssets
                         AudioSource.PlayClipAtPoint(JumpAudioClip, transform.position, FootstepAudioVolume);
                     }
 
-                    // update animator if using character
                     if (_hasAnimator)
                     {
-                        _animator.SetBool(_animIDJump, true);
+                        _animator.SetTrigger(_animIDJump);
                     }
-                }
 
+                    // ADD THIS LINE:
+                    _input.jump = false;
+                }
                 // jump timeout
                 if (_jumpTimeoutDelta >= 0.0f)
                 {
@@ -451,10 +433,17 @@ namespace StarterAssets
                 AudioSource.PlayClipAtPoint(LandingAudioClip, transform.TransformPoint(_controller.center), FootstepAudioVolume);
             }
         }
+
+        void Attack()
+        {
+            isAttacking = true;
+            _animator.SetTrigger(_animIDAttack);
+            AudioSource.PlayClipAtPoint(attackAudioClip, transform.TransformPoint(_controller.center), FootstepAudioVolume);
+        }
+
         public void AttackFinished()
         {
             isAttacking = false;
-            _input.MoveInput(new Vector2(UnityEngine.Input.GetAxis("Horizontal") * MoveSpeed, UnityEngine.Input.GetAxis("Vertical") * MoveSpeed));
         }
     }
 }
