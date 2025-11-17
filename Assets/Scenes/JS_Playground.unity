@@ -2679,6 +2679,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 614420075973184709, guid: 1a483cdfdab53d347b2466b8dca091f1, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.b
+      value: 0.022472408
+      objectReference: {fileID: 0}
+    - target: {fileID: 614420075973184709, guid: 1a483cdfdab53d347b2466b8dca091f1, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.g
+      value: 0.4971641
+      objectReference: {fileID: 0}
+    - target: {fileID: 614420075973184709, guid: 1a483cdfdab53d347b2466b8dca091f1, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.r
+      value: 0.9528302
+      objectReference: {fileID: 0}
     - target: {fileID: 5500037009136669523, guid: 1a483cdfdab53d347b2466b8dca091f1, type: 3}
       propertyPath: m_Name
       value: GroundFog
