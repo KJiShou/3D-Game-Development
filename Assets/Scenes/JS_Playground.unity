@@ -386,10 +386,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 5711708616437151604, guid: 9da88450cbbcc2f4ab8467106d5469ce, type: 3}
-      propertyPath: m_TagString
-      value: BuildTree
-      objectReference: {fileID: 0}
     - target: {fileID: 5770981305520661203, guid: 9da88450cbbcc2f4ab8467106d5469ce, type: 3}
       propertyPath: m_LocalPosition.x
       value: 34.0177
@@ -433,10 +429,6 @@ PrefabInstance:
     - target: {fileID: 6583546080628766825, guid: 9da88450cbbcc2f4ab8467106d5469ce, type: 3}
       propertyPath: m_Name
       value: TallPalmTree
-      objectReference: {fileID: 0}
-    - target: {fileID: 6583546080628766825, guid: 9da88450cbbcc2f4ab8467106d5469ce, type: 3}
-      propertyPath: m_TagString
-      value: Untagged
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
