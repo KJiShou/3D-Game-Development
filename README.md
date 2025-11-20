@@ -66,6 +66,9 @@ With determination, Chichi embarks on a journey to:
     - The particle effect in the game such as fog
     - [Source](https://assetstore.unity.com/packages/vfx/particles/particle-pack-127325)
 
+- **Cool Visual Effects - Part 1**
+    - The particle effect in the game such as portal effect
+    - [Source](https://assetstore.unity.com/packages/vfx/particles/cool-visual-effects-part-1-urp-support-176571#content)
 ---
 
 ## Team Members
