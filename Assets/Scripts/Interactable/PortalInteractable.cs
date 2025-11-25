@@ -5,6 +5,9 @@ public class PortalInteractable : MonoBehaviour
     public GameObject teleportButton;
     private Animator teleportButtonAnimator;
     private bool havePlayer;
+
+    [SerializeField] bool goNextLevel;
+    [SerializeField] string levelName;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -16,7 +19,15 @@ public class PortalInteractable : MonoBehaviour
     {
         if (havePlayer && Input.GetKeyDown(KeyCode.E))
         {
-            gameObject.SetActive(false);
+            havePlayer = false;
+            teleportButtonAnimator.SetBool("HaveItem", false);
+            if (goNextLevel)
+            {
+                SceneController.instance.NextLevel();
+            } else
+            {
+                SceneController.instance.LoadScene(levelName);
+            }
         }
     }
 
