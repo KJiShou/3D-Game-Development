@@ -85,6 +85,7 @@ MonoBehaviour:
   LandingAudioClip: {fileID: 8300000, guid: 87f3d60c1111e1244a9816a076f8cb41, type: 3}
   JumpAudioClip: {fileID: 8300000, guid: 87f3d60c1111e1244a9816a076f8cb41, type: 3}
   attackAudioClip: {fileID: 8300000, guid: 0fc58c45bbcc3b540b1655e4eb6ab67f, type: 3}
+  dieAudioClip: {fileID: 8300000, guid: 526bf2cb36bef764886ae08e069c8c2f, type: 3}
   FootstepAudioClips:
   - {fileID: 8300000, guid: 87f3d60c1111e1244a9816a076f8cb41, type: 3}
   FootstepAudioVolume: 0.495
@@ -95,8 +96,8 @@ MonoBehaviour:
   JumpTimeout: 0
   FallTimeout: 0.15
   Grounded: 1
-  GroundedOffset: -0.14
-  GroundedRadius: 0.28
+  GroundedOffset: 0.14
+  GroundedRadius: 0.14
   GroundLayers:
     serializedVersion: 2
     m_Bits: 1

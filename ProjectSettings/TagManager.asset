@@ -7,6 +7,7 @@ TagManager:
   - CinemachineTarget
   - BuildTree
   - Triggered Stone
+  - DiePlane
   layers:
   - Default
   - TransparentFX
