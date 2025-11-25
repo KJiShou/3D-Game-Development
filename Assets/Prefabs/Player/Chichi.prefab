@@ -79,7 +79,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isAttacking: 0
   MoveSpeed: 20
-  SprintSpeed: 40
+  SprintSpeed: 80
   RotationSmoothTime: 0.12
   SpeedChangeRate: 10
   LandingAudioClip: {fileID: 8300000, guid: 87f3d60c1111e1244a9816a076f8cb41, type: 3}
