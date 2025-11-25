@@ -36,18 +36,16 @@ public class NPcHealth : MonoBehaviour
         _animator.SetTrigger("Die");
     }
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        TakeDamage(10);
-    }
+    //private void OnCollisionEnter(Collision collision)
+    //{
+    //    TakeDamage(10);
+    //}
 
     private void Update()
     {
         blinkTimer -= Time.deltaTime;
         float lerp = Mathf.Clamp01(blinkTimer / blinkDuration);
         float intensity = lerp * blinkIntensity;
-        Color color = skinnedMeshRenderer.materials[0].GetColor("MainColor");
-        color = Color.white * intensity;
     }
 
     public void SetDisable()
