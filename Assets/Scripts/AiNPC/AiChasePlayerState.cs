@@ -40,20 +40,5 @@ public class AiChasePlayerState : AiState
         }
 
             timer -= Time.deltaTime;
-        //if (timer < 0.0f)
-        //{
-        //    Vector3 direction = (agent.playerTransform.position - agent.navMeshAgent.destination);
-        //    direction.y = 0;
-        //    if (direction.sqrMagnitude > agent.config.maxDistance * agent.config.maxDistance)
-        //    {
-        //            WorldBounds worldBounds = GameObject.FindAnyObjectByType<WorldBounds>();
-        //            Vector3 min = worldBounds.min.position;
-        //            Vector3 max = worldBounds.max.position;
-
-        //            agent.navMeshAgent.destination = agent.playerTransform.position;
-                
-        //    }
-        //    timer = agent.config.maxTime;
-        //}
     }
 }

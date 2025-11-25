@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.AI;
 
 public class AiPatrolState : AiState
 {
@@ -26,6 +27,8 @@ public class AiPatrolState : AiState
         timer -= Time.deltaTime;
         if (timer < 0.0f)
         {
+            if(!agent.navMeshAgent.hasPath)
+            {
                 WorldBounds worldBounds = GameObject.FindAnyObjectByType<WorldBounds>();
                 Vector3 min = worldBounds.min.position;
                 Vector3 max = worldBounds.max.position;
@@ -36,8 +39,8 @@ public class AiPatrolState : AiState
                     Random.Range(min.z, max.z)
                     );
                 agent.navMeshAgent.destination = randomPosition;
+            }
 
-            
             timer = agent.config.maxTime;
         }
 

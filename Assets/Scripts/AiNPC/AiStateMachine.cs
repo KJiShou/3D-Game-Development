@@ -27,7 +27,6 @@ public class AiStateMachine
 
     public void Update()
     {
-        Debug.Log(currentState);
         GetState(currentState)?.Update(agent);
     }
 

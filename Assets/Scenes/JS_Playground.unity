@@ -374,8 +374,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b10317ffb19f4146863124f54bb2d31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AiSensor
-  distance: 2.7
-  angle: 50
+  distance: 4.2
+  angle: 90
   height: 1
   meshColor: {r: 1, g: 0, b: 0, a: 1}
   scanFrequency: 29
