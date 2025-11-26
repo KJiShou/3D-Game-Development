@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2818d2cf40990fd4ebb1390108bb79c2, type: 3}
   m_Name: ai_default_configuration
   m_EditorClassIdentifier: Assembly-CSharp::AiAgentConfig
-  maxTime: 1
+  maxTime: 0.1
   maxDistance: 1
+  maxSightDistance: 5

@@ -11,7 +11,7 @@ public class StoneInteract : MonoBehaviour
 
     public void Push(Vector3 direction, float force)
     {
-        direction.y = 0.5f;
+        direction.y = 1.0f;
         rigidBody.AddForce(direction.normalized * force, ForceMode.Impulse);
     }
 }
