@@ -10,15 +10,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 8242d247159ec462794ba075ca8c938e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 23.183
+      value: 24.83744
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8242d247159ec462794ba075ca8c938e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.00000023841858
+      value: 4.1899986
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8242d247159ec462794ba075ca8c938e, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1175.8522
+      value: -21.344126
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8242d247159ec462794ba075ca8c938e, type: 3}
       propertyPath: m_LocalRotation.w
@@ -339,10 +339,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b10317ffb19f4146863124f54bb2d31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AiSensor
-  distance: 4.2
-  angle: 90
+  distance: 20
+  angle: 66.3
   height: 1
-  meshColor: {r: 1, g: 0, b: 0, a: 1}
+  meshColor: {r: 1, g: 0, b: 0, a: 0.3137255}
   scanFrequency: 29
   player: {fileID: 0}
 --- !u!114 &810614028671915689
@@ -361,6 +361,7 @@ MonoBehaviour:
   navMeshAgent: {fileID: 0}
   config: {fileID: 11400000, guid: 4b66aa8ca5bb6e14d924233859bbf461, type: 2}
   playerTransform: {fileID: 0}
+  thirdpersonController: {fileID: 0}
   sensor: {fileID: 0}
 --- !u!114 &4861002484539312391
 MonoBehaviour:

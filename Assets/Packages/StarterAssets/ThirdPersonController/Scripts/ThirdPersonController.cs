@@ -25,6 +25,11 @@ namespace StarterAssets
         [Tooltip("Sprint speed of the character in m/s")]
         public float SprintSpeed = 5.335f;
 
+        public bool isSprint
+        {
+            get { return _input.sprint; }
+        }
+
         [Tooltip("How fast the character turns to face movement direction")]
         [Range(0.0f, 0.3f)]
         public float RotationSmoothTime = 0.12f;
@@ -208,7 +213,7 @@ namespace StarterAssets
             // ---- Landing Sound ----
             if (!wasGrounded && Grounded)
             {
-                AudioSource.PlayClipAtPoint(LandingAudioClip, transform.TransformPoint(_controller.center), FootstepAudioVolume);
+                if (LandingAudioClip) AudioSource.PlayClipAtPoint(LandingAudioClip, transform.TransformPoint(_controller.center), FootstepAudioVolume);
             }
 
             // store grounded state for next frame
@@ -353,7 +358,7 @@ namespace StarterAssets
                     if (Time.time - _lastJumpSoundTime > JumpSoundCooldown)
                     {
                         _lastJumpSoundTime = Time.time;
-                        AudioSource.PlayClipAtPoint(JumpAudioClip, transform.position, FootstepAudioVolume);
+                        if (JumpAudioClip) AudioSource.PlayClipAtPoint(JumpAudioClip, transform.position, FootstepAudioVolume);
                     }
 
                     if (_hasAnimator)
@@ -427,7 +432,7 @@ namespace StarterAssets
                 if (FootstepAudioClips.Length > 0)
                 {
                     var index = Random.Range(0, FootstepAudioClips.Length);
-                    AudioSource.PlayClipAtPoint(FootstepAudioClips[index], transform.TransformPoint(_controller.center), FootstepAudioVolume);
+                    if (FootstepAudioClips[index]) AudioSource.PlayClipAtPoint(FootstepAudioClips[index], transform.TransformPoint(_controller.center), FootstepAudioVolume);
                 }
             }
         }
@@ -436,7 +441,7 @@ namespace StarterAssets
         {
             if (animationEvent.animatorClipInfo.weight > 0.5f)
             {
-                AudioSource.PlayClipAtPoint(LandingAudioClip, transform.TransformPoint(_controller.center), FootstepAudioVolume);
+                if (LandingAudioClip) AudioSource.PlayClipAtPoint(LandingAudioClip, transform.TransformPoint(_controller.center), FootstepAudioVolume);
             }
         }
 
@@ -444,7 +449,7 @@ namespace StarterAssets
         {
             isAttacking = true;
             _animator.SetTrigger(_animIDAttack);
-            AudioSource.PlayClipAtPoint(attackAudioClip, transform.TransformPoint(_controller.center), FootstepAudioVolume);
+            if(attackAudioClip) AudioSource.PlayClipAtPoint(attackAudioClip, transform.TransformPoint(_controller.center), FootstepAudioVolume);
         }
 
         public void AttackFinished()
@@ -454,9 +459,9 @@ namespace StarterAssets
 
         private void OnControllerColliderHit(ControllerColliderHit hit)
         {
-            if (hit.collider.CompareTag("DiePlane"))
+            if (hit.collider.CompareTag("DiePlane") || hit.collider.name == "Ghost")
             {   
-                if (!_die) AudioSource.PlayClipAtPoint(dieAudioClip, transform.TransformPoint(_controller.center), FootstepAudioVolume);
+                if (!_die && dieAudioClip) AudioSource.PlayClipAtPoint(dieAudioClip, transform.TransformPoint(_controller.center), FootstepAudioVolume);
                 _die = true;
                 _animator.SetBool(_animIDDie, true);
             }
