@@ -2,9 +2,12 @@ using UnityEngine;
 
 public class PressurePlate : MonoBehaviour
 {
-    public GameObject portal;
+    public GameObject activeObject;
+    public bool triggeredStatus = true;
+    public Animator activeObjectAnim;
     private bool isPressed;
     private Animator animator;
+    
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -15,7 +18,7 @@ public class PressurePlate : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (isPressed) portal.SetActive(true);
+        if (isPressed) activeObject.SetActive(triggeredStatus);
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -24,6 +27,7 @@ public class PressurePlate : MonoBehaviour
         {
             isPressed = true;
             animator.SetBool("isPressed", true);
+            activeObjectAnim.SetBool("triggered", true);
         }
     }
 
@@ -33,6 +37,7 @@ public class PressurePlate : MonoBehaviour
         {
             isPressed = false;
             animator.SetBool("isPressed", false);
+            activeObjectAnim.SetBool("triggered", false);
         }
     }
 }

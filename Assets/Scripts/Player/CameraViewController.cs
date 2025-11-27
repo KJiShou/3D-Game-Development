@@ -15,7 +15,7 @@ public class CameraViewController : MonoBehaviour
     public float minFOV = 20f;
     public float maxFOV = 90f;
 
-    private float baseFOV = 60f; // will update dynamically with scroll
+    private float baseFOV = 50f; // will update dynamically with scroll
     private float targetFOV;
 
     void Start()

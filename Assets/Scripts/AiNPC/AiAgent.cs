@@ -1,3 +1,4 @@
+using StarterAssets;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.Timeline;
@@ -9,6 +10,7 @@ public class AiAgent : MonoBehaviour
     [HideInInspector] public NavMeshAgent navMeshAgent;
     [HideInInspector] public AiAgentConfig config;
     [HideInInspector] public Transform playerTransform;
+    [HideInInspector] public ThirdPersonController thirdpersonController;
     [HideInInspector] public AiSensor sensor;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -18,6 +20,7 @@ public class AiAgent : MonoBehaviour
         if (playerTransform == null)
         {
             playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
+            thirdpersonController = GameObject.FindGameObjectWithTag("Player").GetComponent<ThirdPersonController>();
         }
         stateMachine = new AiStateMachine(this);
         stateMachine.RegisterState(new AiChasePlayerState());
