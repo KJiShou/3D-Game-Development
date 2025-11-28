@@ -1103,6 +1103,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: EA_DarkCorner_01a_Comp_PRE
       objectReference: {fileID: 0}
+    - target: {fileID: 7728231756252836343, guid: 9a1c4beb4e2aba8428fc31141aec6210, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8929734494305166552, guid: 9a1c4beb4e2aba8428fc31141aec6210, type: 3}
       propertyPath: m_LocalPosition.x
       value: 43.54
@@ -8081,7 +8085,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7026826198413085180, guid: 3f5a631ff91a0044dac7eb99063480d1, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -81.061195
+      value: -81.06119
       objectReference: {fileID: 0}
     - target: {fileID: 7026826198413085180, guid: 3f5a631ff91a0044dac7eb99063480d1, type: 3}
       propertyPath: m_LocalPosition.y
@@ -13909,7 +13913,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1225875543017603095, guid: f35bc23848e42f84788f704b62a32ad6, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -81.061195
+      value: -81.06119
       objectReference: {fileID: 0}
     - target: {fileID: 1225875543017603095, guid: f35bc23848e42f84788f704b62a32ad6, type: 3}
       propertyPath: m_LocalPosition.y
@@ -24121,7 +24125,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1571564228}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7a5ac11cc976e418e8d13136b07e1f52, type: 3}
   m_Name: 
@@ -24501,7 +24505,7 @@ Transform:
   m_GameObject: {fileID: 1613590720}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0.39045578, z: -0, w: 0.92062175}
-  m_LocalPosition: {x: 33.43, y: -17.334381, z: -43.495186}
+  m_LocalPosition: {x: 35.63, y: 5.78, z: -6.88}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
