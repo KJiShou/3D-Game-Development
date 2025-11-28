@@ -8,6 +8,8 @@ TagManager:
   - BuildTree
   - Triggered Stone
   - DiePlane
+  - BigTree
+  - SmallTree
   layers:
   - Default
   - TransparentFX
