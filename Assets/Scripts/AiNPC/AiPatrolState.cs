@@ -1,3 +1,4 @@
+using StarterAssets;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -22,6 +23,7 @@ public class AiPatrolState : AiState
         if (agent.sensor.player != null)
         {
             agent.stateMachine.ChangeState(AiStateId.ChasePlayer);
+            agent.thirdpersonController.getChasing = true;
         }
 
         timer -= Time.deltaTime;
@@ -29,9 +31,8 @@ public class AiPatrolState : AiState
         {
             if(!agent.navMeshAgent.hasPath)
             {
-                WorldBounds worldBounds = GameObject.FindAnyObjectByType<WorldBounds>();
-                Vector3 min = worldBounds.min.position;
-                Vector3 max = worldBounds.max.position;
+                Vector3 min = agent.min.position;
+                Vector3 max = agent.max.position;
 
                 Vector3 randomPosition = new Vector3(
                     Random.Range(min.x, max.x),

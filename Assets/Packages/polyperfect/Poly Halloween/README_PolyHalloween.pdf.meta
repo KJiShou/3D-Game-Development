@@ -1,7 +1,14 @@
 fileFormatVersion: 2
-guid: 48338b1e5ea0dcd4488c3a7943b2e7bb
+guid: f52d472fee0cce94da6aa4ed08d7cf12
 DefaultImporter:
   externalObjects: {}
   userData: 
   assetBundleName: 
   assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 236625
+  packageName: Poly Halloween
+  packageVersion: 1.1
+  assetPath: Assets/polyperfect/Poly Halloween/README_PolyHalloween.pdf
+  uploadId: 796666

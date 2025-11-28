@@ -18,6 +18,15 @@ namespace StarterAssets
     public class ThirdPersonController : MonoBehaviour
     {
         public bool isAttacking = false;
+
+        public SkinnedMeshRenderer skinnedMeshRenderer;
+        public Material idle;
+        public Material happy;
+        public Material cry;
+        public Material angry;
+
+        public bool getChasing;
+
         [Header("Player")]
         [Tooltip("Move speed of the character in m/s")]
         public float MoveSpeed = 2.0f;
@@ -184,6 +193,8 @@ namespace StarterAssets
             JumpAndGravity();
             GroundedCheck();
             Move();
+            if (getChasing && skinnedMeshRenderer.material != cry) skinnedMeshRenderer.material = cry;
+            if (!getChasing && skinnedMeshRenderer.material != idle) skinnedMeshRenderer.material = idle;
         }
 
         private void LateUpdate()
@@ -464,6 +475,7 @@ namespace StarterAssets
                 if (!_die && dieAudioClip) AudioSource.PlayClipAtPoint(dieAudioClip, transform.TransformPoint(_controller.center), FootstepAudioVolume);
                 _die = true;
                 _animator.SetBool(_animIDDie, true);
+                skinnedMeshRenderer.material = cry;
             }
         }
         
