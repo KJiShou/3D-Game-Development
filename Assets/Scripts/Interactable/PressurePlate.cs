@@ -2,9 +2,18 @@ using UnityEngine;
 
 public class PressurePlate : MonoBehaviour
 {
+    [Header("Activate Object")]
+    [Tooltip("Need to activate the object or not")]
     public GameObject activeObject;
+    public bool triggeredActivate = false;
     public bool triggeredStatus = true;
+
+    [Header("Activate Object animator")]
+    [Tooltip("Need to activate the object or not")]
     public Animator activeObjectAnim;
+    public bool triggeredAnimation = false;
+    public string animatorTrigger = "";
+
     private bool isPressed;
     private Animator animator;
     
@@ -18,7 +27,8 @@ public class PressurePlate : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (isPressed) activeObject.SetActive(triggeredStatus);
+        if (isPressed && triggeredActivate) activeObject.SetActive(triggeredStatus);
+        if (!isPressed && triggeredActivate) activeObject.SetActive(!triggeredStatus);
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -27,7 +37,7 @@ public class PressurePlate : MonoBehaviour
         {
             isPressed = true;
             animator.SetBool("isPressed", true);
-            activeObjectAnim.SetBool("triggered", true);
+            activeObjectAnim.SetBool(animatorTrigger, true);
         }
     }
 
@@ -37,7 +47,7 @@ public class PressurePlate : MonoBehaviour
         {
             isPressed = false;
             animator.SetBool("isPressed", false);
-            activeObjectAnim.SetBool("triggered", false);
+            activeObjectAnim.SetBool(animatorTrigger, false);
         }
     }
 }

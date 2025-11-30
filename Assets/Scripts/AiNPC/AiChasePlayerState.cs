@@ -29,7 +29,9 @@ public class AiChasePlayerState : AiState
         if (agent.sensor.player == null)
         {
             agent.stateMachine.ChangeState(AiStateId.Patrol);
-        }else
+            agent.thirdpersonController.getChasing = false ;
+        }
+        else
         {
             timer -= Time.deltaTime;
             if (timer < 0.0f)
