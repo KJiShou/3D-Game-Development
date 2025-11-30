@@ -7,7 +7,7 @@ public class KakaGate : MonoBehaviour
     public GameObject kaka;
     public GameObject destroyMachine;
     private Animator openButtonAnimator;
-    public static bool havePlayer;
+    public bool havePlayer;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
