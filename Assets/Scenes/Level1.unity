@@ -623,6 +623,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 6.625244
       objectReference: {fileID: 0}
+    - target: {fileID: 5766148576352224983, guid: a642e56af35d9154cb7a38d2ec82fed1, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: df545578e47c904439a4104b8526cb54, type: 3}
     - target: {fileID: 7198180527074755028, guid: a642e56af35d9154cb7a38d2ec82fed1, type: 3}
       propertyPath: m_Name
       value: StageClearPortal
