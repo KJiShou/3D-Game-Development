@@ -478,6 +478,15 @@ namespace StarterAssets
                 skinnedMeshRenderer.material = cry;
             }
         }
+
+        public void OnTriggerEnter(Collider collisionInfo)
+        {
+            if(collisionInfo.gameObject.tag == "Electric")
+            {
+                ElectricCollect.charge++;
+                Destroy(collisionInfo.gameObject);
+            }
+        }
         
     }
 }
