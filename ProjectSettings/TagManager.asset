@@ -10,6 +10,8 @@ TagManager:
   - DiePlane
   - BigTree
   - SmallTree
+  - Electric
+  - ElectricGUI
   layers:
   - Default
   - TransparentFX
