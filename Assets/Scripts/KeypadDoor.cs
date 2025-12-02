@@ -17,6 +17,7 @@ public class KeypadDoor : MonoBehaviour
     private ThirdPersonController controller;
     private StarterAssetsInputs inputs;
     private bool isUsingKeypad = false;
+    public int requiredCharge = 4;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -69,6 +70,12 @@ public class KeypadDoor : MonoBehaviour
     {
         if (havePlayer && Input.GetKeyDown(KeyCode.E) && !success)
         {
+            if (ElectricCollect.charge < requiredCharge)
+            {
+                LowElectricMsg.instance.Show("Not enough battery, the keypad cannot be used");
+                return;
+            }
+            
             havePlayer = false;
             openButtonAnimator.SetBool("HaveItem", false);
             //animator.SetBool("Save", true);
