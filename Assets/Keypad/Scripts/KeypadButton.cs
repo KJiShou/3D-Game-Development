@@ -30,7 +30,7 @@ namespace NavKeypad
 
             moving = true;
             Vector3 startPos = transform.localPosition;
-            Vector3 endPos = transform.localPosition + new Vector3(0, 0, moveDist);
+            Vector3 endPos = transform.localPosition + new Vector3(0, -moveDist, 0);
 
             float elapsedTime = 0;
             while (elapsedTime < bttnspeed)
@@ -45,7 +45,7 @@ namespace NavKeypad
             transform.localPosition = endPos;
             yield return new WaitForSeconds(buttonPressedTime);
             startPos = transform.localPosition;
-            endPos = transform.localPosition - new Vector3(0, 0, moveDist);
+            endPos = transform.localPosition - new Vector3(0, -moveDist, 0);
 
             elapsedTime = 0;
             while (elapsedTime < bttnspeed)
