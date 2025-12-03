@@ -24,7 +24,7 @@ public class ProximityActivate : MonoBehaviour
         originRotation = transform.rotation;
         alpha = activeState ? 1 : -1;
         if (activator == null) activator = Camera.main.transform;
-        infoIcon.SetActive(infoPanel != null);
+        if (infoIcon != null) infoIcon.SetActive(infoPanel != null);
     }
 
     bool IsTargetNear()
