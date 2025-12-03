@@ -1,3 +1,4 @@
+using Cinemachine;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -29,7 +30,7 @@ public class DestroyMachine : MonoBehaviour
             gameObject.GetComponent<BoxCollider>().enabled = false;
             Destroy(mainHQ, 10);
             StartCoroutine(createWinIsland());
-            
+            CameraShake.Instance.ShakeCamera(5f, 10.0f, 10.0f);
         }
     }
 
