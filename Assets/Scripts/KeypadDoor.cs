@@ -18,6 +18,7 @@ public class KeypadDoor : MonoBehaviour
     private StarterAssetsInputs inputs;
     private bool isUsingKeypad = false;
     public int requiredCharge = 4;
+    public GameObject morseCode;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -30,6 +31,7 @@ public class KeypadDoor : MonoBehaviour
     public void StartKeypad()
     {
         isUsingKeypad = true;
+        StartCoroutine(CreateMorseCode());
 
         // Disable player movement
         controller.enabled = false;
@@ -46,10 +48,17 @@ public class KeypadDoor : MonoBehaviour
         player.SetActive(false);
     }
 
+    IEnumerator CreateMorseCode()
+    {
+        yield return new WaitForSeconds(2f);
+        morseCode.SetActive(true);
+    }
+
     public void EndKeypad()
     {
         player.SetActive(true);
         isUsingKeypad = false;
+        morseCode.SetActive(false);
 
         // Enable player movement
         controller.enabled = true;
@@ -70,11 +79,11 @@ public class KeypadDoor : MonoBehaviour
     {
         if (havePlayer && Input.GetKeyDown(KeyCode.E) && !success)
         {
-            if (ElectricCollect.charge < requiredCharge)
-            {
-                LowElectricMsg.instance.Show("Not enough battery, the keypad cannot be used");
-                return;
-            }
+            // if (ElectricCollect.charge < requiredCharge)
+            // {
+            //     LowElectricMsg.instance.Show("Not enough battery, the keypad cannot be used");
+            //     return;
+            // }
             
             havePlayer = false;
             openButtonAnimator.SetBool("HaveItem", false);
@@ -115,3 +124,5 @@ public class KeypadDoor : MonoBehaviour
         EndKeypad();
     }
 }
+
+
