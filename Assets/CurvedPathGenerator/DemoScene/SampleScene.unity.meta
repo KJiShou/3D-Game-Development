@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 0d82143d778b96043a5c6ee933bc35a0
+DefaultImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 243012
+  packageName: Curved Path Generator
+  packageVersion: 2.0.2
+  assetPath: Assets/CurvedPathGenerator/DemoScene/SampleScene.unity
+  uploadId: 624974
