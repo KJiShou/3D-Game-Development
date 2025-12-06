@@ -12,6 +12,7 @@ TagManager:
   - SmallTree
   - Electric
   - ElectricGUI
+  - Pumpkin
   layers:
   - Default
   - TransparentFX
