@@ -36,6 +36,7 @@ public class SceneController : MonoBehaviour
         transitionAnim.SetTrigger("End");
         yield return new WaitForSeconds(1);
         SceneManager.LoadSceneAsync(sceneName);
+        yield return new WaitForSeconds(0.2f);
         transitionAnim.SetTrigger("Start");
     }
 
