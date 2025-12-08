@@ -1,4 +1,6 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using Game;
 
 public class PortalInteractable : MonoBehaviour
 {
@@ -19,6 +21,11 @@ public class PortalInteractable : MonoBehaviour
     {
         if (havePlayer && Input.GetKeyDown(KeyCode.E))
         {
+            Scene currentScene = SceneManager.GetActiveScene();
+            if (currentScene.name == "Tutorial")
+            {
+                Game.GameManager.instance.PassTutorial();
+            }
             havePlayer = false;
             teleportButtonAnimator.SetBool("HaveItem", false);
             if (goNextLevel)
