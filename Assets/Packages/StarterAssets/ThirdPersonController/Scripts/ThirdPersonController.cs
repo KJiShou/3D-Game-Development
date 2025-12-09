@@ -1,4 +1,4 @@
-﻿
+
 using UnityEngine;
 #if ENABLE_INPUT_SYSTEM 
 using UnityEngine.InputSystem;
@@ -54,6 +54,12 @@ namespace StarterAssets
         public AudioClip dieAudioClip;
         public AudioClip[] FootstepAudioClips;
         [Range(0, 1)] public float FootstepAudioVolume = 0.5f;
+
+        [Header("Footstep Material Sounds")]
+        public AudioClip[] grassFootsteps;
+        public AudioClip[] dirtFootsteps;
+        public AudioClip[] woodFootsteps;
+        public AudioClip[] snowFootsteps;
 
         public bool _jump = false;
         private bool wasGrounded = true;
@@ -450,7 +456,26 @@ namespace StarterAssets
 
         private void OnFootstep(AnimationEvent animationEvent)
         {
+            // if (animationEvent.animatorClipInfo.weight > 0.5f)
+            // {
+            //     if (FootstepAudioClips.Length > 0)
+            //     {
+            //         var index = Random.Range(0, FootstepAudioClips.Length);
+            //         if (FootstepAudioClips[index])
+            //         {
+            //             walkSFXAudioSource.PlayOneShot(FootstepAudioClips[index]);
+            //             // AudioSource.PlayClipAtPoint(FootstepAudioClips[index], transform.TransformPoint(_controller.center), FootstepAudioVolume);
+            //         }
+            //     }
+            // }
+
             if (animationEvent.animatorClipInfo.weight > 0.5f)
+    {
+        AudioClip clipToPlay = null;
+        RaycastHit hit;
+        if (Physics.Raycast(transform.position, Vector3.down, out hit, 2f))
+        {
+            switch (hit.collider.tag)
             {
                 if (FootstepAudioClips.Length > 0)
                 {
@@ -463,6 +488,32 @@ namespace StarterAssets
                     }
                     }
                 }
+                case "Grass":
+                    if (grassFootsteps.Length > 0)
+                        clipToPlay = grassFootsteps[Random.Range(0, grassFootsteps.Length)];
+                    break;
+                case "Dirt":
+                    if (dirtFootsteps.Length > 0)
+                        clipToPlay = dirtFootsteps[Random.Range(0, dirtFootsteps.Length)];
+                    break;
+                case "Wood":
+                    if (woodFootsteps.Length > 0)
+                        clipToPlay = woodFootsteps[Random.Range(0, woodFootsteps.Length)];
+                    break;
+                case "Snow":
+                    if (snowFootsteps.Length > 0)
+                        clipToPlay = snowFootsteps[Random.Range(0, snowFootsteps.Length)];
+                    break;
+                default:
+                    if (FootstepAudioClips.Length > 0)
+                        clipToPlay = FootstepAudioClips[Random.Range(0, FootstepAudioClips.Length)];
+                    break;
+            }
+        }
+
+        if (clipToPlay != null)
+            walkSFXAudioSource.PlayOneShot(clipToPlay, FootstepAudioVolume);
+    }
         }
 
         private void OnLand(AnimationEvent animationEvent)

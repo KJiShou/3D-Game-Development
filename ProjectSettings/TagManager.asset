@@ -13,6 +13,8 @@ TagManager:
   - Electric
   - ElectricGUI
   - Pumpkin
+  - Grass
+  - Wood
   - Interactable
   layers:
   - Default
