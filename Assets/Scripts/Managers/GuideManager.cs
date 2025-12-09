@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class GuideManager : MonoBehaviour
 {
@@ -7,7 +8,17 @@ public class GuideManager : MonoBehaviour
     public GameObject guidePoint1UI;
     public GameObject newMsg;
     public GameObject[] trees;
+    public GameObject pressurePlateObj;
+    public GameObject congratsMsg;
+    public GameObject guidePoint3UI;
+    private PressurePlate pressurePlate;
     private bool hitFirstTree = false;
+    private bool isFirstPress = true;
+
+    private void Start()
+    {
+        pressurePlate = pressurePlateObj.GetComponentInChildren<PressurePlate>();
+    }
 
     private void Update()
     {
@@ -25,6 +36,19 @@ public class GuideManager : MonoBehaviour
                     newMsg.SetActive(true);
                 }
             }
+        }
+
+        if (pressurePlate != null && pressurePlate.isPressed)
+        {
+            isFirstPress = false;
+            guidePoint3UI.SetActive(false);
+            congratsMsg.SetActive(true);
+        }
+
+        if (!isFirstPress && !pressurePlate.isPressed)
+        {
+            guidePoint3UI.SetActive(true);
+            congratsMsg.SetActive(false);
         }
     }
 
