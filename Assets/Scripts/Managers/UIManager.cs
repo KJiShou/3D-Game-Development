@@ -38,9 +38,15 @@ namespace UI
         [Tooltip("This is for the level scenes")]
         public GameObject pausePanel;
         private Animator pausePanelAnim;
+        private bool pausePanelIsOpen = false;
+
+        public GameObject infoPanel;
+        private Animator infoPanelAnim;
+        private bool infoPanelIsOpen = false;
+
         public GameObject player;
         private ThirdPersonController thirdPersonController;
-        private bool pausePanelIsOpen = false;
+
 
         #endregion
 
@@ -67,6 +73,7 @@ namespace UI
             {
                 pausePanelAnim = pausePanel.GetComponent<Animator>();
                 thirdPersonController = player.GetComponentInChildren<ThirdPersonController>();
+                infoPanelAnim = infoPanel.GetComponent<Animator>();
             }
         }
 
@@ -85,7 +92,14 @@ namespace UI
                     }
                     else
                     {
-                        PausePanelClose();
+                        if(infoPanelIsOpen)
+                        {
+                            CloseInfoPanel();
+                        }
+                        else
+                        {
+                            PausePanelClose();
+                        }
                     }
                 }
             }
@@ -93,6 +107,19 @@ namespace UI
         #endregion
 
         #region Public methods
+
+        public void OpenInfoPanel()
+        {
+            infoPanelIsOpen = true;
+            infoPanel.SetActive(true);
+        }
+
+        public void CloseInfoPanel()
+        {
+            infoPanelIsOpen = false;
+            infoPanelAnim.SetTrigger("close");
+            StartCoroutine(WaitInfoPanelAnim());
+        }
 
         public void RestartLevel()
         {
@@ -181,6 +208,12 @@ namespace UI
         {
             yield return new WaitForSeconds(0.4f);
             pausePanel.SetActive(false);
+        }
+
+        private IEnumerator WaitInfoPanelAnim()
+        {
+            yield return new WaitForSeconds(0.4f);
+            infoPanel.SetActive(false);
         }
 
         #endregion
