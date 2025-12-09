@@ -9,19 +9,15 @@ public class TreeInteraction : MonoBehaviour
     private BoxCollider treeBoxCollider;
     public ParticleSystem breakParticle;
 
-    public float pushDistance = 0.5f;  
+    public float pushDistance = 0.5f;
+
+    public bool getHit = false;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         treeMeshRenderer = treeModel.GetComponent<MeshRenderer>();
         treeBoxCollider = treeModel.GetComponent<BoxCollider>();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     public void HitTree()
@@ -36,6 +32,7 @@ public class TreeInteraction : MonoBehaviour
 
         // show tree log and root
         if (afterInteract != null) afterInteract.SetActive(true);
+        getHit = true;
     }
 
     public void PushTree(Transform player)

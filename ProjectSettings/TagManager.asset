@@ -13,6 +13,7 @@ TagManager:
   - Electric
   - ElectricGUI
   - Pumpkin
+  - Interactable
   layers:
   - Default
   - TransparentFX

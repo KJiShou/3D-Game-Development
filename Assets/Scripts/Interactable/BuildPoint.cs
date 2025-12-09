@@ -16,6 +16,10 @@ public class BuildPoint : MonoBehaviour
 
     private GameObject treeLog;
 
+    private bool isInteract = false;
+
+    public GameObject hint;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
     void Start()
@@ -35,7 +39,6 @@ public class BuildPoint : MonoBehaviour
     {
 
         if (haveItem && treeLog != null && Input.GetKeyDown(KeyCode.E))
-
         {
 
             if (bridge != null) bridge.SetActive(true);
@@ -48,6 +51,22 @@ public class BuildPoint : MonoBehaviour
 
         }
 
+        if (haveItem && hint != null && Input.GetKeyDown(KeyCode.E))
+        {
+            isInteract = !isInteract;
+            if (isInteract)
+            {
+                buildButton.SetActive(false);
+                buildButtonAnimator.SetBool("HaveItem", false);
+            }
+            else
+            {
+                buildButton.SetActive(true);
+                buildButtonAnimator.SetBool("HaveItem", true);
+            }
+            hint.SetActive(isInteract);
+        }
+
     }
 
 
@@ -57,7 +76,6 @@ public class BuildPoint : MonoBehaviour
     {
 
         if (other.gameObject.tag == "BuildTree")
-
         {
 
             haveItem = true;
@@ -66,6 +84,12 @@ public class BuildPoint : MonoBehaviour
 
             treeLog = other.gameObject;
 
+        }
+        if (gameObject.tag == "Interactable" && other.gameObject.tag == "Player")
+        {
+            haveItem = true;
+
+            buildButtonAnimator.SetBool("HaveItem", true);
         }
 
     }
@@ -86,6 +110,12 @@ public class BuildPoint : MonoBehaviour
 
             treeLog = null;
 
+        }
+        if (gameObject.tag == "Interactable" && other.gameObject.tag == "Player")
+        {
+            haveItem = false;
+
+            buildButtonAnimator.SetBool("HaveItem", false);
         }
 
     }

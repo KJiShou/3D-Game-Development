@@ -228,6 +228,7 @@ namespace StarterAssets
             {
                 if (LandingAudioClip)
                 {
+                    walkSFXAudioSource.pitch = 0.3f;
                     walkSFXAudioSource.PlayOneShot(LandingAudioClip);
                     //AudioSource.PlayClipAtPoint(LandingAudioClip, transform.TransformPoint(_controller.center), FootstepAudioVolume);
                 }
@@ -377,6 +378,7 @@ namespace StarterAssets
                         _lastJumpSoundTime = Time.time;
                         if (JumpAudioClip)
                         {
+                            walkSFXAudioSource.pitch = 0.5f;
                             walkSFXAudioSource.PlayOneShot(JumpAudioClip);
                             //AudioSource.PlayClipAtPoint(JumpAudioClip, transform.position, FootstepAudioVolume);
                         }
@@ -455,6 +457,7 @@ namespace StarterAssets
                     var index = Random.Range(0, FootstepAudioClips.Length);
                     if (FootstepAudioClips[index])
                     {
+                        walkSFXAudioSource.pitch = 1.0f;
                         walkSFXAudioSource.PlayOneShot(FootstepAudioClips[index]);
                         // AudioSource.PlayClipAtPoint(FootstepAudioClips[index], transform.TransformPoint(_controller.center), FootstepAudioVolume);
                     }
@@ -468,6 +471,7 @@ namespace StarterAssets
             {
                 if (LandingAudioClip)
                 {
+                    //walkSFXAudioSource.pitch = 1.0f;
                     walkSFXAudioSource.PlayOneShot(LandingAudioClip);
                     //AudioSource.PlayClipAtPoint(LandingAudioClip, transform.TransformPoint(_controller.center), FootstepAudioVolume);
                 }
