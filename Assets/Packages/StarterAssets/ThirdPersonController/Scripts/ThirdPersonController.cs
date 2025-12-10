@@ -1,8 +1,12 @@
 
+using Game;
+using System.Collections;
+using UI;
 using UnityEngine;
 #if ENABLE_INPUT_SYSTEM 
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.XR;
+using UnityEngine.SceneManagement;
 using UnityEngine.Windows;
 #endif
 
@@ -17,6 +21,10 @@ namespace StarterAssets
 #endif
     public class ThirdPersonController : MonoBehaviour
     {
+        private GameManager gameManager;
+        private UIManager uiManager;
+        private Scene currentScene;
+
         public bool isAttacking = false;
 
         public SkinnedMeshRenderer skinnedMeshRenderer;
@@ -199,6 +207,10 @@ namespace StarterAssets
             // reset our timeouts on start
             _jumpTimeoutDelta = JumpTimeout;
             _fallTimeoutDelta = FallTimeout;
+
+            gameManager = GameManager.instance;
+            uiManager = UIManager.instance;
+            currentScene = SceneManager.GetActiveScene();
         }
 
         private void Update()
@@ -580,7 +592,7 @@ namespace StarterAssets
 
         private void OnControllerColliderHit(ControllerColliderHit hit)
         {
-            if (hit.collider.CompareTag("DiePlane") || hit.collider.name == "Ghost")
+            if ((hit.collider.CompareTag("DiePlane") || hit.collider.name == "Ghost") && !_die)
             {
                 if (!_die && dieAudioClip)
                 {
@@ -591,7 +603,16 @@ namespace StarterAssets
                 _die = true;
                 _animator.SetBool(_animIDDie, true);
                 skinnedMeshRenderer.material = cry;
+                uiManager.UpdateRespawnCount();
+                StartCoroutine(WaitRestartLevel());
             }
-        }        
+        }
+
+        IEnumerator WaitRestartLevel()
+        {
+            yield return new WaitForSeconds(1);
+            gameManager.RestartLevel(currentScene.name);
+        }
+        
     }
 }

@@ -7,6 +7,7 @@ using UnityEngine.UI;
 using Sound;
 using Game;
 using StarterAssets;
+using TMPro;
 
 namespace UI
 {
@@ -44,9 +45,14 @@ namespace UI
         private Animator infoPanelAnim;
         private bool infoPanelIsOpen = false;
 
+        public GameObject firstGuide;
+        public GameObject warningMsg;
+        private Animator warningMsgAnim;
+
         public GameObject player;
         private ThirdPersonController thirdPersonController;
 
+        public TextMeshProUGUI respawnCount;
 
         #endregion
 
@@ -74,6 +80,13 @@ namespace UI
                 pausePanelAnim = pausePanel.GetComponent<Animator>();
                 thirdPersonController = player.GetComponentInChildren<ThirdPersonController>();
                 infoPanelAnim = infoPanel.GetComponent<Animator>();
+                warningMsgAnim = warningMsg.GetComponent<Animator>();
+                if (thirdPersonController != null && currentScene.name == "Tutorial")
+                {
+                    gameManager.UnlockCursor();
+                    thirdPersonController.enabled = false;
+                }
+                respawnCount.text = "X " + gameManager.GetRespawnCount();
             }
         }
 
@@ -108,6 +121,12 @@ namespace UI
 
         #region Public methods
 
+        public void UpdateRespawnCount()
+        {
+            gameManager.AddRespawnCount();
+            respawnCount.text = "X " + gameManager.GetRespawnCount();
+        }
+
         public void OpenInfoPanel()
         {
             infoPanelIsOpen = true;
@@ -133,6 +152,7 @@ namespace UI
 
         public void StartGame()
         {
+            StartCoroutine(WaitBtnAnim());
             gameManager.StartGame();
         }
 
@@ -152,6 +172,7 @@ namespace UI
 
         public void SettingsClicked()
         {
+            StartCoroutine(WaitBtnAnim());
             settingsPanel.SetActive(true);
         }
 
@@ -163,6 +184,7 @@ namespace UI
 
         public void ExitGameClicked()
         {
+            StartCoroutine(WaitBtnAnim());
             exitPanel.SetActive(true);
         }
 
@@ -186,6 +208,15 @@ namespace UI
             SpriteState state = soundBtn.spriteState;
             state.pressedSprite = pressedMutedSoundBtnSpirte;
             soundBtn.spriteState = state;
+        }
+
+        public void CloseFirstGuidePanel()
+        {
+            gameManager.LockCursor();
+            firstGuide.SetActive(false);
+            thirdPersonController.enabled = true;
+            warningMsg.SetActive(true);
+            StartCoroutine(WaitWarningMsg());
         }
 
         #endregion
@@ -216,6 +247,18 @@ namespace UI
             infoPanel.SetActive(false);
         }
 
+        private IEnumerator WaitWarningMsg()
+        {
+            yield return new WaitForSeconds(3f);
+            warningMsgAnim.SetTrigger("close");
+            yield return new WaitForSeconds(0.4f);
+            warningMsg.SetActive(false);
+        }
+
+        private IEnumerator WaitBtnAnim()
+        {
+            yield return new WaitForSeconds(0.5f);
+        }
         #endregion
     }
 }
