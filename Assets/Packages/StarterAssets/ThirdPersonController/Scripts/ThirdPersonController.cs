@@ -188,6 +188,11 @@ namespace StarterAssets
             {
                 _mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
             }
+
+            if (_controller == null)
+            {
+                _controller = GetComponent<CharacterController>();   
+            }
         }
 
         private void Start()
@@ -228,6 +233,14 @@ namespace StarterAssets
             Move();
             if (getChasing && skinnedMeshRenderer.material != cry) skinnedMeshRenderer.material = cry;
             if (!getChasing && skinnedMeshRenderer.material != idle) skinnedMeshRenderer.material = idle;
+
+            if (_controller.isGrounded && _verticalVelocity < 0f)
+            {
+                _verticalVelocity = -2f;
+            }
+
+            _verticalVelocity += Gravity * Time.deltaTime;
+            _controller.Move(new Vector3(0f, _verticalVelocity, 0f) * Time.deltaTime);
         }
 
         private void LateUpdate()
@@ -244,6 +257,11 @@ namespace StarterAssets
             _animIDMotionSpeed = Animator.StringToHash("MotionSpeed");
             _animIDAttack = Animator.StringToHash("Attack");
             _animIDDie = Animator.StringToHash("Die");
+        }
+
+        public void Bounce(float force)
+        {
+            _verticalVelocity = force;
         }
 
         private void GroundedCheck()
@@ -580,6 +598,7 @@ namespace StarterAssets
             _animator.SetTrigger(_animIDAttack);
             if (attackAudioClip)
             {
+                attackSFXAudioSource.volume = 0.2f;
                 attackSFXAudioSource.PlayOneShot(attackAudioClip);
                 //AudioSource.PlayClipAtPoint(attackAudioClip, transform.TransformPoint(_controller.center), FootstepAudioVolume);
             }

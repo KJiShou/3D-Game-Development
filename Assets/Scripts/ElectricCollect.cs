@@ -3,7 +3,7 @@ using UnityEngine;
 public class ElectricCollect : MonoBehaviour
 {
     public AudioClip collectSound;
-    public float volume = 1.0f;
+    public float volume = 1.5f;
 
     private void OnTriggerEnter(Collider other)
     {

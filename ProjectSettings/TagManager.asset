@@ -16,6 +16,8 @@ TagManager:
   - Grass
   - Wood
   - Interactable
+  - Snow
+  - Dirt
   layers:
   - Default
   - TransparentFX
