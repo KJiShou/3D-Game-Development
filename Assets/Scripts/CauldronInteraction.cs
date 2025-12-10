@@ -1,5 +1,7 @@
+using Game;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
 public class CauldronInteraction : MonoBehaviour
@@ -20,18 +22,33 @@ public class CauldronInteraction : MonoBehaviour
 
     public float moveDuration = 1.0f;
 
+    public UnityEvent OnRouteCompleted;
+    private GameManager gameManager;
+    private StartMessage message;
+
     void Start()
     {
         openButtonAnimator = openButton.GetComponent<Animator>();
         openButton.SetActive(false);
+        gameManager = GameManager.instance;
+        message = FindAnyObjectByType<StartMessage>().GetComponent<StartMessage>();
     }
 
     void Update()
     {
-        if (!actived && havePumpkin && !isMovingPumpkin && Input.GetKeyDown(KeyCode.E))
+        if (!actived && havePumpkin && !isMovingPumpkin && gameManager.IsKakaSave() && Input.GetKeyDown(KeyCode.E))
         {
             StartCoroutine(MovePumpkinAndCook());
+            StartCoroutine(Wait());
+            
         }
+    }
+
+    private IEnumerator Wait()
+    {
+        yield return new WaitForSeconds(moveDuration);
+        message.ShowMessage("Thanks! Use this portal to go to your destination");
+        OnRouteCompleted.Invoke();
     }
 
     private IEnumerator MovePumpkinAndCook()
@@ -45,8 +62,6 @@ public class CauldronInteraction : MonoBehaviour
         if (rb != null)
         {
             rb.isKinematic = true;
-            rb.linearVelocity = Vector3.zero;
-            rb.angularVelocity = Vector3.zero;
         }
 
         Vector3 startPos = pumpkin.transform.position;
@@ -104,7 +119,7 @@ public class CauldronInteraction : MonoBehaviour
     {
         if (actived) return;
 
-        if (other.CompareTag("Pumpkin"))
+        if (other.CompareTag("Pumpkin") && gameManager.IsKakaSave())
         {
             openButton.SetActive(true);
             openButtonAnimator.SetBool("HaveItem", true);
@@ -118,7 +133,7 @@ public class CauldronInteraction : MonoBehaviour
     {
         if (actived) return;
 
-        if (other.CompareTag("Pumpkin"))
+        if (other.CompareTag("Pumpkin") && gameManager.IsKakaSave())
         {
             openButtonAnimator.SetBool("HaveItem", false);
             openButton.SetActive(false);

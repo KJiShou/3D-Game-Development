@@ -15191,6 +15191,7 @@ MonoBehaviour:
   messageText: {fileID: 1371429160}
   showDuration: 3
   fadeSpeed: 1
+  showWhenStart: 1
 --- !u!114 &1371429160
 MonoBehaviour:
   m_ObjectHideFlags: 0
