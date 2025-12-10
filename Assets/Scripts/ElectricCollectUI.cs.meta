@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: a8be33ea06cb5334db9eda0684911cb1
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - charge1tex: {instanceID: 0}
+  - charge2tex: {instanceID: 0}
+  - charge3tex: {instanceID: 0}
+  - charge4tex: {instanceID: 0}
+  - charge0tex: {instanceID: 0}
+  - collectSound: {fileID: 8300000, guid: 430fc42b9002be145b1b4122336d146e, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

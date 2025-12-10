@@ -13,7 +13,11 @@ TagManager:
   - Electric
   - ElectricGUI
   - Pumpkin
+  - Grass
+  - Wood
   - Interactable
+  - Snow
+  - Dirt
   layers:
   - Default
   - TransparentFX
