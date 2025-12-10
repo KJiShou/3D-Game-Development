@@ -14,7 +14,7 @@ public class PressurePlate : MonoBehaviour
     public bool triggeredAnimation = false;
     public string animatorTrigger = "";
 
-    private bool isPressed;
+    public bool isPressed;
     private Animator animator;
     
     

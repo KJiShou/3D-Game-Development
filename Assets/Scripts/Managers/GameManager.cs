@@ -9,6 +9,9 @@ namespace Game
         private SceneController controller;
 
         private bool passTutorial = false;
+
+        private static int respawnCount = 0;
+        
         #endregion
 
         #region Monobehavior methods
@@ -52,6 +55,16 @@ namespace Game
         #endregion
         #region Public methods
 
+        public void AddRespawnCount()
+        {
+            if (respawnCount < 9999) respawnCount++;
+        }
+
+        public int GetRespawnCount()
+        {
+            return respawnCount;
+        }
+
         public void RestartLevel(string scene)
         {
             LockCursor();
@@ -66,9 +79,9 @@ namespace Game
 
         public void StartGame()
         {
-            LockCursor();
             if (passTutorial)
             {
+                LockCursor();
                 controller.LoadScene("Level1");
             }
             else
@@ -79,6 +92,7 @@ namespace Game
 
         public void ExitGame()
         {
+            if (Application.platform == RuntimePlatform.WebGLPlayer) return;
             Application.Quit();
         }
 
@@ -89,6 +103,7 @@ namespace Game
             {
                 PlayerPrefs.SetInt("PassTutorial", 1);
             }
+            PlayerPrefs.Save();
         }
 
         public void LockCursor()

@@ -20,14 +20,25 @@ namespace Game.Resolution
 
         private void Start()
         {
-            if (!PlayerPrefs.HasKey("Resolution"))
+            bool isWebGL = Application.platform == RuntimePlatform.WebGLPlayer;
+            if (isWebGL)
             {
-                PlayerPrefs.SetInt("Resolution", 0);
-                Screen.SetResolution(Display.main.systemWidth, Display.main.systemHeight, FullScreenMode.FullScreenWindow);
+                // if web platform, then not allow to modify resolution
+                resolution.ClearOptions();
+                resolution.AddOptions(new System.Collections.Generic.List<string> { "-" });
+                resolution.interactable = false;
             }
             else
             {
-                resolution.value = PlayerPrefs.GetInt("Resolution");
+                if (!PlayerPrefs.HasKey("Resolution"))
+                {
+                    PlayerPrefs.SetInt("Resolution", 0);
+                    Screen.SetResolution(Display.main.systemWidth, Display.main.systemHeight, FullScreenMode.FullScreenWindow);
+                }
+                else
+                {
+                    resolution.value = PlayerPrefs.GetInt("Resolution");
+                }
             }
         }
         #endregion
@@ -37,6 +48,7 @@ namespace Game.Resolution
         {
             int index = resolution.value;
             if (PlayerPrefs.HasKey("Resolution")) PlayerPrefs.SetInt("Resolution", index);
+            PlayerPrefs.Save();
             switch (index)
             {
                 case 0: // Fullscreen native
