@@ -78,11 +78,11 @@ public class KeypadDoor : MonoBehaviour
     {
         if (havePlayer && Input.GetKeyDown(KeyCode.E) && !success)
         {
-            // if (ElectricCollect.charge < requiredCharge)
-            // {
-            //     LowElectricMsg.instance.Show("Not enough battery, the keypad cannot be used");
-            //     return;
-            // }
+            if (ElectricCollect.charge < requiredCharge)
+            {
+                LowElectricMsg.instance.Show("Not enough battery, the keypad cannot be used");
+                return;
+            }
             
             havePlayer = false;
             openButtonAnimator.SetBool("HaveItem", false);
