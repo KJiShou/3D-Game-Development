@@ -1,4 +1,4 @@
-﻿
+
 using Game;
 using System.Collections;
 using UI;
@@ -62,6 +62,25 @@ namespace StarterAssets
         public AudioClip dieAudioClip;
         public AudioClip[] FootstepAudioClips;
         [Range(0, 1)] public float FootstepAudioVolume = 0.5f;
+
+        [Header("Footstep Material Sounds")]
+        public AudioClip[] grassFootsteps;
+        public AudioClip[] dirtFootsteps;
+        public AudioClip[] woodFootsteps;
+        public AudioClip[] snowFootsteps;
+
+        [Header("Footstep Material Settings")]
+        [Range(0,1f)] public float grassVolume = 0.7f;
+        public float grassPitch = 1.1f;
+
+        [Range(0,1f)] public float woodVolume = 0.9f;
+        public float woodPitch = 0.95f;
+
+        [Range(0,1f)] public float snowVolume = 0.7f;
+        public float snowPitch = 1.1f;
+
+        [Range(0,1f)] public float dirtVolume = 0.9f;
+        public float dirtPitch = 0.95f;
 
         public bool _jump = false;
         private bool wasGrounded = true;
@@ -169,6 +188,11 @@ namespace StarterAssets
             {
                 _mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
             }
+
+            if (_controller == null)
+            {
+                _controller = GetComponent<CharacterController>();   
+            }
         }
 
         private void Start()
@@ -209,6 +233,14 @@ namespace StarterAssets
             Move();
             if (getChasing && skinnedMeshRenderer.material != cry) skinnedMeshRenderer.material = cry;
             if (!getChasing && skinnedMeshRenderer.material != idle) skinnedMeshRenderer.material = idle;
+
+            if (_controller.isGrounded && _verticalVelocity < 0f)
+            {
+                _verticalVelocity = -2f;
+            }
+
+            _verticalVelocity += Gravity * Time.deltaTime;
+            _controller.Move(new Vector3(0f, _verticalVelocity, 0f) * Time.deltaTime);
         }
 
         private void LateUpdate()
@@ -227,6 +259,11 @@ namespace StarterAssets
             _animIDDie = Animator.StringToHash("Die");
         }
 
+        public void Bounce(float force)
+        {
+            _verticalVelocity = force;
+        }
+
         private void GroundedCheck()
         {
             // set sphere position, with offset
@@ -240,8 +277,8 @@ namespace StarterAssets
             {
                 if (LandingAudioClip)
                 {
-                    walkSFXAudioSource.pitch = 0.3f;
-                    walkSFXAudioSource.PlayOneShot(LandingAudioClip);
+                    //walkSFXAudioSource.pitch = 0.3f;
+                    //walkSFXAudioSource.PlayOneShot(LandingAudioClip);
                     //AudioSource.PlayClipAtPoint(LandingAudioClip, transform.TransformPoint(_controller.center), FootstepAudioVolume);
                 }
             }
@@ -462,19 +499,84 @@ namespace StarterAssets
 
         private void OnFootstep(AnimationEvent animationEvent)
         {
+            // if (animationEvent.animatorClipInfo.weight > 0.5f)
+            // {
+            //     if (FootstepAudioClips.Length > 0)
+            //     {
+            //         var index = Random.Range(0, FootstepAudioClips.Length);
+            //         if (FootstepAudioClips[index])
+            //         {
+            //             //walkSFXAudioSource.pitch = 0.5f;
+            //             //walkSFXAudioSource.volume = 0.5f;
+            //             walkSFXAudioSource.PlayOneShot(FootstepAudioClips[index]);
+            //             // AudioSource.PlayClipAtPoint(FootstepAudioClips[index], transform.TransformPoint(_controller.center), FootstepAudioVolume);
+            //         }
+            //     }
+            // }
+
             if (animationEvent.animatorClipInfo.weight > 0.5f)
+    {
+        AudioClip clipToPlay = null;
+        RaycastHit hit;
+        if (Physics.Raycast(transform.position, Vector3.down, out hit, 2f))
+        {
+            switch (hit.collider.tag)
             {
-                if (FootstepAudioClips.Length > 0)
-                {
-                    var index = Random.Range(0, FootstepAudioClips.Length);
-                    if (FootstepAudioClips[index])
-                    {
-                        walkSFXAudioSource.pitch = 1.0f;
-                        walkSFXAudioSource.PlayOneShot(FootstepAudioClips[index]);
-                        // AudioSource.PlayClipAtPoint(FootstepAudioClips[index], transform.TransformPoint(_controller.center), FootstepAudioVolume);
-                    }
-                    }
-                }
+                case "Grass":
+                    if (grassFootsteps.Length > 0)
+                        clipToPlay = grassFootsteps[Random.Range(0, grassFootsteps.Length)];
+                    break;
+                case "Dirt":
+                    if (dirtFootsteps.Length > 0)
+                        clipToPlay = dirtFootsteps[Random.Range(0, dirtFootsteps.Length)];
+                    break;
+                case "Wood":
+                    if (woodFootsteps.Length > 0)
+                        clipToPlay = woodFootsteps[Random.Range(0, woodFootsteps.Length)];
+                    break;
+                case "Snow":
+                    if (snowFootsteps.Length > 0)
+                        clipToPlay = snowFootsteps[Random.Range(0, snowFootsteps.Length)];
+                    break;
+                default:
+                    if (FootstepAudioClips.Length > 0)
+                        clipToPlay = FootstepAudioClips[Random.Range(0, FootstepAudioClips.Length)];
+                    break;
+            }
+        }
+
+        if (clipToPlay != null)
+{
+    switch (hit.collider.tag)
+    {
+        case "Grass":
+            walkSFXAudioSource.pitch = grassPitch;
+            walkSFXAudioSource.PlayOneShot(clipToPlay, grassVolume);
+            break;
+
+        case "Wood":
+            walkSFXAudioSource.pitch = woodPitch;
+            walkSFXAudioSource.PlayOneShot(clipToPlay, woodVolume);
+            break;
+
+        case "Snow":
+            walkSFXAudioSource.pitch = snowPitch;
+            walkSFXAudioSource.PlayOneShot(clipToPlay, snowVolume);
+            break;
+
+        case "Dirt":
+            walkSFXAudioSource.pitch = dirtPitch;
+            walkSFXAudioSource.PlayOneShot(clipToPlay, dirtVolume);
+            break;
+
+        default:
+            walkSFXAudioSource.pitch = 1f;
+            walkSFXAudioSource.PlayOneShot(clipToPlay, FootstepAudioVolume);
+            break;
+    }
+}
+
+    }
         }
 
         private void OnLand(AnimationEvent animationEvent)
@@ -496,6 +598,7 @@ namespace StarterAssets
             _animator.SetTrigger(_animIDAttack);
             if (attackAudioClip)
             {
+                attackSFXAudioSource.volume = 0.2f;
                 attackSFXAudioSource.PlayOneShot(attackAudioClip);
                 //AudioSource.PlayClipAtPoint(attackAudioClip, transform.TransformPoint(_controller.center), FootstepAudioVolume);
             }
@@ -512,6 +615,7 @@ namespace StarterAssets
             {
                 if (!_die && dieAudioClip)
                 {
+                    attackSFXAudioSource.volume = 1.0f;
                     attackSFXAudioSource.PlayOneShot(dieAudioClip);
                     //AudioSource.PlayClipAtPoint(dieAudioClip, transform.TransformPoint(_controller.center), FootstepAudioVolume);
                 }
@@ -520,15 +624,6 @@ namespace StarterAssets
                 skinnedMeshRenderer.material = cry;
                 uiManager.UpdateRespawnCount();
                 StartCoroutine(WaitRestartLevel());
-            }
-        }
-
-        public void OnTriggerEnter(Collider collisionInfo)
-        {
-            if(collisionInfo.gameObject.tag == "Electric")
-            {
-                ElectricCollect.charge++;
-                Destroy(collisionInfo.gameObject);
             }
         }
 

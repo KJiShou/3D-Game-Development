@@ -18,7 +18,6 @@ public class KeypadDoor : MonoBehaviour
     private StarterAssetsInputs inputs;
     private bool isUsingKeypad = false;
     public int requiredCharge = 4;
-    public GameObject morseCode;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -51,14 +50,14 @@ public class KeypadDoor : MonoBehaviour
     IEnumerator CreateMorseCode()
     {
         yield return new WaitForSeconds(2f);
-        morseCode.SetActive(true);
+        
     }
 
     public void EndKeypad()
     {
         player.SetActive(true);
         isUsingKeypad = false;
-        morseCode.SetActive(false);
+        
 
         // Enable player movement
         controller.enabled = true;
