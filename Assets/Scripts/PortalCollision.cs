@@ -28,19 +28,6 @@ public class PortalCollision : MonoBehaviour
             other.transform.position = transportPosition.position;
 
             controller.enabled = true;
-
-            Debug.Log("Teleport successful via CharacterController method.");
-        }
-        else
-        {
-            other.transform.position = transportPosition.position;
-
-            Rigidbody rb = other.GetComponent<Rigidbody>();
-            if (rb != null && !rb.isKinematic)
-            {
-                rb.position = transportPosition.position;
-                Debug.LogWarning("Object has a non-kinematic Rigidbody. Using Rigidbody.position for better stability.");
-            }
         }
 
     }
