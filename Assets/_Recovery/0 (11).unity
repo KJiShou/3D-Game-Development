@@ -24059,10 +24059,6 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 2033274865827291957, guid: aa718f864df84ba46a88fb4057f6556b, type: 3}
-      propertyPath: grassVolume
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2033274865827291957, guid: aa718f864df84ba46a88fb4057f6556b, type: 3}
       propertyPath: JumpAudioClip
       value: 
       objectReference: {fileID: 8300000, guid: be596282a8f951045a23864449e319bd, type: 3}
@@ -24072,7 +24068,7 @@ PrefabInstance:
       objectReference: {fileID: 124959761}
     - target: {fileID: 2033274865827291957, guid: aa718f864df84ba46a88fb4057f6556b, type: 3}
       propertyPath: FootstepAudioVolume
-      value: 1
+      value: 0.486
       objectReference: {fileID: 0}
     - target: {fileID: 2033274865827291957, guid: aa718f864df84ba46a88fb4057f6556b, type: 3}
       propertyPath: attackSFXAudioSource

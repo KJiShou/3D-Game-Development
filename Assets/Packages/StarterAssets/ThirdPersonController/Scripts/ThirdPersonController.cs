@@ -61,6 +61,19 @@ namespace StarterAssets
         public AudioClip[] woodFootsteps;
         public AudioClip[] snowFootsteps;
 
+        [Header("Footstep Material Settings")]
+        [Range(0,1f)] public float grassVolume = 0.7f;
+        public float grassPitch = 1.1f;
+
+        [Range(0,1f)] public float woodVolume = 0.9f;
+        public float woodPitch = 0.95f;
+
+        [Range(0,1f)] public float snowVolume = 0.7f;
+        public float snowPitch = 1.1f;
+
+        [Range(0,1f)] public float dirtVolume = 0.9f;
+        public float dirtPitch = 0.95f;
+
         public bool _jump = false;
         private bool wasGrounded = true;
         private float _lastJumpSoundTime = -1f;
@@ -234,8 +247,8 @@ namespace StarterAssets
             {
                 if (LandingAudioClip)
                 {
-                    walkSFXAudioSource.pitch = 0.3f;
-                    walkSFXAudioSource.PlayOneShot(LandingAudioClip);
+                    //walkSFXAudioSource.pitch = 0.3f;
+                    //walkSFXAudioSource.PlayOneShot(LandingAudioClip);
                     //AudioSource.PlayClipAtPoint(LandingAudioClip, transform.TransformPoint(_controller.center), FootstepAudioVolume);
                 }
             }
@@ -463,6 +476,8 @@ namespace StarterAssets
             //         var index = Random.Range(0, FootstepAudioClips.Length);
             //         if (FootstepAudioClips[index])
             //         {
+            //             //walkSFXAudioSource.pitch = 0.5f;
+            //             //walkSFXAudioSource.volume = 0.5f;
             //             walkSFXAudioSource.PlayOneShot(FootstepAudioClips[index]);
             //             // AudioSource.PlayClipAtPoint(FootstepAudioClips[index], transform.TransformPoint(_controller.center), FootstepAudioVolume);
             //         }
@@ -477,17 +492,6 @@ namespace StarterAssets
         {
             switch (hit.collider.tag)
             {
-                if (FootstepAudioClips.Length > 0)
-                {
-                    var index = Random.Range(0, FootstepAudioClips.Length);
-                    if (FootstepAudioClips[index])
-                    {
-                        walkSFXAudioSource.pitch = 1.0f;
-                        walkSFXAudioSource.PlayOneShot(FootstepAudioClips[index]);
-                        // AudioSource.PlayClipAtPoint(FootstepAudioClips[index], transform.TransformPoint(_controller.center), FootstepAudioVolume);
-                    }
-                    }
-                }
                 case "Grass":
                     if (grassFootsteps.Length > 0)
                         clipToPlay = grassFootsteps[Random.Range(0, grassFootsteps.Length)];
@@ -512,7 +516,36 @@ namespace StarterAssets
         }
 
         if (clipToPlay != null)
+{
+    switch (hit.collider.tag)
+    {
+        case "Grass":
+            walkSFXAudioSource.pitch = grassPitch;
+            walkSFXAudioSource.PlayOneShot(clipToPlay, grassVolume);
+            break;
+
+        case "Wood":
+            walkSFXAudioSource.pitch = woodPitch;
+            walkSFXAudioSource.PlayOneShot(clipToPlay, woodVolume);
+            break;
+
+        case "Snow":
+            walkSFXAudioSource.pitch = snowPitch;
+            walkSFXAudioSource.PlayOneShot(clipToPlay, snowVolume);
+            break;
+
+        case "Dirt":
+            walkSFXAudioSource.pitch = dirtPitch;
+            walkSFXAudioSource.PlayOneShot(clipToPlay, dirtVolume);
+            break;
+
+        default:
+            walkSFXAudioSource.pitch = 1f;
             walkSFXAudioSource.PlayOneShot(clipToPlay, FootstepAudioVolume);
+            break;
+    }
+}
+
     }
         }
 
@@ -551,6 +584,7 @@ namespace StarterAssets
             {
                 if (!_die && dieAudioClip)
                 {
+                    attackSFXAudioSource.volume = 1.0f;
                     attackSFXAudioSource.PlayOneShot(dieAudioClip);
                     //AudioSource.PlayClipAtPoint(dieAudioClip, transform.TransformPoint(_controller.center), FootstepAudioVolume);
                 }
@@ -558,16 +592,6 @@ namespace StarterAssets
                 _animator.SetBool(_animIDDie, true);
                 skinnedMeshRenderer.material = cry;
             }
-        }
-
-        public void OnTriggerEnter(Collider collisionInfo)
-        {
-            if(collisionInfo.gameObject.tag == "Electric")
-            {
-                ElectricCollect.charge++;
-                Destroy(collisionInfo.gameObject);
-            }
-        }
-        
+        }        
     }
 }

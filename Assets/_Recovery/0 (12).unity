@@ -1529,8 +1529,8 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 0.5
-  m_Pitch: 1
+  m_Volume: 0.2
+  m_Pitch: 0.5
   Loop: 0
   Mute: 0
   Spatialize: 0
@@ -2214,6 +2214,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: fence-low-straight (13)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 54ef2631084526841811f4df82d0820b, type: 3}
+      propertyPath: m_TagString
+      value: Wood
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2374,6 +2378,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: b16f56e729cce1c48943f4298349fdf5, type: 3}
       propertyPath: m_Name
       value: block-grass-overhang-large-tall (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b16f56e729cce1c48943f4298349fdf5, type: 3}
+      propertyPath: m_TagString
+      value: Grass
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3541,6 +3549,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Small_Isle
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 5eb373c79a3a86b4cb7731db65d0d70c, type: 3}
+      propertyPath: m_TagString
+      value: Dirt
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3613,6 +3625,20 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4886224591627638547, guid: 59fd80584945fc7448940995b97dab30, type: 3}
   m_PrefabInstance: {fileID: 1165412911}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &297496338
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 297496329}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60ba6871a634fe441ad6fdba73801a5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ElectricCollect
+  collectSound: {fileID: 8300000, guid: 430fc42b9002be145b1b4122336d146e, type: 3}
+  volume: 1
 --- !u!1 &306730077 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 541055d756420d541ab065cc9add944f, type: 3}
@@ -3696,6 +3722,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 81faf54c7707fac4ea923723c8d37123, type: 3}
       propertyPath: m_Name
       value: fence-straight (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 81faf54c7707fac4ea923723c8d37123, type: 3}
+      propertyPath: m_TagString
+      value: Wood
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4244,6 +4274,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 2466a158b4c177844b23298e8ab98b66, type: 3}
       propertyPath: m_Name
       value: block-snow-overhang-large-tall
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 2466a158b4c177844b23298e8ab98b66, type: 3}
+      propertyPath: m_TagString
+      value: Snow
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5708,6 +5742,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: fence-low-straight (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 54ef2631084526841811f4df82d0820b, type: 3}
+      propertyPath: m_TagString
+      value: Wood
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -6155,6 +6193,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: fence-low-straight (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 54ef2631084526841811f4df82d0820b, type: 3}
+      propertyPath: m_TagString
+      value: Wood
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -6215,6 +6257,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: fence-low-straight (11)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 54ef2631084526841811f4df82d0820b, type: 3}
+      propertyPath: m_TagString
+      value: Wood
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -6245,6 +6291,31 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 6982504992686480765, guid: aa718f864df84ba46a88fb4057f6556b, type: 3}
   m_PrefabInstance: {fileID: 2127685466}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &506596054
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 506596044}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8be33ea06cb5334db9eda0684911cb1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ElectricCollect
+  charge1tex: {fileID: 2800000, guid: 1722f7b7a1427446c82c18ca8eea179b, type: 3}
+  charge2tex: {fileID: 2800000, guid: 2b935da67c4214640be7bb935073c6e1, type: 3}
+  charge3tex: {fileID: 2800000, guid: 5dafa6a4ad3a142e0b20f6a25d69aaad, type: 3}
+  charge4tex: {fileID: 2800000, guid: fb837420ad314429c9fd7e00cd0f3b29, type: 3}
+  charge0tex: {fileID: 2800000, guid: ba7851f276e57489f835fbb62d09e2f8, type: 3}
+--- !u!81 &506596055
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 506596044}
+  m_Enabled: 1
 --- !u!1001 &510859599
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6690,7 +6761,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.04
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -7060,7 +7131,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: c6ca9748b84e23442ac2fe0476870169, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.5
+  m_Volume: 0.358
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -7201,7 +7272,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 1
+      value: 0
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -7292,6 +7363,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 073789fe1d2ddae459fcae55ff03c4fa, type: 3}
       propertyPath: m_Name
       value: fence-corner-curved (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 073789fe1d2ddae459fcae55ff03c4fa, type: 3}
+      propertyPath: m_TagString
+      value: Wood
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -7771,6 +7846,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: fence-corner-curved (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 073789fe1d2ddae459fcae55ff03c4fa, type: 3}
+      propertyPath: m_TagString
+      value: Wood
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -8038,6 +8117,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5225455176718880169, guid: 59fd80584945fc7448940995b97dab30, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1593043079}
+    - targetCorrespondingSourceObject: {fileID: 5225455176718880169, guid: 59fd80584945fc7448940995b97dab30, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1593043083}
   m_SourcePrefab: {fileID: 100100000, guid: 59fd80584945fc7448940995b97dab30, type: 3}
 --- !u!1001 &671016941
 PrefabInstance:
@@ -8296,6 +8378,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 81faf54c7707fac4ea923723c8d37123, type: 3}
       propertyPath: m_Name
       value: fence-straight
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 81faf54c7707fac4ea923723c8d37123, type: 3}
+      propertyPath: m_TagString
+      value: Wood
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -9796,6 +9882,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: fence-corner-curved
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 073789fe1d2ddae459fcae55ff03c4fa, type: 3}
+      propertyPath: m_TagString
+      value: Wood
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -10089,6 +10179,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: fence-low-straight (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 54ef2631084526841811f4df82d0820b, type: 3}
+      propertyPath: m_TagString
+      value: Wood
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -10258,6 +10352,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: c26310360a040814cbece27593c9019e, type: 3}
       propertyPath: m_Name
       value: block-grass-overhang-large-slope-narrow
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: c26310360a040814cbece27593c9019e, type: 3}
+      propertyPath: m_TagString
+      value: Grass
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -11179,6 +11277,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ladder-long (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: acfc5ab3bd66de942abb901174fed7c1, type: 3}
+      propertyPath: m_TagString
+      value: Wood
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -11593,6 +11695,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: fence-low-straight (15)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 54ef2631084526841811f4df82d0820b, type: 3}
+      propertyPath: m_TagString
+      value: Wood
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -11896,6 +12002,20 @@ CapsuleCollider:
   m_Height: 0.42152005
   m_Direction: 1
   m_Center: {x: -0.0044663474, y: -0.07016775, z: -0.0000033136457}
+--- !u!114 &1036576312
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1036576303}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60ba6871a634fe441ad6fdba73801a5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ElectricCollect
+  collectSound: {fileID: 8300000, guid: 430fc42b9002be145b1b4122336d146e, type: 3}
+  volume: 1
 --- !u!1 &1042367052
 GameObject:
   m_ObjectHideFlags: 0
@@ -11945,7 +12065,6 @@ Transform:
   - {fileID: 573059284}
   - {fileID: 550777596}
   - {fileID: 124959760}
-  - {fileID: 1792411132}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1042823348 stripped
@@ -12565,6 +12684,20 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4886224591627638547, guid: 59fd80584945fc7448940995b97dab30, type: 3}
   m_PrefabInstance: {fileID: 1880388177}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1120273439
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1120273430}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60ba6871a634fe441ad6fdba73801a5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ElectricCollect
+  collectSound: {fileID: 8300000, guid: 430fc42b9002be145b1b4122336d146e, type: 3}
+  volume: 1
 --- !u!1001 &1126724931
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12775,6 +12908,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: fence-low-straight (12)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 54ef2631084526841811f4df82d0820b, type: 3}
+      propertyPath: m_TagString
+      value: Wood
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -12962,6 +13099,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: fence-low-straight (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 54ef2631084526841811f4df82d0820b, type: 3}
+      propertyPath: m_TagString
+      value: Wood
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -13130,6 +13271,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5225455176718880169, guid: 59fd80584945fc7448940995b97dab30, type: 3}
       insertIndex: -1
       addedObject: {fileID: 297496330}
+    - targetCorrespondingSourceObject: {fileID: 5225455176718880169, guid: 59fd80584945fc7448940995b97dab30, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 297496338}
   m_SourcePrefab: {fileID: 100100000, guid: 59fd80584945fc7448940995b97dab30, type: 3}
 --- !u!1 &1169955508
 GameObject:
@@ -13321,6 +13465,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: fence-straight
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 81faf54c7707fac4ea923723c8d37123, type: 3}
+      propertyPath: m_TagString
+      value: Wood
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -13432,6 +13580,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5225455176718880169, guid: 59fd80584945fc7448940995b97dab30, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1036576308}
+    - targetCorrespondingSourceObject: {fileID: 5225455176718880169, guid: 59fd80584945fc7448940995b97dab30, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1036576312}
   m_SourcePrefab: {fileID: 100100000, guid: 59fd80584945fc7448940995b97dab30, type: 3}
 --- !u!1001 &1198839233
 PrefabInstance:
@@ -14158,6 +14309,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: fence-low-straight (14)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 54ef2631084526841811f4df82d0820b, type: 3}
+      propertyPath: m_TagString
+      value: Wood
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -14312,6 +14467,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 54ef2631084526841811f4df82d0820b, type: 3}
       propertyPath: m_Name
       value: fence-low-straight (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 54ef2631084526841811f4df82d0820b, type: 3}
+      propertyPath: m_TagString
+      value: Wood
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -14752,6 +14911,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: b4541aead076417438d57fd0aebca9b3, type: 3}
       propertyPath: m_Name
       value: block-snow-hexagon
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b4541aead076417438d57fd0aebca9b3, type: 3}
+      propertyPath: m_TagString
+      value: Snow
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -15390,6 +15553,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: c2a7c43669945c3408527bd4b7efb7c2, type: 3}
       propertyPath: m_Name
       value: block-grass-large-tall
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: c2a7c43669945c3408527bd4b7efb7c2, type: 3}
+      propertyPath: m_TagString
+      value: Grass
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -17295,6 +17462,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: fence-low-straight (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 54ef2631084526841811f4df82d0820b, type: 3}
+      propertyPath: m_TagString
+      value: Wood
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -17386,6 +17557,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 54ef2631084526841811f4df82d0820b, type: 3}
       propertyPath: m_Name
       value: fence-low-straight (10)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 54ef2631084526841811f4df82d0820b, type: 3}
+      propertyPath: m_TagString
+      value: Wood
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -17577,6 +17752,20 @@ CapsuleCollider:
   m_Height: 0.42152005
   m_Direction: 1
   m_Center: {x: -0.0044663474, y: -0.07016775, z: -0.0000033136457}
+--- !u!114 &1593043083
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1593043074}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60ba6871a634fe441ad6fdba73801a5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ElectricCollect
+  collectSound: {fileID: 8300000, guid: 430fc42b9002be145b1b4122336d146e, type: 3}
+  volume: 1
 --- !u!1001 &1595553542
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18603,6 +18792,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: block-grass-overhang-large-tall
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b16f56e729cce1c48943f4298349fdf5, type: 3}
+      propertyPath: m_TagString
+      value: Grass
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -18693,6 +18886,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 81faf54c7707fac4ea923723c8d37123, type: 3}
       propertyPath: m_Name
       value: fence-straight (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 81faf54c7707fac4ea923723c8d37123, type: 3}
+      propertyPath: m_TagString
+      value: Wood
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -19635,6 +19832,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: fence-low-straight
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 54ef2631084526841811f4df82d0820b, type: 3}
+      propertyPath: m_TagString
+      value: Wood
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -19694,6 +19895,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: be1f2ac837436934e976aae78b7c36f6, type: 3}
       propertyPath: m_Name
       value: Isle_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: be1f2ac837436934e976aae78b7c36f6, type: 3}
+      propertyPath: m_TagString
+      value: Dirt
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -20066,135 +20271,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 09494dc8cbf9a99418372f01e45c295a, type: 3}
   m_PrefabInstance: {fileID: 1888222097}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1792411131
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1792411132}
-  - component: {fileID: 1792411133}
-  m_Layer: 0
-  m_Name: JumpSFX
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1792411132
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1792411131}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 123.85095, y: -186.47583, z: -3120.4695}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1042367054}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!82 &1792411133
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1792411131}
-  m_Enabled: 1
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 406147734683847122, guid: 6123cf893db67c3479b91c7e3807e618, type: 2}
-  m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 0}
-  m_PlayOnAwake: 0
-  m_Volume: 0.5
-  m_Pitch: 1
-  Loop: 0
-  Mute: 0
-  Spatialize: 0
-  SpatializePostEffects: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
 --- !u!1001 &1792736333
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -21110,6 +21186,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5225455176718880169, guid: 59fd80584945fc7448940995b97dab30, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1120273431}
+    - targetCorrespondingSourceObject: {fileID: 5225455176718880169, guid: 59fd80584945fc7448940995b97dab30, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1120273439}
   m_SourcePrefab: {fileID: 100100000, guid: 59fd80584945fc7448940995b97dab30, type: 3}
 --- !u!1001 &1880401679
 PrefabInstance:
@@ -21190,6 +21269,10 @@ PrefabInstance:
     - target: {fileID: 5289427514255132785, guid: 2678d49bd81ef0849b715b8af632c90c, type: 3}
       propertyPath: m_Name
       value: BuildPoint
+      objectReference: {fileID: 0}
+    - target: {fileID: 5289427514255132785, guid: 2678d49bd81ef0849b715b8af632c90c, type: 3}
+      propertyPath: m_TagString
+      value: Wood
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -21304,6 +21387,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 54ef2631084526841811f4df82d0820b, type: 3}
       propertyPath: m_Name
       value: fence-low-straight (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 54ef2631084526841811f4df82d0820b, type: 3}
+      propertyPath: m_TagString
+      value: Wood
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -21868,6 +21955,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 156fd60f3425787408d460698ae34aa5, type: 3}
       propertyPath: m_Name
       value: crate
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 156fd60f3425787408d460698ae34aa5, type: 3}
+      propertyPath: m_TagString
+      value: Wood
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -22680,6 +22771,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: fence-corner
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 5d58a1aa74168dc4ebffe9f45a68d019, type: 3}
+      propertyPath: m_TagString
+      value: Wood
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -23179,6 +23274,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: fence-low-straight (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 54ef2631084526841811f4df82d0820b, type: 3}
+      propertyPath: m_TagString
+      value: Wood
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -23243,6 +23342,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: a18686fd705f5ab4db0fed52d4b6ca7c, type: 3}
       propertyPath: m_Name
       value: fence-low-corner-curved
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a18686fd705f5ab4db0fed52d4b6ca7c, type: 3}
+      propertyPath: m_TagString
+      value: Wood
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -23790,6 +23893,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: fence-low-straight (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 54ef2631084526841811f4df82d0820b, type: 3}
+      propertyPath: m_TagString
+      value: Wood
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -24059,6 +24166,22 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 2033274865827291957, guid: aa718f864df84ba46a88fb4057f6556b, type: 3}
+      propertyPath: dirtVolume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2033274865827291957, guid: aa718f864df84ba46a88fb4057f6556b, type: 3}
+      propertyPath: grassPitch
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2033274865827291957, guid: aa718f864df84ba46a88fb4057f6556b, type: 3}
+      propertyPath: snowVolume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2033274865827291957, guid: aa718f864df84ba46a88fb4057f6556b, type: 3}
+      propertyPath: woodVolume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2033274865827291957, guid: aa718f864df84ba46a88fb4057f6556b, type: 3}
       propertyPath: grassVolume
       value: 1
       objectReference: {fileID: 0}
@@ -24072,12 +24195,16 @@ PrefabInstance:
       objectReference: {fileID: 124959761}
     - target: {fileID: 2033274865827291957, guid: aa718f864df84ba46a88fb4057f6556b, type: 3}
       propertyPath: FootstepAudioVolume
-      value: 1
+      value: 0.609
       objectReference: {fileID: 0}
     - target: {fileID: 2033274865827291957, guid: aa718f864df84ba46a88fb4057f6556b, type: 3}
       propertyPath: attackSFXAudioSource
       value: 
       objectReference: {fileID: 550777597}
+    - target: {fileID: 2033274865827291957, guid: aa718f864df84ba46a88fb4057f6556b, type: 3}
+      propertyPath: collectSounds.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2033274865827291957, guid: aa718f864df84ba46a88fb4057f6556b, type: 3}
       propertyPath: dirtFootsteps.Array.size
       value: 1
@@ -24091,9 +24218,17 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2033274865827291957, guid: aa718f864df84ba46a88fb4057f6556b, type: 3}
+      propertyPath: ElectricSounds.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2033274865827291957, guid: aa718f864df84ba46a88fb4057f6556b, type: 3}
       propertyPath: grassFootsteps.Array.size
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2033274865827291957, guid: aa718f864df84ba46a88fb4057f6556b, type: 3}
+      propertyPath: 'collectSounds.Array.data[0]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 430fc42b9002be145b1b4122336d146e, type: 3}
     - target: {fileID: 2033274865827291957, guid: aa718f864df84ba46a88fb4057f6556b, type: 3}
       propertyPath: 'dirtFootsteps.Array.data[0]'
       value: 
@@ -24105,22 +24240,30 @@ PrefabInstance:
     - target: {fileID: 2033274865827291957, guid: aa718f864df84ba46a88fb4057f6556b, type: 3}
       propertyPath: 'woodFootsteps.Array.data[0]'
       value: 
-      objectReference: {fileID: 8300000, guid: a68236c5e5f813849989cbb7d884dc9f, type: 3}
+      objectReference: {fileID: 8300000, guid: ab426c49d7e94f84cbbefb38155f2837, type: 3}
+    - target: {fileID: 2033274865827291957, guid: aa718f864df84ba46a88fb4057f6556b, type: 3}
+      propertyPath: 'ElectricSounds.Array.data[0]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 430fc42b9002be145b1b4122336d146e, type: 3}
     - target: {fileID: 2033274865827291957, guid: aa718f864df84ba46a88fb4057f6556b, type: 3}
       propertyPath: 'grassFootsteps.Array.data[0]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 6ad982724cf4e4a4cb99cc96edd180bc, type: 3}
+    - target: {fileID: 2033274865827291957, guid: aa718f864df84ba46a88fb4057f6556b, type: 3}
+      propertyPath: 'grassFootsteps.Array.data[1]'
       value: 
       objectReference: {fileID: 8300000, guid: 8b7b16b6578bd1b499030ff090af656b, type: 3}
     - target: {fileID: 3019726645391325757, guid: aa718f864df84ba46a88fb4057f6556b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.951864
+      value: 6.219863
       objectReference: {fileID: 0}
     - target: {fileID: 3019726645391325757, guid: aa718f864df84ba46a88fb4057f6556b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.04257691
+      value: 5.608304
       objectReference: {fileID: 0}
     - target: {fileID: 3019726645391325757, guid: aa718f864df84ba46a88fb4057f6556b, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -3.338293
+      value: 11.540428
       objectReference: {fileID: 0}
     - target: {fileID: 3019726645391325757, guid: aa718f864df84ba46a88fb4057f6556b, type: 3}
       propertyPath: m_LocalRotation.w
@@ -24144,15 +24287,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6253805440083974706, guid: aa718f864df84ba46a88fb4057f6556b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.951864
+      value: 6.219863
       objectReference: {fileID: 0}
     - target: {fileID: 6253805440083974706, guid: aa718f864df84ba46a88fb4057f6556b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.04257691
+      value: 5.608304
       objectReference: {fileID: 0}
     - target: {fileID: 6253805440083974706, guid: aa718f864df84ba46a88fb4057f6556b, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -3.338293
+      value: 11.540428
       objectReference: {fileID: 0}
     - target: {fileID: 6442112620702037953, guid: aa718f864df84ba46a88fb4057f6556b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -24196,15 +24339,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8508982371775026082, guid: aa718f864df84ba46a88fb4057f6556b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.752
+      value: 6.02
       objectReference: {fileID: 0}
     - target: {fileID: 8508982371775026082, guid: aa718f864df84ba46a88fb4057f6556b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.995
+      value: 4.33
       objectReference: {fileID: 0}
     - target: {fileID: 8508982371775026082, guid: aa718f864df84ba46a88fb4057f6556b, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.529
+      value: 15.34
       objectReference: {fileID: 0}
     - target: {fileID: 8508982371775026082, guid: aa718f864df84ba46a88fb4057f6556b, type: 3}
       propertyPath: m_LocalRotation.w
@@ -24233,6 +24376,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7582938764058504863, guid: aa718f864df84ba46a88fb4057f6556b, type: 3}
       insertIndex: -1
       addedObject: {fileID: 505391052}
+    - targetCorrespondingSourceObject: {fileID: 6982504992686480765, guid: aa718f864df84ba46a88fb4057f6556b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 506596054}
+    - targetCorrespondingSourceObject: {fileID: 6982504992686480765, guid: aa718f864df84ba46a88fb4057f6556b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 506596055}
   m_SourcePrefab: {fileID: 100100000, guid: aa718f864df84ba46a88fb4057f6556b, type: 3}
 --- !u!4 &2130605924 stripped
 Transform:
@@ -24290,6 +24439,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 81faf54c7707fac4ea923723c8d37123, type: 3}
       propertyPath: m_Name
       value: fence-straight (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 81faf54c7707fac4ea923723c8d37123, type: 3}
+      propertyPath: m_TagString
+      value: Wood
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

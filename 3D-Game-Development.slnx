@@ -2,8 +2,8 @@
   <Project Path="CitrioN.Common.csproj" />
   <Project Path="CitrioN.UI.Panels.csproj" />
   <Project Path="Boxophobic.Utils.Editor.csproj" />
-  <Project Path="CitrioN.StyleProfileSystem.csproj" />
   <Project Path="CitrioN.UI.Components.csproj" />
+  <Project Path="CitrioN.StyleProfileSystem.csproj" />
   <Project Path="LineworkLite.csproj" />
   <Project Path="CitrioN.SettingsMenuCreator.Editor.csproj" />
   <Project Path="CitrioN.SettingsMenuCreator.csproj" />
