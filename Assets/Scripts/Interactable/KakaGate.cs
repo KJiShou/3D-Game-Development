@@ -1,3 +1,4 @@
+using Game;
 using UnityEngine;
 
 public class KakaGate : MonoBehaviour
@@ -8,12 +9,15 @@ public class KakaGate : MonoBehaviour
     public GameObject destroyMachine;
     private Animator openButtonAnimator;
     public bool havePlayer;
-    
+    private StartMessage message;
+    private GameManager gameManager;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         animator = GetComponent<Animator>();
         openButtonAnimator = openButton.GetComponent<Animator>();
+        message = FindAnyObjectByType<StartMessage>().GetComponent<StartMessage>();
+        gameManager = GameManager.instance;
     }
 
     // Update is called once per frame
@@ -28,6 +32,7 @@ public class KakaGate : MonoBehaviour
             Destroy(kaka, 6);
             openButton.SetActive(false);
             gameObject.GetComponent<BoxCollider>().enabled = false;
+            gameManager.SaveKaka();
         }
     }
 
@@ -37,6 +42,7 @@ public class KakaGate : MonoBehaviour
         {
             havePlayer = true;
             openButtonAnimator.SetBool("HaveItem", true);
+            message.ShowMessage("Kaka's been locked up! Go rescue him!");
         }
     }
 

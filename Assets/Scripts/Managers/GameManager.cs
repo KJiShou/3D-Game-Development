@@ -7,9 +7,8 @@ namespace Game
         #region Variables
         public static GameManager instance;
         private SceneController controller;
-
+        private bool kakaIsSave = false;
         private bool passTutorial = false;
-
         private static int respawnCount = 0;
         
         #endregion
@@ -49,6 +48,14 @@ namespace Game
                 {
                     passTutorial = true;
                 }
+            }
+            if (!PlayerPrefs.HasKey("KakaIsSaved"))
+            {
+                PlayerPrefs.SetInt("KakaIsSaved", 0);
+            }
+            else
+            {
+                kakaIsSave = PlayerPrefs.GetInt("KakaIsSaved").Equals(1);
             }
         }
 
@@ -116,6 +123,17 @@ namespace Game
         {
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.None;
+        }
+
+        public bool IsKakaSave()
+        {
+            return kakaIsSave;
+        }
+
+        public void SaveKaka()
+        {
+            kakaIsSave = true;
+            PlayerPrefs.SetInt("KakaIsSaved", 1);
         }
 
         #endregion
