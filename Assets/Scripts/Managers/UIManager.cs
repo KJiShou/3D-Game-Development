@@ -35,7 +35,13 @@ namespace UI
         private Image soundBtnImage;
         private Button soundBtn;
 
-        [Header("Levels Components")]
+        [Header("Tutorial Components")]
+        [Tooltip("This is only for the tutorial scene")]
+        public GameObject firstGuide;
+        public GameObject warningMsg;
+        private Animator warningMsgAnim;
+
+        [Header("In game Components")]
         [Tooltip("This is for the level scenes")]
         public GameObject pausePanel;
         private Animator pausePanelAnim;
@@ -45,14 +51,16 @@ namespace UI
         private Animator infoPanelAnim;
         private bool infoPanelIsOpen = false;
 
-        public GameObject firstGuide;
-        public GameObject warningMsg;
-        private Animator warningMsgAnim;
-
         public GameObject player;
         private ThirdPersonController thirdPersonController;
 
         public TextMeshProUGUI respawnCount;
+
+        [Header("Level 2 Components")]
+        [Tooltip("This is only for the level 2 scenes")]
+        public GameObject[] thunderUI;
+        public Material thunderUIMat;
+        private ElectricCollect electricCollect;
 
         #endregion
 
@@ -86,6 +94,10 @@ namespace UI
                     gameManager.UnlockCursor();
                     thirdPersonController.enabled = false;
                     warningMsgAnim = warningMsg.GetComponent<Animator>();
+                }
+                else if (currentScene.name == "Level2")
+                {
+                    electricCollect = ElectricCollect.instance;
                 }
                 respawnCount.text = "X " + gameManager.GetRespawnCount();
             }
@@ -122,6 +134,9 @@ namespace UI
 
         #region Public methods
 
+        // ==============================
+        // In Game methods
+        // ==============================
         public void UpdateRespawnCount()
         {
             gameManager.AddRespawnCount();
@@ -218,6 +233,20 @@ namespace UI
             thirdPersonController.enabled = true;
             warningMsg.SetActive(true);
             StartCoroutine(WaitWarningMsg());
+        }
+
+        // ==============================
+        // Level 2 methods
+        // ==============================
+        public void UpdateThunderCount()
+        {
+            if (!thunderUIMat) return;
+
+            if (electricCollect.GetCharge() > 4) return;
+
+            RawImage image = thunderUI[electricCollect.GetCharge() - 1].gameObject.GetComponent<RawImage>();
+            image.color = Color.white;
+            image.material = thunderUIMat;
         }
 
         #endregion
