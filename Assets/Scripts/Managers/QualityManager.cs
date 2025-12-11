@@ -22,16 +22,16 @@ public class QualityManager : MonoBehaviour
         }
         else
         {
-            if (!PlayerPrefs.HasKey("Quality"))
+            if (!PlayerPrefs.HasKey("QualityLevel"))
             {
                 // default is high quality
-                PlayerPrefs.SetInt("Quality", 2);
+                PlayerPrefs.SetInt("QualityLevel", 2);
                 qualityDropdown.value = 2;
                 QualitySettings.SetQualityLevel(2, true);
             }
             else
             {
-                int value = PlayerPrefs.GetInt("Quality");
+                int value = PlayerPrefs.GetInt("QualityLevel");
                 qualityDropdown.value = value;
                 QualitySettings.SetQualityLevel(value, true);
             }
@@ -45,8 +45,8 @@ public class QualityManager : MonoBehaviour
     /// <param name="index">0=Low, 1=Medium, 2=High, 3=Very high</param>
     public void SetQuality(int index)
     {
-        QualitySettings.SetQualityLevel(index, true);
-        PlayerPrefs.SetInt("QualityLevel", index);
+        QualitySettings.SetQualityLevel(qualityDropdown.value, true);
+        PlayerPrefs.SetInt("QualityLevel", qualityDropdown.value);
         PlayerPrefs.Save();
     }
 
