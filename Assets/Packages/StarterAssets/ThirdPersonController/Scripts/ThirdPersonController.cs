@@ -427,7 +427,8 @@ namespace StarterAssets
                         _lastJumpSoundTime = Time.time;
                         if (JumpAudioClip)
                         {
-                            walkSFXAudioSource.pitch = 0.5f;
+                            walkSFXAudioSource.pitch = 0.7f;
+                            walkSFXAudioSource.volume = 0.2f;
                             walkSFXAudioSource.PlayOneShot(JumpAudioClip);
                             //AudioSource.PlayClipAtPoint(JumpAudioClip, transform.position, FootstepAudioVolume);
                         }

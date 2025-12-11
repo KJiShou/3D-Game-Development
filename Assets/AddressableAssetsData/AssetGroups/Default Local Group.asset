@@ -15,11 +15,6 @@ MonoBehaviour:
   m_GroupName: Default Local Group
   m_GUID: 5105f4eee5c081a4989fecc9da6f3130
   m_SerializeEntries:
-  - m_GUID: 0262d77b822a130488aaab4313d51bf8
-    m_Address: Assets/Prefabs/MainMenu/Canvas.prefab
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 9447408345745e84d9cf4ee2c83c00b9
     m_Address: Assets/Prefabs/GameManager.prefab
     m_ReadOnly: 0
