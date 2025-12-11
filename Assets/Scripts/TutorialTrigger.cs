@@ -30,8 +30,8 @@ public class TutorialTrigger : MonoBehaviour
             message.ShowMessage(textToDisplay);
             if(!isMoving)
             {
-                particle.SetActive(true);
-                pathFollower.StartFollow();
+                if(particle != null) particle.SetActive(true);
+                if (pathFollower != null) pathFollower.StartFollow();
                 isMoving = true;
             }
         }
