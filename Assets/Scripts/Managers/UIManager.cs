@@ -80,11 +80,12 @@ namespace UI
                 pausePanelAnim = pausePanel.GetComponent<Animator>();
                 thirdPersonController = player.GetComponentInChildren<ThirdPersonController>();
                 infoPanelAnim = infoPanel.GetComponent<Animator>();
-                warningMsgAnim = warningMsg.GetComponent<Animator>();
+                
                 if (thirdPersonController != null && currentScene.name == "Tutorial")
                 {
                     gameManager.UnlockCursor();
                     thirdPersonController.enabled = false;
+                    warningMsgAnim = warningMsg.GetComponent<Animator>();
                 }
                 respawnCount.text = "X " + gameManager.GetRespawnCount();
             }
