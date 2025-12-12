@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class WitchText : MonoBehaviour
 {
+    public GameObject Cauldron;
     private StartMessage message;
     private GameManager gameManager;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -22,7 +23,11 @@ public class WitchText : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            if (gameManager.IsKakaSave())
+            if (Cauldron.activeSelf)
+            {
+                message.ShowMessage("Finally my soup is done!");
+            }
+            else if (gameManager.IsKakaSave())
             {
                 message.ShowMessage("I need pumpkin to cook my soup!!!");
             }

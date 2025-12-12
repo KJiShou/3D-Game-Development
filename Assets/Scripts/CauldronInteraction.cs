@@ -49,7 +49,6 @@ public class CauldronInteraction : MonoBehaviour
     private IEnumerator Wait()
     {
         yield return new WaitForSeconds(moveDuration);
-        message.ShowMessage("Thanks! Use this portal to go to your destination");
         OnRouteCompleted.Invoke();
     }
 
