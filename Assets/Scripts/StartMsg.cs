@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 using TMPro;
 
 public class StartMessage : MonoBehaviour
@@ -7,6 +7,7 @@ public class StartMessage : MonoBehaviour
     public float showDuration = 3f;
     public float fadeSpeed = 1f;
     public bool showWhenStart = false;
+    public bool isWaitingTrigger = false;
 
     private float timer;
     private bool fading = false;
@@ -32,23 +33,57 @@ public class StartMessage : MonoBehaviour
 
     private void Update()
     {
-        if (!fading)
+        if (!isWaitingTrigger)
         {
-            timer -= Time.deltaTime;
-
-            if (timer <= 0)
+            if (!fading)
             {
-                fading = true;
+                timer -= Time.deltaTime;
+
+                if (timer <= 0)
+                {
+                    fading = true;
+                }
+            }
+            else
+            {
+                messageText.alpha -= Time.deltaTime * fadeSpeed;
+
+                if (messageText.alpha <= 0f)
+                {
+                    gameObject.SetActive(false);
+                }
             }
         }
         else
         {
-            messageText.alpha -= Time.deltaTime * fadeSpeed;
-
-            if (messageText.alpha <= 0f)
+            if (fading)
             {
-                gameObject.SetActive(false);
+                messageText.alpha -= Time.deltaTime * fadeSpeed;
+
+                if (messageText.alpha <= 0f)
+                {
+                    messageText.alpha = 1f;
+                    gameObject.SetActive(false);
+                }
             }
         }
+        
+    }
+
+    private void OnEnable()
+    {
+        if (showWhenStart) ShowMessage(messageText.text);
+    }
+
+    public void ResetTimer()
+    {
+        messageText.alpha = 1f;
+        timer = showDuration;
+        fading = false;
+    }
+
+    public void StartFading()
+    {
+        fading = true;
     }
 }

@@ -18,6 +18,8 @@ TagManager:
   - Interactable
   - Snow
   - Dirt
+  - LiftPlatform
+  - Barrier
   layers:
   - Default
   - TransparentFX

@@ -16,12 +16,15 @@ public class PressurePlate : MonoBehaviour
 
     public bool isPressed;
     private Animator animator;
-    
-    
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         animator = GetComponent<Animator>();
+        if (animatorTrigger.Length <= 0)
+        {
+            animatorTrigger = "isPressed";
+        }
     }
 
     // Update is called once per frame
@@ -44,6 +47,26 @@ public class PressurePlate : MonoBehaviour
     private void OnCollisionExit(Collision collision)
     {
         if (collision.gameObject.tag == "Triggered Stone")
+        {
+            isPressed = false;
+            animator.SetBool("isPressed", false);
+            activeObjectAnim.SetBool(animatorTrigger, false);
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Player")
+        {
+            isPressed = true;
+            animator.SetBool("isPressed", true);
+            activeObjectAnim.SetBool(animatorTrigger, true);
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.tag == "Player")
         {
             isPressed = false;
             animator.SetBool("isPressed", false);
