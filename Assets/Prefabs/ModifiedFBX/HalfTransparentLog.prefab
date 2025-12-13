@@ -58,7 +58,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: a2442394358b4c044a9386c343bbc64d, type: 3}
       propertyPath: m_Name
-      value: log
+      value: HalfTransparentLog
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -70,6 +70,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: a2442394358b4c044a9386c343bbc64d, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1668495574439509285}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: a2442394358b4c044a9386c343bbc64d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5033964396775039424}
   m_SourcePrefab: {fileID: 100100000, guid: a2442394358b4c044a9386c343bbc64d, type: 3}
 --- !u!1 &985545747110324761 stripped
 GameObject:
@@ -118,9 +121,21 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 0.23396109, y: 0.17320514, z: 0.7100001}
   m_Center: {x: 0.0077366456, y: 0.08660257, z: 0.00000011920929}
+--- !u!114 &5033964396775039424
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 985545747110324761}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d4b1839f13a042429b044401b92246e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HalfTransparentLog

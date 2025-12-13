@@ -1,8 +1,10 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class BuildPoint : MonoBehaviour
 
 {
+    private Scene currentScene;
 
     public GameObject buildButton;
 
@@ -25,8 +27,9 @@ public class BuildPoint : MonoBehaviour
     void Start()
 
     {
-
-        buildButtonAnimator = buildButton.GetComponent<Animator>();
+        //currentScene = SceneManager.GetActiveScene();
+        //if (currentScene.name == "Tutorial") buildButtonAnimator = buildButton.GetComponent<Animator>();
+        if (buildButton != null) buildButtonAnimator = buildButton.GetComponent<Animator>();
 
     }
 
