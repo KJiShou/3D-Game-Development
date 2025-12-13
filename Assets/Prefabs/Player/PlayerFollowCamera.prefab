@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 7026826198413085180}
   - component: {fileID: 4578363632675410321}
+  - component: {fileID: 2543618670946931221}
+  - component: {fileID: 1644743850521115308}
   m_Layer: 0
   m_Name: PlayerFollowCamera
   m_TagString: Untagged
@@ -54,7 +56,7 @@ MonoBehaviour:
   m_LookAt: {fileID: 0}
   m_Follow: {fileID: 0}
   m_Lens:
-    FieldOfView: 80
+    FieldOfView: 30
     OrthographicSize: 10
     NearClipPlane: 0.2
     FarClipPlane: 500
@@ -72,6 +74,37 @@ MonoBehaviour:
         m_Calls: []
   m_LegacyBlendHint: 0
   m_ComponentOwner: {fileID: 4900862723054644838}
+--- !u!114 &2543618670946931221
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2132346314726752431}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b3b850a7b9d87c48aef6e93a789b8f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CameraViewController
+  virtualCamera: {fileID: 4578363632675410321}
+  input: {fileID: 0}
+  zoomSpeed: 10
+  sprintFOVIncrease: 15
+  smoothSpeed: 10
+  minFOV: 20
+  maxFOV: 90
+--- !u!114 &1644743850521115308
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2132346314726752431}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c153186951e7214695e61a6be79ed0f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CameraShake
 --- !u!1 &4107685537900530958
 GameObject:
   m_ObjectHideFlags: 0
