@@ -31,11 +31,24 @@ public class SceneController : MonoBehaviour
         StartCoroutine(LoadSceneAnim(sceneName));
     }
 
+    public void LoadAnimation()
+    {
+        StartCoroutine(LoadAnim());
+    }
+
     IEnumerator LoadSceneAnim(string sceneName)
     {
         transitionAnim.SetTrigger("End");
         yield return new WaitForSeconds(1);
         SceneManager.LoadSceneAsync(sceneName);
+        yield return new WaitForSeconds(0.2f);
+        transitionAnim.SetTrigger("Start");
+    }
+
+    IEnumerator LoadAnim()
+    {
+        transitionAnim.SetTrigger("End");
+        yield return new WaitForSeconds(1);
         yield return new WaitForSeconds(0.2f);
         transitionAnim.SetTrigger("Start");
     }
