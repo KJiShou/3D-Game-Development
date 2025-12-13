@@ -109,6 +109,7 @@ MonoBehaviour:
   treeModel: {fileID: 7818349938123186640}
   breakParticle: {fileID: 614420075973184709, guid: 1a483cdfdab53d347b2466b8dca091f1, type: 3}
   pushDistance: 0.5
+  getHit: 0
 --- !u!65 &2492805733217619663
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -153,6 +154,10 @@ PrefabInstance:
     - target: {fileID: 1616222293295102382, guid: 3cb1d2c06eb312240a550f1afa0da3b8, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1616222293295102382, guid: 3cb1d2c06eb312240a550f1afa0da3b8, type: 3}
+      propertyPath: m_TagString
+      value: BuildTree
       objectReference: {fileID: 0}
     - target: {fileID: 2100411563681489684, guid: 3cb1d2c06eb312240a550f1afa0da3b8, type: 3}
       propertyPath: m_LocalScale.x
