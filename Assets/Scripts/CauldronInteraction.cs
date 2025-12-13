@@ -9,6 +9,7 @@ public class CauldronInteraction : MonoBehaviour
     public GameObject beforeInteractiveObject;
     public GameObject afterInteractiveObject;
     public ParticleSystem breakParticle;
+    public GameObject tipsPumpkin;
 
     public GameObject openButton;
     private Animator openButtonAnimator;
@@ -38,6 +39,7 @@ public class CauldronInteraction : MonoBehaviour
     {
         if (!actived && havePumpkin && !isMovingPumpkin && gameManager.IsKakaSave() && Input.GetKeyDown(KeyCode.E))
         {
+            tipsPumpkin.SetActive(false);
             StartCoroutine(MovePumpkinAndCook());
             StartCoroutine(Wait());
             
@@ -47,7 +49,6 @@ public class CauldronInteraction : MonoBehaviour
     private IEnumerator Wait()
     {
         yield return new WaitForSeconds(moveDuration);
-        message.ShowMessage("Thanks! Use this portal to go to your destination");
         OnRouteCompleted.Invoke();
     }
 

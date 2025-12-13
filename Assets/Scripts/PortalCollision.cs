@@ -3,7 +3,6 @@ using UnityEngine;
 public class PortalCollision : MonoBehaviour
 {
     public Transform transportPosition;
-    public Transform playerPosition;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
