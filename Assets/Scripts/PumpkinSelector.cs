@@ -1,4 +1,6 @@
+using CurvedPathGenerator;
 using UnityEngine;
+using static UnityEngine.ParticleSystem;
 
 public class PumpkinSelector : MonoBehaviour
 {
@@ -8,10 +10,18 @@ public class PumpkinSelector : MonoBehaviour
     public StartMessage message;
     public GameObject endPoint;
     public MovingPlatforms movingPlatform;
+    public GameObject successFollower;
 
     public bool isCorrect = false;
     private bool playerInRange = false;
     public GameObject explosionPrefab;
+    public GameObject successPartical;
+    private PathFollower pathFollower;
+
+    private void Start()
+    {
+        if (successFollower != null) pathFollower = successFollower.GetComponent<PathFollower>();
+    }
 
     public void ShowPrompt(bool show)
     {
@@ -29,6 +39,9 @@ public class PumpkinSelector : MonoBehaviour
         if (isCorrect)
         {
             message.ShowMessage("You are correct ! Now you can use the platform to go up !");
+            Instantiate(explosionPrefab, transform.position, Quaternion.identity);
+            if (successFollower != null) successFollower.SetActive(true);
+            if (pathFollower != null) pathFollower.StartFollow();
             movingPlatform.endPoint = endPoint.transform;
             gameObject.SetActive(false);
         }
