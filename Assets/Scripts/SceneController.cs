@@ -2,10 +2,13 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+[RequireComponent(typeof(AudioSource))]
 public class SceneController : MonoBehaviour
 {
     public static SceneController instance;
     [SerializeField] Animator transitionAnim;
+    private AudioSource audioSource;
+    public AudioClip teleportSound;
 
     private void Awake()
     {
@@ -19,6 +22,11 @@ public class SceneController : MonoBehaviour
                 Destroy(gameObject);
             }
         }
+    }
+
+    private void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
     }
 
     public void NextLevel()
@@ -43,6 +51,7 @@ public class SceneController : MonoBehaviour
         SceneManager.LoadSceneAsync(sceneName);
         yield return new WaitForSeconds(0.2f);
         transitionAnim.SetTrigger("Start");
+        if(sceneName != "MainMenu") audioSource.PlayOneShot(teleportSound);
     }
 
     IEnumerator LoadAnim()
@@ -59,5 +68,6 @@ public class SceneController : MonoBehaviour
         yield return new WaitForSeconds(1);
         SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex + 1);
         transitionAnim.SetTrigger("Start");
+        if (SceneManager.GetActiveScene().ToString() != "MainMenu") audioSource.PlayOneShot(teleportSound);
     }
 }

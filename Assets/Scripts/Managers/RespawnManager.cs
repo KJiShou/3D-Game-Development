@@ -32,7 +32,6 @@ public class RespawnManager : MonoBehaviour
         { 
             return;
         }
-
         player.transform.position = currentRespawn.transform.position;
     }
 }
