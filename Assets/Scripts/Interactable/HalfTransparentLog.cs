@@ -15,6 +15,13 @@ public class HalfTransparentLog : MonoBehaviour
 
     public AudioClip popSound;
 
+    private void Awake()
+    {
+        if (trees == null) trees = new List<GameObject>();
+        if (treesCollider == null) treesCollider = new List<Collider>();
+    }
+
+
     private void Start()
     {
         thisCollider = GetComponent<Collider>();
@@ -82,4 +89,12 @@ public class HalfTransparentLog : MonoBehaviour
         }
 
     }
+
+    private void OnDestroy()
+    {
+        trees.Clear();
+        treesCollider.Clear();
+        buildCount = 0;
+    }
+
 }
