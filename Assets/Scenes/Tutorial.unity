@@ -776,6 +776,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Dirt
       objectReference: {fileID: 0}
+    - target: {fileID: 2032355271646643455, guid: 76c4d4df09972554da0985ac89a239a4, type: 3}
+      propertyPath: m_Volume
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 2672401055295182242, guid: 76c4d4df09972554da0985ac89a239a4, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
