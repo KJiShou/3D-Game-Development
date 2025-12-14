@@ -25,7 +25,6 @@ public class ElectricCollect : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            // ✨ 玩家收集到物品时，增加 charge 的值
             charge++;
             uiManager.UpdateThunderCount();
             AudioSource.PlayClipAtPoint(collectSound, transform.position, volume);
