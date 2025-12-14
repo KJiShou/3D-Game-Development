@@ -1,3 +1,4 @@
+using System.Collections;
 using TMPro;
 using UnityEngine;
 
@@ -21,13 +22,23 @@ public class FloatingPlatform : MonoBehaviour
     public GameObject hintText;
     private StartMessage startMessage;
 
+    public AudioSource platformAudio;
+    public float fadeDuration = 1f;
+    public float baseVolume = 1f;
+    private Vector3 lastPosition;
+
     private void Start()
     {
         startMessage = hintText.GetComponent<StartMessage>();
+        platformAudio.loop = true;
+        platformAudio.volume = 0f;
+        platformAudio.Play();
+        StartCoroutine(FadeInOutLoop());
     }
 
     private void Update()
     {
+        lastPosition = transform.position;
         if (currentDir == MoveDir.Idle)
             return;
 
@@ -138,5 +149,40 @@ public class FloatingPlatform : MonoBehaviour
     public void FadingHintText()
     {
         startMessage.StartFading();
+    }
+
+    private bool IsMoving()
+    {
+        float threshold = 0.001f;
+        return Vector3.Distance(transform.position, lastPosition) > threshold;
+    }
+
+    private IEnumerator FadeTo(float targetVolume, float duration)
+    {
+        float startVolume = platformAudio.volume;
+        float time = 0f;
+
+        while (time < duration)
+        {
+            time += Time.deltaTime;
+            platformAudio.volume = Mathf.Lerp(startVolume, targetVolume, time / duration);
+            yield return null;
+        }
+
+        platformAudio.volume = targetVolume;
+    }
+
+    private IEnumerator FadeInOutLoop()
+    {
+        while (true)
+        {
+            float targetVolume = IsMoving() ? baseVolume : 0f;
+            // fade in
+            yield return StartCoroutine(FadeTo(targetVolume, fadeDuration));
+
+            targetVolume = IsMoving() ? baseVolume : 0f;
+            // fade out
+            yield return StartCoroutine(FadeTo(0f, fadeDuration));
+        }
     }
 }

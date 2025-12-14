@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Game;
+using Sound;
 
 public class PortalInteractable : MonoBehaviour
 {
@@ -10,6 +11,10 @@ public class PortalInteractable : MonoBehaviour
 
     [SerializeField] bool goNextLevel;
     [SerializeField] string levelName;
+
+    public AudioClip teleportSound;
+    public AudioSource audioSource;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -21,6 +26,7 @@ public class PortalInteractable : MonoBehaviour
     {
         if (havePlayer && Input.GetKeyDown(KeyCode.E))
         {
+            audioSource.PlayOneShot(teleportSound);
             Scene currentScene = SceneManager.GetActiveScene();
             if (currentScene.name == "Tutorial")
             {

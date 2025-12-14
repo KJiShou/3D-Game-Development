@@ -56,13 +56,17 @@ public class HalfTransparentStone : MonoBehaviour
             float overlapPercentZ = overlapZ / (stoneMaxZ - stoneMinZ);
             float yDifference = Mathf.Abs(transform.position.y - stone.transform.position.y);
 
+            
+
             if (overlapPercentX >= 0.5f && overlapPercentZ >= 0.5f && yDifference <= 0.1f && !isTriggered)
             {
+                Vector3 newPos = new Vector3(transform.position.x, transform.position.y, transform.position.z);
+                stone.transform.position = newPos;
+                if (!liftPlatform.playerEnter) return;
+
                 isTriggered = true;
                 goUp = true;
                 goDown = false;
-                Vector3 newPos = new Vector3(transform.position.x, transform.position.y, transform.position.z);
-                stone.transform.position = newPos;
                 stoneRb.isKinematic = true;
                 stoneRb.useGravity = false;
                 triggeredObject.SetActive(true);
