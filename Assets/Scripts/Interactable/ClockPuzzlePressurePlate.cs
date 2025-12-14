@@ -43,7 +43,7 @@ public class ClockPuzzlePressurePlate : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag(triggerTag) && !isTriggered)
+        if (other.gameObject.CompareTag(triggerTag) && !isTriggered && !isSuccess)
         {
             isTriggered = true;
             TriggeredPressurePlate();
