@@ -51,7 +51,7 @@ public class SceneController : MonoBehaviour
         SceneManager.LoadSceneAsync(sceneName);
         yield return new WaitForSeconds(0.2f);
         transitionAnim.SetTrigger("Start");
-        audioSource.PlayOneShot(teleportSound);
+        if(sceneName != "MainMenu") audioSource.PlayOneShot(teleportSound);
     }
 
     IEnumerator LoadAnim()
@@ -68,6 +68,6 @@ public class SceneController : MonoBehaviour
         yield return new WaitForSeconds(1);
         SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex + 1);
         transitionAnim.SetTrigger("Start");
-        audioSource.PlayOneShot(teleportSound);
+        if (SceneManager.GetActiveScene().ToString() != "MainMenu") audioSource.PlayOneShot(teleportSound);
     }
 }
