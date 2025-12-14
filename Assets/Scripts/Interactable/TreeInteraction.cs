@@ -1,5 +1,6 @@
 using UnityEngine;
 
+[RequireComponent(typeof(AudioSource))]
 public class TreeInteraction : MonoBehaviour
 {
     public GameObject afterInteract;
@@ -8,6 +9,10 @@ public class TreeInteraction : MonoBehaviour
     private MeshRenderer treeMeshRenderer;
     private BoxCollider treeBoxCollider;
     public ParticleSystem breakParticle;
+
+    private AudioSource audioSource;
+
+    public AudioClip breakTree;
 
     public float pushDistance = 0.5f;
 
@@ -18,6 +23,7 @@ public class TreeInteraction : MonoBehaviour
     {
         treeMeshRenderer = treeModel.GetComponent<MeshRenderer>();
         treeBoxCollider = treeModel.GetComponent<BoxCollider>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     public void HitTree()
@@ -32,6 +38,8 @@ public class TreeInteraction : MonoBehaviour
 
         // show tree log and root
         if (afterInteract != null) afterInteract.SetActive(true);
+        if (breakTree != null)
+            audioSource.PlayOneShot(breakTree);
         getHit = true;
     }
 
