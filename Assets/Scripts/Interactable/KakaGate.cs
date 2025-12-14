@@ -9,7 +9,7 @@ public class KakaGate : MonoBehaviour
     public GameObject destroyMachine;
     private Animator openButtonAnimator;
 
-    public bool havePlayer;
+    public bool havePlayer = false;
     public bool hasKey = false;
     public bool isKaka = true;
     public string showMessage = "Kaka's been locked up! Go rescue him!";
