@@ -5254,6 +5254,7 @@ MonoBehaviour:
   buildEffect: {fileID: 614420075973184709, guid: 9059ac28d8ecb1c4b92bca0c0443dd30, type: 3}
   haveItem: 0
   hint: {fileID: 0}
+  buildSound: {fileID: 8300000, guid: 4ab9e723b35850d47a03da29e24caf83, type: 3}
 --- !u!65 &1696882744558713955
 BoxCollider:
   m_ObjectHideFlags: 0

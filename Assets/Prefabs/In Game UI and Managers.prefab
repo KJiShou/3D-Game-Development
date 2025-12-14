@@ -665,6 +665,7 @@ MonoBehaviour:
   respawnCount: {fileID: 2584818944252802667}
   thunderUI: []
   thunderUIMat: {fileID: 0}
+  keyIcon: {fileID: 0}
 --- !u!1 &544746181762187935
 GameObject:
   m_ObjectHideFlags: 0
@@ -9750,6 +9751,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 60133899109820304}
     m_Modifications:
+    - target: {fileID: 408404551194363270, guid: aa718f864df84ba46a88fb4057f6556b, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1059885454468832632, guid: aa718f864df84ba46a88fb4057f6556b, type: 3}
       propertyPath: m_Layer
       value: 7
@@ -9820,15 +9825,15 @@ PrefabInstance:
       objectReference: {fileID: 8300000, guid: 4a3efba9f7f28c94a86dbc7cbfa7347c, type: 3}
     - target: {fileID: 3019726645391325757, guid: aa718f864df84ba46a88fb4057f6556b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 30.997993
+      value: 0.19999987
       objectReference: {fileID: 0}
     - target: {fileID: 3019726645391325757, guid: aa718f864df84ba46a88fb4057f6556b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.6304798
+      value: 0.35200024
       objectReference: {fileID: 0}
     - target: {fileID: 3019726645391325757, guid: aa718f864df84ba46a88fb4057f6556b, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 23.223415
+      value: -3.9940004
       objectReference: {fileID: 0}
     - target: {fileID: 3019726645391325757, guid: aa718f864df84ba46a88fb4057f6556b, type: 3}
       propertyPath: m_LocalRotation.w
@@ -9837,6 +9842,26 @@ PrefabInstance:
     - target: {fileID: 3019726645391325757, guid: aa718f864df84ba46a88fb4057f6556b, type: 3}
       propertyPath: m_LocalRotation.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4424580970491997951, guid: aa718f864df84ba46a88fb4057f6556b, type: 3}
+      propertyPath: pushWoodSound
+      value: 
+      objectReference: {fileID: 8300000, guid: f8ab98b4fe7a2014f99f14ae1f8180c8, type: 3}
+    - target: {fileID: 4424580970491997951, guid: aa718f864df84ba46a88fb4057f6556b, type: 3}
+      propertyPath: pushStoneSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 839772323597b384f890cd94a67d4ccd, type: 3}
+    - target: {fileID: 4424580970491997951, guid: aa718f864df84ba46a88fb4057f6556b, type: 3}
+      propertyPath: pushPumpkinSound
+      value: 
+      objectReference: {fileID: 8300000, guid: f733c627f90976240a0d19fb520b3d26, type: 3}
+    - target: {fileID: 4541633773627845457, guid: aa718f864df84ba46a88fb4057f6556b, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 406147734683847122, guid: 6123cf893db67c3479b91c7e3807e618, type: 2}
+    - target: {fileID: 4541633773627845457, guid: aa718f864df84ba46a88fb4057f6556b, type: 3}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5604030377074253682, guid: aa718f864df84ba46a88fb4057f6556b, type: 3}
       propertyPath: m_Name
@@ -9910,8 +9935,24 @@ PrefabInstance:
     - {fileID: 1441442629200478683, guid: aa718f864df84ba46a88fb4057f6556b, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6982504992686480765, guid: aa718f864df84ba46a88fb4057f6556b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7015162239213228793}
   m_SourcePrefab: {fileID: 100100000, guid: aa718f864df84ba46a88fb4057f6556b, type: 3}
+--- !u!1 &5545582343527027137 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6982504992686480765, guid: aa718f864df84ba46a88fb4057f6556b, type: 3}
+  m_PrefabInstance: {fileID: 3175893748871810236}
+  m_PrefabAsset: {fileID: 0}
+--- !u!81 &7015162239213228793
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5545582343527027137}
+  m_Enabled: 1
 --- !u!1 &7049973339919553486 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5604030377074253682, guid: aa718f864df84ba46a88fb4057f6556b, type: 3}

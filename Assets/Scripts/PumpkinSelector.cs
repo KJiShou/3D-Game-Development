@@ -1,5 +1,6 @@
 using CurvedPathGenerator;
 using UnityEngine;
+using UnityEngine.Rendering;
 using static UnityEngine.ParticleSystem;
 
 public class PumpkinSelector : MonoBehaviour
@@ -16,6 +17,7 @@ public class PumpkinSelector : MonoBehaviour
     private bool playerInRange = false;
     public GameObject explosionPrefab;
     public GameObject successPartical;
+    public AudioClip explosionSound;
     private PathFollower pathFollower;
 
     private void Start()
@@ -38,6 +40,7 @@ public class PumpkinSelector : MonoBehaviour
     {
         if (isCorrect)
         {
+            if (explosionSound != null) AudioSource.PlayClipAtPoint(explosionSound, transform.position, 1.5f);
             message.ShowMessage("You are correct ! Now you can use the platform to go up !");
             Instantiate(explosionPrefab, transform.position, Quaternion.identity);
             if (successFollower != null) successFollower.SetActive(true);
@@ -49,6 +52,7 @@ public class PumpkinSelector : MonoBehaviour
         {
             Debug.Log("Wrong Pumpkin!");
             message.ShowMessage("You are wrong ! Please try again ! ");
+            if (explosionSound != null) AudioSource.PlayClipAtPoint(explosionSound, transform.position, 1.5f);
             CameraShake.Instance.ShakeCamera(2f, 1f, 5.0f);
             Instantiate(explosionPrefab, transform.position, Quaternion.identity);
             gameObject.SetActive(false);
