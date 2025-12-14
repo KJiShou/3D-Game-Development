@@ -62,6 +62,11 @@ namespace UI
         public Material thunderUIMat;
         private ElectricCollect electricCollect;
 
+        [Header("Key UI")]
+        public GameObject keyIcon;
+        public Material keyActiveMat;
+        private KeyCollect keyCollect;
+
         #endregion
 
         #region Monobehavior methods
@@ -98,6 +103,7 @@ namespace UI
                 else if (currentScene.name == "Level2")
                 {
                     electricCollect = ElectricCollect.instance;
+                    keyCollect = KeyCollect.instance;
                 }
                 respawnCount.text = "X " + gameManager.GetRespawnCount();
             }
@@ -248,6 +254,18 @@ namespace UI
             image.color = Color.white;
             image.material = thunderUIMat;
         }
+
+        public void UpdateKeyUI()
+        {
+            if (!keyActiveMat) return;
+
+            RawImage image = keyIcon.gameObject.GetComponent<RawImage>();
+            image.color = Color.white;
+            image.material = keyActiveMat;
+        }
+
+
+
 
         #endregion
 

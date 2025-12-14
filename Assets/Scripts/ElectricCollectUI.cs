@@ -47,7 +47,7 @@ public class ElectricCollectUI : MonoBehaviour
 
         if (currentCharge == 0 && img.enabled)
         {
-             img.enabled = false; // 如果 charge 为 0 时应该隐藏 UI
+             img.enabled = false;
              img.texture = charge0tex;
         }
     }
