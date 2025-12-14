@@ -29038,6 +29038,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: In Game UI and Managers
       objectReference: {fileID: 0}
+    - target: {fileID: 3006710544032106810, guid: 41669c47a46e8e44398a48849f541acb, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3469089194389729161, guid: 41669c47a46e8e44398a48849f541acb, type: 3}
       propertyPath: dirtVolume
       value: 1

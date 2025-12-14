@@ -8,6 +8,8 @@ public class PlayerAttack : MonoBehaviour
     public Transform player;
     public float playerForce = 1.0f;
     public AudioClip pushWoodSound;
+    public AudioClip pushPumpkinSound;
+    public AudioClip pushStoneSound;
 
     private AudioSource audioSource;
 
@@ -57,6 +59,18 @@ public class PlayerAttack : MonoBehaviour
         {
             Vector3 pushDir = thirdPersonController.transform.forward;
             stone.Push(pushDir, playerForce);
+
+            if (!soundPlayedThisAttack && pushPumpkinSound != null && other.CompareTag("Pumpkin"))
+            {
+                audioSource.PlayOneShot(pushPumpkinSound);
+                soundPlayedThisAttack = true;
+            }
+
+            if (!soundPlayedThisAttack && pushStoneSound != null && !other.CompareTag("Pumpkin"))
+            {
+                audioSource.PlayOneShot(pushStoneSound);
+                soundPlayedThisAttack = true;
+            }
         }
     }
 }
