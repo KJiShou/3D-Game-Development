@@ -57,7 +57,6 @@ public class PressurePlate : MonoBehaviour
     {
         if (collision.gameObject.tag == "Triggered Stone" && gameObject.tag == "Interactable")
         {
-            Debug.Log(GameManager.instance.IsWawaSave());
             if (saveFriend)
             {
                 if (!GameManager.instance.IsWawaSave())
