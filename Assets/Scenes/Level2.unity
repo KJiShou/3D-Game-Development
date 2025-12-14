@@ -11769,14 +11769,14 @@ RectTransform:
   m_GameObject: {fileID: 878046629}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1941352417}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -896, y: 316}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 174, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &878046631
@@ -11792,14 +11792,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.RawImage
   m_Material: {fileID: 0}
-  m_Color: {r: 0.5019608, g: 0.4745098, b: 0.4745098, a: 1}
+  m_Color: {r: 0.4245283, g: 0.4245283, b: 0.4245283, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 2800000, guid: ebfb7df7feacfe14f8737e78f83cf8ac, type: 3}
+  m_Texture: {fileID: 2800000, guid: d6583db37e7b2ef42af76c2b8493d403, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -12679,8 +12679,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 095a5957b2b7eba4bade78984af21312, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::KeyCollect
-  collectSound: {fileID: 0}
-  volume: 1
 --- !u!65 &945459916
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -26087,11 +26085,11 @@ RectTransform:
   - {fileID: 878046630}
   m_Father: {fileID: 814562480}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 0, y: -152}
   m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_Pivot: {x: 0, y: 0.5}
 --- !u!1001 &1944066088
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -28845,6 +28843,10 @@ PrefabInstance:
       propertyPath: m_Resource
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 3927878670650014380, guid: 41669c47a46e8e44398a48849f541acb, type: 3}
+      propertyPath: keyIcon
+      value: 
+      objectReference: {fileID: 878046629}
     - target: {fileID: 3927878670650014380, guid: 41669c47a46e8e44398a48849f541acb, type: 3}
       propertyPath: thunderUIMat
       value: 
