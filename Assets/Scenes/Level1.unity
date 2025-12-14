@@ -745,6 +745,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1743617948}
     m_Modifications:
+    - target: {fileID: 1242669768996949356, guid: a642e56af35d9154cb7a38d2ec82fed1, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2703307421855228093, guid: a642e56af35d9154cb7a38d2ec82fed1, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6049900668715941654, guid: a642e56af35d9154cb7a38d2ec82fed1, type: 3}
+      propertyPath: m_Volume
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 7198180527074755028, guid: a642e56af35d9154cb7a38d2ec82fed1, type: 3}
       propertyPath: m_Name
       value: StageClearPortal
@@ -2027,6 +2039,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 590421530}
     m_Modifications:
+    - target: {fileID: 919132149155446097, guid: c7da48625d6572f46801e25f432649cf, type: 3}
+      propertyPath: m_TagString
+      value: Dirt
+      objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c515edad33a855b4794ebc9d63b96c3d, type: 3}
       propertyPath: m_LocalScale.x
       value: 2
@@ -2090,10 +2106,6 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: c515edad33a855b4794ebc9d63b96c3d, type: 3}
       propertyPath: m_IsActive
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 919132149155446097, guid: c7da48625d6572f46801e25f432649cf, type: 3}
-      propertyPath: m_TagString
-      value: Dirt
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3081,7 +3093,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: The floating platform seems like stucked
+  m_text: The floating platform seems stuck.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ba7b694447681f744a47cdb35898c0e7, type: 2}
   m_sharedMaterial: {fileID: 4313444507604097562, guid: ba7b694447681f744a47cdb35898c0e7, type: 2}
@@ -16008,7 +16020,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 430995274705909377, guid: 41669c47a46e8e44398a48849f541acb, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.35200024
+      value: 0.35200006
       objectReference: {fileID: 0}
     - target: {fileID: 430995274705909377, guid: 41669c47a46e8e44398a48849f541acb, type: 3}
       propertyPath: m_LocalPosition.z
@@ -16093,6 +16105,10 @@ PrefabInstance:
     - target: {fileID: 8852652314259822222, guid: 41669c47a46e8e44398a48849f541acb, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.19999766
+      objectReference: {fileID: 0}
+    - target: {fileID: 8852652314259822222, guid: 41669c47a46e8e44398a48849f541acb, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.35200006
       objectReference: {fileID: 0}
     - target: {fileID: 8852652314259822222, guid: 41669c47a46e8e44398a48849f541acb, type: 3}
       propertyPath: m_LocalPosition.z
