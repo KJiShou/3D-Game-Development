@@ -2,24 +2,24 @@ using UnityEngine;
 
 public class CandleController : MonoBehaviour
 {
-    public GameObject candleFlame1;
-    public GameObject candleFlame2;
-    public GameObject candleFlame3;
-    public GameObject light;
+    public ParticleSystem candleFlame1;
+    public ParticleSystem candleFlame2;
+    public ParticleSystem candleFlame3;
+    public GameObject candleLight;
 
     public void TurnOn()
     {
-        candleFlame1.SetActive(true);
-        candleFlame2.SetActive(true);
-        candleFlame3.SetActive(true);
-        light.SetActive(true);
+        candleFlame1.Play();
+        candleFlame2.Play();
+        candleFlame3.Play();
+        candleLight.SetActive(true);
     }
 
     public void TurnOff()
     {
-        candleFlame1.SetActive(false);
-        candleFlame2.SetActive(false);
-        candleFlame3.SetActive(false);
-        light.SetActive(false);
+        candleFlame1.Stop();
+        candleFlame2.Stop();
+        candleFlame3.Stop();
+        candleLight.SetActive(false);
     }
 }

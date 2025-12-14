@@ -7,7 +7,7 @@ public class PumpkinSelector : MonoBehaviour
     public UIPressButton pressButton;
     public StartMessage message;
     public GameObject endPoint;
-    public MovingPlatform movingPlatform;
+    public MovingPlatforms movingPlatform;
 
     public bool isCorrect = false;
     private bool playerInRange = false;
