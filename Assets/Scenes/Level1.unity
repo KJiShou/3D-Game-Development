@@ -1243,7 +1243,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4985175887614857656, guid: 54c584e418949b74e80f57080f022f71, type: 3}
       propertyPath: m_Name
-      value: RespawnPoint (1)
+      value: RespawnPoint2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -8280,6 +8280,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5033964396775039424, guid: a5958cd712350f84bac1a5d6317eb3df, type: 3}
+      propertyPath: popSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 3afe7c2dca1339843a7375b1a4e9ca7d, type: 3}
+    - target: {fileID: 5033964396775039424, guid: a5958cd712350f84bac1a5d6317eb3df, type: 3}
       propertyPath: shortBridge
       value: 
       objectReference: {fileID: 1040642797}
@@ -8287,6 +8291,30 @@ PrefabInstance:
       propertyPath: triggeredObject
       value: 
       objectReference: {fileID: 1040642797}
+    - target: {fileID: 6679951152498619096, guid: a5958cd712350f84bac1a5d6317eb3df, type: 3}
+      propertyPath: MaxDistance
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6679951152498619096, guid: a5958cd712350f84bac1a5d6317eb3df, type: 3}
+      propertyPath: MinDistance
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6679951152498619096, guid: a5958cd712350f84bac1a5d6317eb3df, type: 3}
+      propertyPath: rolloffMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6679951152498619096, guid: a5958cd712350f84bac1a5d6317eb3df, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6679951152498619096, guid: a5958cd712350f84bac1a5d6317eb3df, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 406147734683847122, guid: 6123cf893db67c3479b91c7e3807e618, type: 2}
+    - target: {fileID: 6679951152498619096, guid: a5958cd712350f84bac1a5d6317eb3df, type: 3}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -9277,7 +9305,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7419313621584132252, guid: 4d605bd7188ac6242a50438f16e3d099, type: 3}
       propertyPath: m_Mass
-      value: 5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7650439121981645759, guid: 4d605bd7188ac6242a50438f16e3d099, type: 3}
       propertyPath: m_LocalScale.x
@@ -10516,7 +10544,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7419313621584132252, guid: 4d605bd7188ac6242a50438f16e3d099, type: 3}
       propertyPath: m_Mass
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7650439121981645759, guid: 4d605bd7188ac6242a50438f16e3d099, type: 3}
       propertyPath: m_LocalScale.x
@@ -11913,6 +11941,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5033964396775039424, guid: a5958cd712350f84bac1a5d6317eb3df, type: 3}
+      propertyPath: popSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 3afe7c2dca1339843a7375b1a4e9ca7d, type: 3}
+    - target: {fileID: 5033964396775039424, guid: a5958cd712350f84bac1a5d6317eb3df, type: 3}
       propertyPath: shortBridge
       value: 
       objectReference: {fileID: 1040642797}
@@ -11920,6 +11952,42 @@ PrefabInstance:
       propertyPath: triggeredObject
       value: 
       objectReference: {fileID: 1040642797}
+    - target: {fileID: 6679951152498619096, guid: a5958cd712350f84bac1a5d6317eb3df, type: 3}
+      propertyPath: Loop
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6679951152498619096, guid: a5958cd712350f84bac1a5d6317eb3df, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6679951152498619096, guid: a5958cd712350f84bac1a5d6317eb3df, type: 3}
+      propertyPath: m_Resource
+      value: 
+      objectReference: {fileID: 8300000, guid: 3afe7c2dca1339843a7375b1a4e9ca7d, type: 3}
+    - target: {fileID: 6679951152498619096, guid: a5958cd712350f84bac1a5d6317eb3df, type: 3}
+      propertyPath: MaxDistance
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6679951152498619096, guid: a5958cd712350f84bac1a5d6317eb3df, type: 3}
+      propertyPath: MinDistance
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6679951152498619096, guid: a5958cd712350f84bac1a5d6317eb3df, type: 3}
+      propertyPath: rolloffMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6679951152498619096, guid: a5958cd712350f84bac1a5d6317eb3df, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6679951152498619096, guid: a5958cd712350f84bac1a5d6317eb3df, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 406147734683847122, guid: 6123cf893db67c3479b91c7e3807e618, type: 2}
+    - target: {fileID: 6679951152498619096, guid: a5958cd712350f84bac1a5d6317eb3df, type: 3}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -12786,6 +12854,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5033964396775039424, guid: a5958cd712350f84bac1a5d6317eb3df, type: 3}
+      propertyPath: popSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 3afe7c2dca1339843a7375b1a4e9ca7d, type: 3}
+    - target: {fileID: 5033964396775039424, guid: a5958cd712350f84bac1a5d6317eb3df, type: 3}
       propertyPath: shortBridge
       value: 
       objectReference: {fileID: 1040642797}
@@ -12793,6 +12865,30 @@ PrefabInstance:
       propertyPath: triggeredObject
       value: 
       objectReference: {fileID: 1040642797}
+    - target: {fileID: 6679951152498619096, guid: a5958cd712350f84bac1a5d6317eb3df, type: 3}
+      propertyPath: MaxDistance
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6679951152498619096, guid: a5958cd712350f84bac1a5d6317eb3df, type: 3}
+      propertyPath: MinDistance
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6679951152498619096, guid: a5958cd712350f84bac1a5d6317eb3df, type: 3}
+      propertyPath: rolloffMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6679951152498619096, guid: a5958cd712350f84bac1a5d6317eb3df, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6679951152498619096, guid: a5958cd712350f84bac1a5d6317eb3df, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 406147734683847122, guid: 6123cf893db67c3479b91c7e3807e618, type: 2}
+    - target: {fileID: 6679951152498619096, guid: a5958cd712350f84bac1a5d6317eb3df, type: 3}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -12865,23 +12961,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1376918044725304748, guid: e7816bc9419242844993db74c0980d6a, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.9988545
+      value: 0.9988427
       objectReference: {fileID: 0}
     - target: {fileID: 1376918044725304748, guid: e7816bc9419242844993db74c0980d6a, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.013112658
+      value: 0.013984346
       objectReference: {fileID: 0}
     - target: {fileID: 1376918044725304748, guid: e7816bc9419242844993db74c0980d6a, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.046019778
+      value: 0.046018533
       objectReference: {fileID: 0}
     - target: {fileID: 1376918044725304748, guid: e7816bc9419242844993db74c0980d6a, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.00019936089
+      value: 0.00015918123
       objectReference: {fileID: 0}
     - target: {fileID: 1376918044725304748, guid: e7816bc9419242844993db74c0980d6a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 1.5
+      value: 1.6
       objectReference: {fileID: 0}
     - target: {fileID: 1376918044725304748, guid: e7816bc9419242844993db74c0980d6a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -14502,7 +14598,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -15971,7 +16067,7 @@ MonoBehaviour:
   activeObjectAnim: {fileID: 8151982571050291393}
   triggeredAnimation: 0
   animatorTrigger: 
-  activeObjectAudio: {fileID: 0}
+  activeObjectAudio: {fileID: 9192175846245758351}
   fadeDuration: 1
   shake: 0
   isPressed: 0
@@ -15994,7 +16090,7 @@ MonoBehaviour:
   activeObjectAnim: {fileID: 8151982571152062912}
   triggeredAnimation: 0
   animatorTrigger: 
-  activeObjectAudio: {fileID: 0}
+  activeObjectAudio: {fileID: 9192175846146055312}
   fadeDuration: 1
   shake: 0
   isPressed: 0
@@ -16017,7 +16113,7 @@ MonoBehaviour:
   activeObjectAnim: {fileID: 8151982571201534361}
   triggeredAnimation: 0
   animatorTrigger: 
-  activeObjectAudio: {fileID: 0}
+  activeObjectAudio: {fileID: 9192175846128041175}
   fadeDuration: 1
   shake: 0
   isPressed: 0
@@ -16040,7 +16136,7 @@ MonoBehaviour:
   activeObjectAnim: {fileID: 8151982570867081250}
   triggeredAnimation: 0
   animatorTrigger: 
-  activeObjectAudio: {fileID: 0}
+  activeObjectAudio: {fileID: 9192175845927740782}
   fadeDuration: 1
   shake: 0
   isPressed: 0
@@ -16063,7 +16159,7 @@ MonoBehaviour:
   activeObjectAnim: {fileID: 8151982571625330463}
   triggeredAnimation: 0
   animatorTrigger: 
-  activeObjectAudio: {fileID: 0}
+  activeObjectAudio: {fileID: 9192175846744429137}
   fadeDuration: 1
   shake: 0
   isPressed: 0
@@ -16132,7 +16228,7 @@ MonoBehaviour:
   activeObjectAnim: {fileID: 8151982572091489445}
   triggeredAnimation: 0
   animatorTrigger: 
-  activeObjectAudio: {fileID: 0}
+  activeObjectAudio: {fileID: 9192175845206628843}
   fadeDuration: 1
   shake: 0
   isPressed: 0
@@ -16178,7 +16274,7 @@ MonoBehaviour:
   activeObjectAnim: {fileID: 8151982572265632263}
   triggeredAnimation: 0
   animatorTrigger: 
-  activeObjectAudio: {fileID: 0}
+  activeObjectAudio: {fileID: 9192175845061875529}
   fadeDuration: 1
   shake: 0
   isPressed: 0
@@ -16201,7 +16297,7 @@ MonoBehaviour:
   activeObjectAnim: {fileID: 8151982572071982881}
   triggeredAnimation: 0
   animatorTrigger: 
-  activeObjectAudio: {fileID: 0}
+  activeObjectAudio: {fileID: 9192175844716524143}
   fadeDuration: 1
   shake: 0
   isPressed: 0
@@ -16224,7 +16320,7 @@ MonoBehaviour:
   activeObjectAnim: {fileID: 8151982572807260113}
   triggeredAnimation: 0
   animatorTrigger: 
-  activeObjectAudio: {fileID: 0}
+  activeObjectAudio: {fileID: 9192175845594997407}
   fadeDuration: 1
   shake: 0
   isPressed: 0
@@ -16247,7 +16343,7 @@ MonoBehaviour:
   activeObjectAnim: {fileID: 8151982572501147791}
   triggeredAnimation: 0
   animatorTrigger: 
-  activeObjectAudio: {fileID: 0}
+  activeObjectAudio: {fileID: 9192175845364237761}
   fadeDuration: 1
   shake: 0
   isPressed: 0
@@ -16270,7 +16366,7 @@ MonoBehaviour:
   activeObjectAnim: {fileID: 8151982572499649882}
   triggeredAnimation: 0
   animatorTrigger: 
-  activeObjectAudio: {fileID: 0}
+  activeObjectAudio: {fileID: 9192175845362622486}
   fadeDuration: 1
   shake: 0
   isPressed: 0
@@ -16293,7 +16389,7 @@ MonoBehaviour:
   activeObjectAnim: {fileID: 8151982572579978975}
   triggeredAnimation: 0
   animatorTrigger: 
-  activeObjectAudio: {fileID: 0}
+  activeObjectAudio: {fileID: 9192175845283355537}
   fadeDuration: 1
   shake: 0
   isPressed: 0
@@ -17163,6 +17259,10 @@ PrefabInstance:
       value: HT-Log1
       objectReference: {fileID: 0}
     - target: {fileID: 5033964396775039424, guid: a5958cd712350f84bac1a5d6317eb3df, type: 3}
+      propertyPath: popSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 3afe7c2dca1339843a7375b1a4e9ca7d, type: 3}
+    - target: {fileID: 5033964396775039424, guid: a5958cd712350f84bac1a5d6317eb3df, type: 3}
       propertyPath: shortBridge
       value: 
       objectReference: {fileID: 1040642797}
@@ -17170,6 +17270,30 @@ PrefabInstance:
       propertyPath: triggeredObject
       value: 
       objectReference: {fileID: 1040642797}
+    - target: {fileID: 6679951152498619096, guid: a5958cd712350f84bac1a5d6317eb3df, type: 3}
+      propertyPath: MaxDistance
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6679951152498619096, guid: a5958cd712350f84bac1a5d6317eb3df, type: 3}
+      propertyPath: MinDistance
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6679951152498619096, guid: a5958cd712350f84bac1a5d6317eb3df, type: 3}
+      propertyPath: rolloffMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6679951152498619096, guid: a5958cd712350f84bac1a5d6317eb3df, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6679951152498619096, guid: a5958cd712350f84bac1a5d6317eb3df, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 406147734683847122, guid: 6123cf893db67c3479b91c7e3807e618, type: 2}
+    - target: {fileID: 6679951152498619096, guid: a5958cd712350f84bac1a5d6317eb3df, type: 3}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -20364,6 +20488,6 @@ SceneRoots:
   - {fileID: 1362039692}
   - {fileID: 1278040048}
   - {fileID: 1442113853}
-  - {fileID: 842344334}
   - {fileID: 2071761461}
+  - {fileID: 842344334}
   - {fileID: 176382607}
