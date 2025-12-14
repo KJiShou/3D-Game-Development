@@ -64,7 +64,6 @@ namespace UI
 
         [Header("Key UI")]
         public GameObject keyIcon;
-        public Material keyActiveMat;
         private KeyCollect keyCollect;
 
         #endregion
@@ -257,11 +256,9 @@ namespace UI
 
         public void UpdateKeyUI()
         {
-            if (!keyActiveMat) return;
 
             RawImage image = keyIcon.gameObject.GetComponent<RawImage>();
             image.color = Color.white;
-            image.material = keyActiveMat;
         }
 
 
