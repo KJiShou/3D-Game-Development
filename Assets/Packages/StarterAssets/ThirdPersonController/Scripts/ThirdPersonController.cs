@@ -220,6 +220,7 @@ namespace StarterAssets
 
         private void Update()
         {
+            if (_die) return;
             // new input system
             if (Mouse.current != null && Mouse.current.leftButton.isPressed && !isAttacking || UnityEngine.Input.GetMouseButtonDown(0) && !isAttacking)
             {
@@ -634,9 +635,9 @@ namespace StarterAssets
             { 
                 yield return new WaitForSeconds(1);
                 GameManager.instance.RestartLevel(currentScene.name);
-            }
-
-            yield return new WaitForSeconds(1);
+            }else
+            {
+                yield return new WaitForSeconds(1);
             SceneController.instance.LoadAnimation();
             yield return new WaitForSeconds(0.75f);
             _animator.SetBool(_animIDDie, false);
@@ -644,6 +645,9 @@ namespace StarterAssets
             RespawnManager.instance.RespawnPlayer(gameObject);
             _die = false;
             skinnedMeshRenderer.material = idle;
+
+            }
+
         }
         
     }
