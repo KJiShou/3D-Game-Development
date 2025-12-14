@@ -8,6 +8,7 @@ namespace Game
         public static GameManager instance;
         private SceneController controller;
         private bool kakaIsSave = false;
+        private bool wawaIsSave = false;
         private bool passTutorial = false;
         private static int respawnCount = 0;
         
@@ -56,6 +57,15 @@ namespace Game
             else
             {
                 kakaIsSave = PlayerPrefs.GetInt("KakaIsSaved").Equals(1);
+            }
+
+            if (!PlayerPrefs.HasKey("WawaIsSaved"))
+            {
+                PlayerPrefs.SetInt("WawaIsSaved", 0);
+            }
+            else
+            {
+                wawaIsSave = PlayerPrefs.GetInt("WawaIsSaved").Equals(1);
             }
         }
 
@@ -130,10 +140,21 @@ namespace Game
             return kakaIsSave;
         }
 
+        public bool IsWawaSave()
+        {
+            return wawaIsSave;
+        }
+
         public void SaveKaka()
         {
             kakaIsSave = true;
             PlayerPrefs.SetInt("KakaIsSaved", 1);
+        }
+
+        public void SaveWawa()
+        {
+            wawaIsSave = true;
+            PlayerPrefs.SetInt("WawaIsSaved", 1);
         }
 
         #endregion
