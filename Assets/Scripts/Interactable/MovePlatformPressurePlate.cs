@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-public class MovingPlatform : MonoBehaviour
+public class MovePlatformPressurePlate : MonoBehaviour
 {
     public GameObject platform;
     private FloatingPlatform floatingPlatform;
@@ -16,7 +16,7 @@ public class MovingPlatform : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            if (!GetComponent<MovingPlatform>().isActiveAndEnabled) return;
+            if (!GetComponent<MovePlatformPressurePlate>().isActiveAndEnabled) return;
             if (floatingPlatform.hitLeft || floatingPlatform.hitRight || floatingPlatform.hitFront || floatingPlatform.hitBack)
             {
                 floatingPlatform.DisplayHintText();
@@ -53,7 +53,7 @@ public class MovingPlatform : MonoBehaviour
     {
         if (!other.CompareTag("Player"))
             return;
-        if (!GetComponent<MovingPlatform>().isActiveAndEnabled) return;
+        if (!GetComponent<MovePlatformPressurePlate>().isActiveAndEnabled) return;
         floatingPlatform.FadingHintText();
         floatingPlatform.currentDir = FloatingPlatform.MoveDir.Idle;
     }
