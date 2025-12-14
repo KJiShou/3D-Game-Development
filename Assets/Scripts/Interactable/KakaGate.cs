@@ -9,6 +9,7 @@ public class KakaGate : MonoBehaviour
     public GameObject destroyMachine;
     private Animator openButtonAnimator;
     public bool havePlayer;
+    public string showMessage = "Kaka's been locked up! Go rescue him!";
     private StartMessage message;
     private GameManager gameManager;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -25,7 +26,7 @@ public class KakaGate : MonoBehaviour
     {
         if (havePlayer && Input.GetKeyDown(KeyCode.E))
         {
-            destroyMachine.SetActive(true);
+            if (destroyMachine != null) destroyMachine.SetActive(true);
             havePlayer = false;
             openButtonAnimator.SetBool("HaveItem", false);
             animator.SetBool("Save", true);
@@ -42,7 +43,7 @@ public class KakaGate : MonoBehaviour
         {
             havePlayer = true;
             openButtonAnimator.SetBool("HaveItem", true);
-            message.ShowMessage("Kaka's been locked up! Go rescue him!");
+            message.ShowMessage(showMessage);
         }
     }
 
