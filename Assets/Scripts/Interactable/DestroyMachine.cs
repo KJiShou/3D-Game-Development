@@ -42,6 +42,7 @@ public class DestroyMachine : MonoBehaviour
     IEnumerator createWinIsland()
     {
         yield return new WaitForSeconds(10);
+        SceneController.instance.LoadScene("EndScene");
         winIsland.SetActive(true);
     }
 
