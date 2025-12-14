@@ -12,6 +12,8 @@ public class BuildPoint : MonoBehaviour
 
     public GameObject nextStageFog;
 
+    public ParticleSystem buildEffect;
+
     public bool haveItem = false;
 
     private Animator buildButtonAnimator;
@@ -45,7 +47,7 @@ public class BuildPoint : MonoBehaviour
         {
 
             if (bridge != null) bridge.SetActive(true);
-
+            PlayBreakEffect();
             treeLog.SetActive(false);
 
             gameObject.SetActive(false);
@@ -121,6 +123,18 @@ public class BuildPoint : MonoBehaviour
             buildButtonAnimator.SetBool("HaveItem", false);
         }
 
+    }
+
+    void PlayBreakEffect()
+    {
+        if (buildEffect != null)
+        {
+            ParticleSystem fx = Instantiate(buildEffect, bridge.transform.position, Quaternion.identity);
+
+            fx.Play();
+
+            Destroy(fx.gameObject, fx.main.duration + fx.main.startLifetimeMultiplier);
+        }
     }
 
 }
