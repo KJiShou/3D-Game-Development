@@ -9,7 +9,7 @@ public class LiftPlatform : MonoBehaviour
     public GameObject halfTransparentStoneObj;
     private HalfTransparentStone halfTransparentStone;
 
-    public MovingPlatform[] childMovingPlatformScripts;
+    public MovePlatformPressurePlate[] childMovingPlatformScripts;
 
     private void Start()
     {
@@ -37,7 +37,7 @@ public class LiftPlatform : MonoBehaviour
     public void EnableMovingPlatformScrip()
     {
         colliders.SetActive(true);
-        foreach (MovingPlatform mp in childMovingPlatformScripts)
+        foreach (MovePlatformPressurePlate mp in childMovingPlatformScripts)
         {
             mp.enabled = true;
         }
@@ -46,7 +46,7 @@ public class LiftPlatform : MonoBehaviour
     public void DisableMovingPlatformScrip()
     {
         colliders.SetActive(true);
-        foreach (MovingPlatform mp in childMovingPlatformScripts)
+        foreach (MovePlatformPressurePlate mp in childMovingPlatformScripts)
         {
             mp.enabled = false;
         }
