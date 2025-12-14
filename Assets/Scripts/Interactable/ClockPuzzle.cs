@@ -28,6 +28,10 @@ public class ClockPuzzle : MonoBehaviour
     public TextMeshProUGUI hint;
     private List<string> hintText = new List<string>();
 
+    public AudioSource audioSource;
+    public AudioClip puzzleSolved;
+    public AudioClip puzzleUnsolved;
+
     private void Awake()
     {
         instance = this;
@@ -154,9 +158,11 @@ public class ClockPuzzle : MonoBehaviour
         if (success)
         {
             portal.SetActive(true);
+            audioSource.PlayOneShot(puzzleSolved);
         }
         else
         {
+            audioSource.PlayOneShot(puzzleUnsolved);
             currentInx = 0;
         }
     }
