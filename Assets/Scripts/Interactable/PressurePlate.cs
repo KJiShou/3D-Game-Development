@@ -1,3 +1,4 @@
+using Game;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Audio;
@@ -23,11 +24,14 @@ public class PressurePlate : MonoBehaviour
     public float fadeDuration = 3f;
 
     public bool shake = false;
+    public bool saveFriend = false;
     public bool isPressed;
     private Animator animator;
 
     public AudioClip audioClip;
     private AudioSource audioSource;
+
+    private StartMessage message;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -38,6 +42,8 @@ public class PressurePlate : MonoBehaviour
         {
             animatorTrigger = "isPressed";
         }
+
+        message = FindAnyObjectByType<StartMessage>();
     }
 
     // Update is called once per frame
@@ -51,6 +57,15 @@ public class PressurePlate : MonoBehaviour
     {
         if (collision.gameObject.tag == "Triggered Stone" && gameObject.tag == "Interactable")
         {
+            Debug.Log(GameManager.instance.IsWawaSave());
+            if (saveFriend)
+            {
+                if (!GameManager.instance.IsWawaSave())
+                {
+                    message.ShowMessage("Your friend still locked up !!");
+                    return;
+                }
+            }
             audioSource.PlayOneShot(audioClip);
             isPressed = true;
             if (shake) CameraShake.Instance.ShakeCamera(2, 3.0f, 10.0f);
@@ -68,6 +83,10 @@ public class PressurePlate : MonoBehaviour
     {
         if (collision.gameObject.tag == "Triggered Stone" && gameObject.tag == "Interactable")
         {
+            if (saveFriend)
+            {
+                if (!GameManager.instance.IsWawaSave()) return;
+            }
             audioSource.PlayOneShot(audioClip);
             isPressed = false;
             animator.SetBool("isPressed", false);

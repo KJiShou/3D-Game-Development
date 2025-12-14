@@ -8,11 +8,16 @@ public class KakaGate : MonoBehaviour
     public GameObject kaka;
     public GameObject destroyMachine;
     private Animator openButtonAnimator;
+
     public bool havePlayer;
+    public bool hasKey = false;
+    public bool isKaka = true;
     public string showMessage = "Kaka's been locked up! Go rescue him!";
+    public string needKeyMessage = "You need a key to open this gate!";
+
     private StartMessage message;
     private GameManager gameManager;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+
     void Start()
     {
         animator = GetComponent<Animator>();
@@ -21,38 +26,66 @@ public class KakaGate : MonoBehaviour
         gameManager = GameManager.instance;
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if (havePlayer && Input.GetKeyDown(KeyCode.E))
+        if (!havePlayer) return;
+
+        if (Input.GetKeyDown(KeyCode.E))
         {
-            if (destroyMachine != null) destroyMachine.SetActive(true);
-            havePlayer = false;
-            openButtonAnimator.SetBool("HaveItem", false);
-            animator.SetBool("Save", true);
-            Destroy(kaka, 6);
-            openButton.SetActive(false);
-            gameObject.GetComponent<BoxCollider>().enabled = false;
-            gameManager.SaveKaka();
+            TryOpenGate();
         }
+    }
+
+    private void TryOpenGate()
+    {
+        if (!hasKey)
+        {
+            OpenGate();
+            return;
+        }
+
+        if (KeyCollect.hasKey)
+        {
+            OpenGate();
+        }
+        else
+        {
+            message.ShowMessage(needKeyMessage);
+        }
+    }
+
+    private void OpenGate()
+    {
+        if (destroyMachine != null) destroyMachine.SetActive(true);
+
+        havePlayer = false;
+        openButtonAnimator.SetBool("HaveItem", false);
+
+        animator.SetBool("Save", true);
+        Destroy(kaka, 10);
+
+        openButton.SetActive(false);
+        GetComponent<BoxCollider>().enabled = false;
+
+        if (isKaka) gameManager.SaveKaka();
+        if (!isKaka) gameManager.SaveWawa();
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Player")
-        {
-            havePlayer = true;
-            openButtonAnimator.SetBool("HaveItem", true);
-            message.ShowMessage(showMessage);
-        }
+        if (!other.CompareTag("Player")) return;
+
+        havePlayer = true;
+        openButtonAnimator.SetBool("HaveItem", true);
+
+        message.ShowMessage(showMessage);
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.tag == "Player")
-        {
-            havePlayer = false;
-            openButtonAnimator.SetBool("HaveItem", false);
-        }
+        if (!other.CompareTag("Player")) return;
+
+        havePlayer = false;
+        openButtonAnimator.SetBool("HaveItem", false);
     }
 }

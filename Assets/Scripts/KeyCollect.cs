@@ -7,6 +7,9 @@ public class KeyCollect : MonoBehaviour
     public static KeyCollect instance;
     private UIManager uiManager;
 
+    public AudioClip collectSound;
+    public float volume = 1.5f;
+
     private void Awake()
     {
         instance = this;
@@ -25,6 +28,7 @@ public class KeyCollect : MonoBehaviour
             hasKey = true;
             UIManager.instance.UpdateKeyUI();
             gameObject.SetActive(false);
+            AudioSource.PlayClipAtPoint(collectSound, transform.position, volume);
         }
     }
 }
