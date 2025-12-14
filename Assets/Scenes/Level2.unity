@@ -14410,7 +14410,7 @@ MonoBehaviour:
   openButton: {fileID: 903487867}
   kaka: {fileID: 750841061}
   destroyMachine: {fileID: 0}
-  havePlayer: 1
+  havePlayer: 0
   hasKey: 1
   isKaka: 0
   showMessage: Wawa's been locked up! Go rescue him!
