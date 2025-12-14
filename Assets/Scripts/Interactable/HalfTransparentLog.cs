@@ -1,6 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class HalfTransparentLog : MonoBehaviour
 {
@@ -9,8 +11,9 @@ public class HalfTransparentLog : MonoBehaviour
     private static int buildCount = 0;
     private static List<GameObject> trees = new List<GameObject>();
     private static List<Collider> treesCollider = new List<Collider>();
-
     private Collider thisCollider;
+
+    public AudioClip popSound;
 
     private void Start()
     {
@@ -45,6 +48,7 @@ public class HalfTransparentLog : MonoBehaviour
 
             if (overlapPercentX >= 0.5f && overlapPercentZ >= 0.5f)
             {
+                AudioSource.PlayClipAtPoint(popSound, transform.position);
                 Vector3 newPos = new Vector3(transform.position.x, transform.position.y, transform.position.z);
                 trees[i].transform.position = newPos;
                 Rigidbody rb = trees[i].GetComponent<Rigidbody>();
