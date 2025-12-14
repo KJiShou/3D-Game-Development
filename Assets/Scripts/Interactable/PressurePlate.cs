@@ -14,6 +14,7 @@ public class PressurePlate : MonoBehaviour
     public bool triggeredAnimation = false;
     public string animatorTrigger = "";
 
+    public bool shake = false;
     public bool isPressed;
     private Animator animator;
 
@@ -39,6 +40,7 @@ public class PressurePlate : MonoBehaviour
         if (collision.gameObject.tag == "Triggered Stone")
         {
             isPressed = true;
+            if (shake) CameraShake.Instance.ShakeCamera(2, 3.0f, 10.0f);
             animator.SetBool("isPressed", true);
             activeObjectAnim.SetBool(animatorTrigger, true);
         }
@@ -58,6 +60,7 @@ public class PressurePlate : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
+
             isPressed = true;
             animator.SetBool("isPressed", true);
             activeObjectAnim.SetBool(animatorTrigger, true);

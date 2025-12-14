@@ -2170,6 +2170,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 590421530}
     m_Modifications:
+    - target: {fileID: 919132149155446097, guid: c7da48625d6572f46801e25f432649cf, type: 3}
+      propertyPath: m_TagString
+      value: Dirt
+      objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c515edad33a855b4794ebc9d63b96c3d, type: 3}
       propertyPath: m_LocalScale.x
       value: 2
@@ -2229,10 +2233,6 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: c515edad33a855b4794ebc9d63b96c3d, type: 3}
       propertyPath: m_Name
       value: flower_redC4
-      objectReference: {fileID: 0}
-    - target: {fileID: 919132149155446097, guid: c7da48625d6572f46801e25f432649cf, type: 3}
-      propertyPath: m_TagString
-      value: Dirt
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -6814,6 +6814,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 590421530}
     m_Modifications:
+    - target: {fileID: 919132149155446097, guid: c7da48625d6572f46801e25f432649cf, type: 3}
+      propertyPath: m_TagString
+      value: Dirt
+      objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f50b4ffab83325e43bee5b9c757d1cb0, type: 3}
       propertyPath: m_LocalScale.x
       value: 2
@@ -6877,10 +6881,6 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: f50b4ffab83325e43bee5b9c757d1cb0, type: 3}
       propertyPath: m_IsActive
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 919132149155446097, guid: c7da48625d6572f46801e25f432649cf, type: 3}
-      propertyPath: m_TagString
-      value: Dirt
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -14242,6 +14242,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1695032998}
     m_Modifications:
+    - target: {fileID: 1510123733739508620, guid: 7261f105b5d8d4e409891a01248978e1, type: 3}
+      propertyPath: shake
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1510123733739508620, guid: 7261f105b5d8d4e409891a01248978e1, type: 3}
       propertyPath: animatorTrigger
       value: Down
