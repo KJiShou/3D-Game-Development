@@ -11,7 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Tutorial.unity
     guid: d74ddd34b57aace4a91e0cfde5dbd4e6
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/JS_Playground.unity
     guid: a2b2509843e1eac4f9d588319099e6ce
   - enabled: 1
@@ -23,6 +23,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Level3.unity
     guid: 099ab6bb770d41347a774cb53e053710
+  - enabled: 1
+    path: Assets/Scenes/EndScene.unity
+    guid: d88e8f698e232fb43b30cff01cde99a5
   m_configObjects:
     com.unity.addressableassets: {fileID: 11400000, guid: c1a0c801b9ed4ed43bb6e9519823c215, type: 2}
     com.unity.input.settings: {fileID: 11400000, guid: 9e7be553448fa2546aea5752021cbcf7, type: 2}

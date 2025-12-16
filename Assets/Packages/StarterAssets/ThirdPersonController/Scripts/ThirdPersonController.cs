@@ -220,7 +220,11 @@ namespace StarterAssets
 
         private void Update()
         {
-            if (_die) return;
+            if (_die)
+            {
+                skinnedMeshRenderer.material = cry;
+                return;
+            }
             // new input system
             if (Mouse.current != null && Mouse.current.leftButton.isPressed && !isAttacking || UnityEngine.Input.GetMouseButtonDown(0) && !isAttacking)
             {
