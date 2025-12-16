@@ -104,7 +104,7 @@ namespace UI
                     electricCollect = ElectricCollect.instance;
                     keyCollect = KeyCollect.instance;
                 }
-                respawnCount.text = "X " + gameManager.GetRespawnCount();
+                respawnCount.text = "X " + gameManager.GetLeftLife();
             }
         }
 
@@ -142,10 +142,9 @@ namespace UI
         // ==============================
         // In Game methods
         // ==============================
-        public void UpdateRespawnCount()
+        public void UpdateLeftLife()
         {
-            gameManager.AddRespawnCount();
-            respawnCount.text = "X " + gameManager.GetRespawnCount();
+            respawnCount.text = "X " + gameManager.GetLeftLife();
         }
 
         public void OpenInfoPanel()
@@ -256,7 +255,6 @@ namespace UI
 
         public void UpdateKeyUI()
         {
-
             RawImage image = keyIcon.gameObject.GetComponent<RawImage>();
             image.color = Color.white;
         }
