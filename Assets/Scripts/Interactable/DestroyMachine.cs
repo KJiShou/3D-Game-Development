@@ -1,4 +1,5 @@
 using Cinemachine;
+using Game;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -27,6 +28,7 @@ public class DestroyMachine : MonoBehaviour
     {
         if (havePlayer && Input.GetKeyDown(KeyCode.E))
         {
+            GameManager.instance.UpdateCurrentLevel();
             StartCoroutine(PlayLoopFor9Seconds());
             havePlayer = false;
             openButtonAnimator.SetBool("HaveItem", false);

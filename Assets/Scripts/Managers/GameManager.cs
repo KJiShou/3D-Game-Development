@@ -10,7 +10,8 @@ namespace Game
         private bool kakaIsSave = false;
         private bool wawaIsSave = false;
         private bool passTutorial = false;
-        private static int respawnCount = 0;
+        private static int lifeLeft = 5;
+        private static int currentLevel = 0;
         
         #endregion
 
@@ -67,29 +68,50 @@ namespace Game
             {
                 wawaIsSave = PlayerPrefs.GetInt("WawaIsSaved").Equals(1);
             }
+
+            if (!PlayerPrefs.HasKey("CurrentLevel"))
+            {
+                PlayerPrefs.SetInt("CurrentLevel", 1);
+            }
+            else
+            {
+                currentLevel = PlayerPrefs.GetInt("CurrentLevel");
+            }
         }
 
         #endregion
         #region Public methods
 
-        public void AddRespawnCount()
+        public void DeductLife()
         {
-            if (respawnCount < 9999) respawnCount++;
+            lifeLeft--;
+
+            if(lifeLeft <= 0)
+            {
+                LoadMainMenu();
+            }
         }
 
-        public int GetRespawnCount()
+        public void ResetLeftLife()
         {
-            return respawnCount;
+            lifeLeft = 5;
+        }
+
+        public int GetLeftLife()
+        {
+            return lifeLeft;
         }
 
         public void RestartLevel(string scene)
         {
+            ResetLeftLife();
             LockCursor();
             controller.LoadScene(scene);
         }
 
         public void LoadMainMenu()
         {
+            ResetLeftLife();
             UnlockCursor();
             controller.LoadScene("MainMenu");
         }
@@ -99,7 +121,27 @@ namespace Game
             if (passTutorial)
             {
                 LockCursor();
-                controller.LoadScene("Level1");
+                switch (currentLevel){
+                    case 1:
+                        {
+                            controller.LoadScene("Level1");
+                            break;
+                        }
+                    case 2:
+                        {
+                            controller.LoadScene("Level2");
+                            break;
+                        }
+                    case 3:
+                        {
+                            controller.LoadScene("Level3");
+                            break;
+                        }
+                    default:
+                        controller.LoadScene("Level1");
+                        break;
+                }
+                
             }
             else
             {
@@ -155,6 +197,14 @@ namespace Game
         {
             wawaIsSave = true;
             PlayerPrefs.SetInt("WawaIsSaved", 1);
+        }
+
+        public void UpdateCurrentLevel()
+        {
+            currentLevel++;
+            if (currentLevel > 3) currentLevel = 1;
+            PlayerPrefs.SetInt("CurrentLevel", currentLevel);
+            PlayerPrefs.Save();
         }
 
         #endregion
