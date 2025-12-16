@@ -4,12 +4,10 @@ public class PortalCollision : MonoBehaviour
 {
     public AudioClip inPortalSound;
     public AudioClip outPortalSound; 
-    private AudioSource audioSource;
     public Transform transportPosition;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -35,17 +33,17 @@ public class PortalCollision : MonoBehaviour
 
     private void InPortalSound()
     {
-        if (audioSource != null && inPortalSound != null)
+        if (inPortalSound != null)
         {
-            audioSource.PlayOneShot(inPortalSound);
+            AudioSource.PlayClipAtPoint(inPortalSound, transportPosition.position, 1.5f);
         }
     }
 
     private void OutPortalSound()
     {
-        if (audioSource != null && outPortalSound != null)
+        if (outPortalSound != null)
         {
-            audioSource.PlayOneShot(outPortalSound);
+            AudioSource.PlayClipAtPoint(outPortalSound, transportPosition.position, 1.5f);
         }
     }
 }

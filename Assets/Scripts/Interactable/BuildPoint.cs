@@ -24,6 +24,8 @@ public class BuildPoint : MonoBehaviour
 
     public GameObject hint;
 
+    public AudioClip buildSound;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
     void Start()
@@ -49,7 +51,7 @@ public class BuildPoint : MonoBehaviour
             if (bridge != null) bridge.SetActive(true);
             PlayBreakEffect();
             treeLog.SetActive(false);
-
+            if (buildSound != null) AudioSource.PlayClipAtPoint(buildSound, transform.position, 1.5f);
             gameObject.SetActive(false);
 
             if (nextStageFog != null) nextStageFog.SetActive(false);
