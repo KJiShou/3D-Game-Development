@@ -24,7 +24,11 @@ public class KakaGate : MonoBehaviour
         openButtonAnimator = openButton.GetComponent<Animator>();
         message = FindAnyObjectByType<StartMessage>().GetComponent<StartMessage>();
         gameManager = GameManager.instance;
-        if (isKaka && gameManager.IsKakaSave()) gameObject.SetActive(false);
+        if (isKaka && gameManager.IsKakaSave())
+        {
+            gameObject.SetActive(false);
+            if (destroyMachine != null) destroyMachine.SetActive(true);
+        } 
         if (!isKaka && gameManager.IsWawaSave()) gameObject.SetActive(false);
     }
 
