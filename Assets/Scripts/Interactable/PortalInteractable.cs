@@ -36,9 +36,14 @@ public class PortalInteractable : MonoBehaviour
             teleportButtonAnimator.SetBool("HaveItem", false);
             if (goNextLevel)
             {
+                GameManager.instance.ResetLeftLife();
+                if(currentScene.name != "Tutorial") GameManager.instance.UpdateCurrentLevel();
                 SceneController.instance.NextLevel();
-            } else
+            } 
+            else
             {
+                GameManager.instance.ResetLeftLife();
+                if (currentScene.name != "Tutorial") GameManager.instance.UpdateCurrentLevel();
                 SceneController.instance.LoadScene(levelName);
             }
         }

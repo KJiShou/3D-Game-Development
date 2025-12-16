@@ -1,3 +1,4 @@
+using Game;
 using System.Collections;
 using UnityEngine;
 
@@ -11,6 +12,7 @@ public class EndSceneScript : MonoBehaviour
 
     IEnumerator NextScene()
     {
+        GameManager.instance.UnlockCursor();
         yield return new WaitForSeconds(5);
         SceneController.instance.LoadScene("MainMenu");
     }

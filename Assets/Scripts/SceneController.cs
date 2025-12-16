@@ -1,4 +1,6 @@
+using Game;
 using System.Collections;
+using UI;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -6,6 +8,7 @@ using UnityEngine.SceneManagement;
 public class SceneController : MonoBehaviour
 {
     public static SceneController instance;
+    private GameManager gameManager;
     [SerializeField] Animator transitionAnim;
     private AudioSource audioSource;
     public AudioClip teleportSound;
@@ -17,7 +20,8 @@ public class SceneController : MonoBehaviour
             {
                 instance = this;
                 DontDestroyOnLoad(gameObject);
-            }else
+            }
+            else
             {
                 Destroy(gameObject);
             }
@@ -27,6 +31,7 @@ public class SceneController : MonoBehaviour
     private void Start()
     {
         audioSource = GetComponent<AudioSource>();
+        gameManager = GameManager.instance;
     }
 
     public void NextLevel()

@@ -628,28 +628,33 @@ namespace StarterAssets
                 _die = true;
                 _animator.SetBool(_animIDDie, true);
                 skinnedMeshRenderer.material = cry;
-                uiManager.UpdateRespawnCount();
+                gameManager.DeductLife();
+                uiManager.UpdateLeftLife();
                 StartCoroutine(WaitRestartLevel());
             }
         }
 
         IEnumerator WaitRestartLevel()
         {
-            if (RespawnManager.instance.currentRespawn == null)
-            { 
-                yield return new WaitForSeconds(1);
-                GameManager.instance.RestartLevel(currentScene.name);
-            }else
+            if (GameManager.instance.GetLeftLife() > 0)
             {
-                yield return new WaitForSeconds(1);
-            SceneController.instance.LoadAnimation();
-            yield return new WaitForSeconds(0.75f);
-            _animator.SetBool(_animIDDie, false);
-            yield return new WaitForSeconds(0.45f);
-            RespawnManager.instance.RespawnPlayer(gameObject);
-            _die = false;
-            skinnedMeshRenderer.material = idle;
+                if (RespawnManager.instance.currentRespawn == null)
+                {
+                    yield return new WaitForSeconds(1);
+                    GameManager.instance.RestartLevel(currentScene.name);
+                }
+                else
+                {
+                    yield return new WaitForSeconds(1);
+                    SceneController.instance.LoadAnimation();
+                    yield return new WaitForSeconds(0.75f);
+                    _animator.SetBool(_animIDDie, false);
+                    yield return new WaitForSeconds(0.45f);
+                    RespawnManager.instance.RespawnPlayer(gameObject);
+                    _die = false;
+                    skinnedMeshRenderer.material = idle;
 
+                }
             }
 
         }
