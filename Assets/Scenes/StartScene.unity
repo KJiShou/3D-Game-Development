@@ -93,8 +93,8 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 20201, guid: 0000000000000000f000000000000000, type: 0}
-  m_LightingSettings: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: bdd9b9a54c2ea244a9827d7915036ba9, type: 2}
+  m_LightingSettings: {fileID: 4890085278179872738, guid: 64a072181f2a9754aab01905d2fbda20, type: 2}
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -1559,11 +1559,11 @@ PrefabInstance:
     - target: {fileID: 9164127117676211459, guid: a95e3b76531dd6348b4886a9a3f96aa2, type: 3}
       propertyPath: walkSFXAudioSource
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1892044984}
     - target: {fileID: 9164127117676211459, guid: a95e3b76531dd6348b4886a9a3f96aa2, type: 3}
       propertyPath: attackSFXAudioSource
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1892044984}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4036,6 +4036,11 @@ PlayableDirector:
     - c5ae95ff843988842b15a8f752b9405e: {fileID: 1610380189}
     - fcc80c8292b20014eb4d17bc362de52e: {fileID: 1007615699}
     - 2ff54fa6a6fa6214fa7d2052354ebbaa: {fileID: 488572120}
+--- !u!82 &1892044984 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 6637530017125492071, guid: a95e3b76531dd6348b4886a9a3f96aa2, type: 3}
+  m_PrefabInstance: {fileID: 788398752}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1893581754 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7288816506164657790, guid: 50e9d694213653a4e8d1111b9281bbaf, type: 3}
@@ -4764,4 +4769,3 @@ SceneRoots:
   - {fileID: 874851817}
   - {fileID: 488572121}
   - {fileID: 1408886442}
-  - {fileID: 1774481498}

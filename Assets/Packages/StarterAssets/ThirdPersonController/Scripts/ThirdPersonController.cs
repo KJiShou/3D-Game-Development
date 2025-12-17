@@ -282,6 +282,8 @@ namespace StarterAssets
             // ---- Landing Sound ----
             if (!wasGrounded && Grounded)
             {
+                walkSFXAudioSource.pitch = 1.0f;
+                walkSFXAudioSource.volume = 1.0f;
                 if (LandingAudioClip)
                 {
                     //walkSFXAudioSource.pitch = 0.3f;
@@ -412,7 +414,7 @@ namespace StarterAssets
             {
                 // reset the fall timeout timer
                 _fallTimeoutDelta = FallTimeout;
-
+                
                 // update animator if using character
                 if (_hasAnimator)
                 {
@@ -521,12 +523,11 @@ namespace StarterAssets
             //         }
             //     }
             // }
-
             if (animationEvent.animatorClipInfo.weight > 0.5f)
     {
         AudioClip clipToPlay = null;
         RaycastHit hit;
-        if (Physics.Raycast(transform.position, Vector3.down, out hit, 2f))
+                if (Physics.Raycast(transform.position, Vector3.down, out hit, 2f))
         {
             switch (hit.collider.tag)
             {

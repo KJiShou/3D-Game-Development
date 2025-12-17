@@ -1943,7 +1943,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LoadOtherScene
   time: 13
-  SceneName: Introduce
+  SceneName: StartScene
 --- !u!4 &1815797869
 Transform:
   m_ObjectHideFlags: 0

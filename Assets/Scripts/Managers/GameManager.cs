@@ -160,7 +160,7 @@ namespace Game
         public void PlayCutScene()
         {
             LockCursor();
-            controller.LoadScene("Narrator");
+            controller.LoadScene("Introduce");
         }
 
         public void ExitGame()
