@@ -173,7 +173,7 @@ namespace UI
         public void StartGame()
         {
             StartCoroutine(WaitBtnAnim());
-            gameManager.StartGame();
+            gameManager.PlayCutScene();
         }
 
         public void BackToMainMenu()

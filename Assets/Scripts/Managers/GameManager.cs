@@ -149,6 +149,12 @@ namespace Game
             }
         }
 
+        public void PlayCutScene()
+        {
+            LockCursor();
+            controller.LoadScene("Narrator");
+        }
+
         public void ExitGame()
         {
             if (Application.platform == RuntimePlatform.WebGLPlayer) return;
