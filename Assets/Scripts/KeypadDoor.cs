@@ -13,6 +13,8 @@ public class KeypadDoor : MonoBehaviour
     public GameObject player;
     public Cinemachine.CinemachineVirtualCamera keypadCamera;
     private bool success = false;
+    public AudioListener audioListener;
+    public GameObject endTips;
 
     private ThirdPersonController controller;
     private StarterAssetsInputs inputs;
@@ -45,6 +47,8 @@ public class KeypadDoor : MonoBehaviour
         keypadCamera.Priority = 99;
 
         player.SetActive(false);
+        audioListener.enabled = true;
+        endTips.SetActive(true);
     }
 
     IEnumerator CreateMorseCode()
@@ -70,12 +74,18 @@ public class KeypadDoor : MonoBehaviour
 
         // Return camera
         keypadCamera.Priority = 0;
-
+        audioListener.enabled = false;
+        endTips.SetActive(false);
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (isUsingKeypad && Input.GetKeyDown(KeyCode.E))
+        {
+            openButton.SetActive(true);
+            EndKeypad();
+        }
         if (havePlayer && Input.GetKeyDown(KeyCode.E) && !success)
         {
             if (ElectricCollect.charge < requiredCharge)
@@ -91,11 +101,7 @@ public class KeypadDoor : MonoBehaviour
             StartKeypad();
         }
 
-        if (isUsingKeypad && Keyboard.current.escapeKey.wasPressedThisFrame)
-        {
-            openButton.SetActive(true);
-            EndKeypad();
-        }
+        
     }
 
     private void OnTriggerEnter(Collider other)

@@ -1,14 +1,24 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class ButtonHover : MonoBehaviour, IPointerEnterHandler
+public class ButtonClick : MonoBehaviour, IPointerClickHandler
 {
     public AudioSource audioSource;
-    public AudioClip hoverClip;
+    public AudioClip clickClip;
 
-    public void OnPointerEnter(PointerEventData eventData)
+    public void OnPointerClick(PointerEventData eventData)
     {
-        if (audioSource != null && hoverClip != null)
-            audioSource.PlayOneShot(hoverClip);
+        if (audioSource != null && clickClip != null)
+        {
+            audioSource.PlayOneShot(clickClip);
+        }
+    }
+
+    public void PlaySound()
+    {
+        if (audioSource != null && clickClip != null)
+        {
+            audioSource.PlayOneShot(clickClip);
+        }
     }
 }

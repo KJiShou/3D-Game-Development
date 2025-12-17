@@ -394,6 +394,25 @@ MonoBehaviour:
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
   m_Version: 2
+--- !u!1 &990935808 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1744801180576207556, guid: 078fdf8154cdc8549b65bf1e1c4e288c, type: 3}
+  m_PrefabInstance: {fileID: 2111233999}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &990935813
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 990935808}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 375b6946e9eca7f44af8cd939356fbe2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ButtonClick
+  audioSource: {fileID: 2081798127}
+  clickClip: {fileID: 8300000, guid: f09f5545fe04392418a2fb3533199ef3, type: 3}
 --- !u!1 &1064407555 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4763972023454191904, guid: 078fdf8154cdc8549b65bf1e1c4e288c, type: 3}
@@ -406,18 +425,37 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1064407555}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 375b6946e9eca7f44af8cd939356fbe2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ButtonHover
   audioSource: {fileID: 2081798127}
-  hoverClip: {fileID: 8300000, guid: 5b94edb07ef2ce440af1c8b0efa5c416, type: 3}
+  clickClip: {fileID: 8300000, guid: f09f5545fe04392418a2fb3533199ef3, type: 3}
 --- !u!4 &1108247235 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7444337779224209530, guid: 078fdf8154cdc8549b65bf1e1c4e288c, type: 3}
   m_PrefabInstance: {fileID: 2111233999}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1194232824 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 592492056453255183, guid: 078fdf8154cdc8549b65bf1e1c4e288c, type: 3}
+  m_PrefabInstance: {fileID: 2111233999}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1194232830
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1194232824}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 375b6946e9eca7f44af8cd939356fbe2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ButtonClick
+  audioSource: {fileID: 2081798127}
+  clickClip: {fileID: 8300000, guid: f09f5545fe04392418a2fb3533199ef3, type: 3}
 --- !u!1 &1245392098 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1825016468686828914, guid: 078fdf8154cdc8549b65bf1e1c4e288c, type: 3}
@@ -430,13 +468,32 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1245392098}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 375b6946e9eca7f44af8cd939356fbe2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ButtonHover
   audioSource: {fileID: 2081798127}
-  hoverClip: {fileID: 8300000, guid: 5b94edb07ef2ce440af1c8b0efa5c416, type: 3}
+  clickClip: {fileID: 8300000, guid: f09f5545fe04392418a2fb3533199ef3, type: 3}
+--- !u!1 &1301269812 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5077322837700299761, guid: 078fdf8154cdc8549b65bf1e1c4e288c, type: 3}
+  m_PrefabInstance: {fileID: 2111233999}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1301269818
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1301269812}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 375b6946e9eca7f44af8cd939356fbe2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ButtonClick
+  audioSource: {fileID: 2081798127}
+  clickClip: {fileID: 8300000, guid: f09f5545fe04392418a2fb3533199ef3, type: 3}
 --- !u!1001 &1646535505
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -635,13 +692,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2110098829}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 375b6946e9eca7f44af8cd939356fbe2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ButtonHover
   audioSource: {fileID: 2081798127}
-  hoverClip: {fileID: 8300000, guid: 5b94edb07ef2ce440af1c8b0efa5c416, type: 3}
+  clickClip: {fileID: 8300000, guid: f09f5545fe04392418a2fb3533199ef3, type: 3}
 --- !u!1001 &2111233999
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -775,15 +832,27 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4681485170511954673, guid: 078fdf8154cdc8549b65bf1e1c4e288c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4681485170511954673, guid: 078fdf8154cdc8549b65bf1e1c4e288c, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 186927219}
+    - target: {fileID: 4681485170511954673, guid: 078fdf8154cdc8549b65bf1e1c4e288c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4681485170511954673, guid: 078fdf8154cdc8549b65bf1e1c4e288c, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: StartGame
       objectReference: {fileID: 0}
     - target: {fileID: 4681485170511954673, guid: 078fdf8154cdc8549b65bf1e1c4e288c, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: UI.UIManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 4681485170511954673, guid: 078fdf8154cdc8549b65bf1e1c4e288c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
       value: UI.UIManager, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 4681485170511954673, guid: 078fdf8154cdc8549b65bf1e1c4e288c, type: 3}
@@ -946,6 +1015,15 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1825016468686828914, guid: 078fdf8154cdc8549b65bf1e1c4e288c, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1245392100}
+    - targetCorrespondingSourceObject: {fileID: 592492056453255183, guid: 078fdf8154cdc8549b65bf1e1c4e288c, type: 3}
+      insertIndex: 3
+      addedObject: {fileID: 1194232830}
+    - targetCorrespondingSourceObject: {fileID: 5077322837700299761, guid: 078fdf8154cdc8549b65bf1e1c4e288c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1301269818}
+    - targetCorrespondingSourceObject: {fileID: 1744801180576207556, guid: 078fdf8154cdc8549b65bf1e1c4e288c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 990935813}
   m_SourcePrefab: {fileID: 100100000, guid: 078fdf8154cdc8549b65bf1e1c4e288c, type: 3}
 --- !u!1 &2131891246
 GameObject:
