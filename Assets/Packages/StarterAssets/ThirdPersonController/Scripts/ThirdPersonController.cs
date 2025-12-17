@@ -197,6 +197,8 @@ namespace StarterAssets
 
         private void Start()
         {
+            Application.targetFrameRate = 120;
+            QualitySettings.vSyncCount = 0;
             _cinemachineTargetYaw = CinemachineCameraTarget.transform.rotation.eulerAngles.y;
             _hasAnimator = TryGetComponent(out _animator);
             _controller = GetComponent<CharacterController>();
@@ -636,7 +638,7 @@ namespace StarterAssets
 
         IEnumerator WaitRestartLevel()
         {
-            if (GameManager.instance.GetLeftLife() > 0)
+            if (GameManager.instance.GetLeftLife() <5)
             {
                 if (RespawnManager.instance.currentRespawn == null)
                 {
@@ -655,6 +657,9 @@ namespace StarterAssets
                     skinnedMeshRenderer.material = idle;
 
                 }
+            }else
+            {
+                SceneController.instance.LoadScene("loseScene");
             }
 
         }

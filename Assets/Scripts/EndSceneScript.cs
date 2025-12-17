@@ -23,7 +23,7 @@ public class EndSceneScript : MonoBehaviour
     IEnumerator NextScene()
     {
         GameManager.instance.UnlockCursor();
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(4);
         SceneController.instance.LoadScene("MainMenu");
     }
 }

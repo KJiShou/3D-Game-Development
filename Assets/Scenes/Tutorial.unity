@@ -370,8 +370,28 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5335123776050896432, guid: 722a5133582744a4c96a2816ed166c14, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 364199581}
   m_SourcePrefab: {fileID: 100100000, guid: 722a5133582744a4c96a2816ed166c14, type: 3}
+--- !u!1 &364199580 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5335123776050896432, guid: 722a5133582744a4c96a2816ed166c14, type: 3}
+  m_PrefabInstance: {fileID: 364199579}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &364199581
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 364199580}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ec51af4e8b49a54098bc03c0c8f40b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SeaCollision
 --- !u!4 &535458134 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4396240936495342204, guid: 76c4d4df09972554da0985ac89a239a4, type: 3}
@@ -862,7 +882,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3534505808965908305, guid: 76c4d4df09972554da0985ac89a239a4, type: 3}
       propertyPath: MoveSpeed
-      value: 20
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 3534505808965908305, guid: 76c4d4df09972554da0985ac89a239a4, type: 3}
       propertyPath: dirtVolume
@@ -874,7 +894,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3534505808965908305, guid: 76c4d4df09972554da0985ac89a239a4, type: 3}
       propertyPath: SprintSpeed
-      value: 40
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 3534505808965908305, guid: 76c4d4df09972554da0985ac89a239a4, type: 3}
       propertyPath: grassVolume

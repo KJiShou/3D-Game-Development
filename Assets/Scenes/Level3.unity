@@ -256,15 +256,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 430995274705909377, guid: 41669c47a46e8e44398a48849f541acb, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.19999862
+      value: 0.20000231
       objectReference: {fileID: 0}
     - target: {fileID: 430995274705909377, guid: 41669c47a46e8e44398a48849f541acb, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.35199994
+      value: 0.352
       objectReference: {fileID: 0}
     - target: {fileID: 430995274705909377, guid: 41669c47a46e8e44398a48849f541acb, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -3.9939995
+      value: -3.9939976
       objectReference: {fileID: 0}
     - target: {fileID: 430995274705909377, guid: 41669c47a46e8e44398a48849f541acb, type: 3}
       propertyPath: m_LocalRotation.w
@@ -2550,7 +2550,7 @@ PrefabInstance:
     - target: {fileID: 8171717389063219657, guid: 63a3d1cb03752f544aa266eeb1f46510, type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1170292582}
     - target: {fileID: 8171717389063219657, guid: 63a3d1cb03752f544aa266eeb1f46510, type: 3}
       propertyPath: distance
       value: 6.61
@@ -23829,6 +23829,11 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 895752841}
   m_SourcePrefab: {fileID: 100100000, guid: 7d206b1f447a35b44ad81b84c756d102, type: 3}
+--- !u!1 &1170292582 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7049973339919553486, guid: 41669c47a46e8e44398a48849f541acb, type: 3}
+  m_PrefabInstance: {fileID: 7870778}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1173032144
 GameObject:
   m_ObjectHideFlags: 0
@@ -33853,6 +33858,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7486313937486032191, guid: 63a3d1cb03752f544aa266eeb1f46510, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 234473742}
     - target: {fileID: 8171717389063219657, guid: 63a3d1cb03752f544aa266eeb1f46510, type: 3}
       propertyPath: angle
       value: 52

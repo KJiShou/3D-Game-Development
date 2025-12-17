@@ -88,7 +88,8 @@ namespace Game
 
             if(lifeLeft <= 0)
             {
-                LoadMainMenu();
+                ElectricCollect.charge = 0;
+                LoadLoseScene();
             }
         }
 
@@ -114,6 +115,13 @@ namespace Game
             ResetLeftLife();
             UnlockCursor();
             controller.LoadScene("MainMenu");
+        }
+
+        public void LoadLoseScene()
+        {
+            ResetLeftLife();
+            UnlockCursor();
+            //controller.LoadScene("loseScene");
         }
 
         public void StartGame()
