@@ -958,6 +958,8 @@ PlayableDirector:
     value: {fileID: 1041612714}
   - key: {fileID: -6117532773471411036, guid: 7a77d8e13c9c10e40b9294393a2d7c47, type: 2}
     value: {fileID: 838744539}
+  - key: {fileID: 8267702779099478777, guid: 7a77d8e13c9c10e40b9294393a2d7c47, type: 2}
+    value: {fileID: 0}
   m_ExposedReferences:
     m_References: []
 --- !u!4 &962631235
@@ -1159,6 +1161,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1343830246}
   - component: {fileID: 1343830245}
+  - component: {fileID: 1343830247}
   m_Layer: 0
   m_Name: Directional Light
   m_TagString: Untagged
@@ -1246,6 +1249,35 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!114 &1343830247
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1343830244}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.RenderPipelines.Universal.Runtime::UnityEngine.Rendering.Universal.UniversalAdditionalLightData
+  m_UsePipelineSettings: 1
+  m_AdditionalLightsShadowResolutionTier: 2
+  m_CustomShadowLayers: 0
+  m_LightCookieSize: {x: 1, y: 1}
+  m_LightCookieOffset: {x: 0, y: 0}
+  m_SoftShadowQuality: 0
+  m_RenderingLayersMask:
+    serializedVersion: 0
+    m_Bits: 1
+  m_ShadowRenderingLayersMask:
+    serializedVersion: 0
+    m_Bits: 1
+  m_Version: 4
+  m_LightLayerMask: 1
+  m_ShadowLayerMask: 1
+  m_RenderingLayers: 1
+  m_ShadowRenderingLayers: 1
 --- !u!1 &1407047374
 GameObject:
   m_ObjectHideFlags: 0
@@ -1355,7 +1387,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 2084, y: 996}
+  m_SizeDelta: {x: 2117.08, y: 996}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!225 &1552881760
 CanvasGroup:
