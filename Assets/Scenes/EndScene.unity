@@ -928,7 +928,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 888165675229301945, guid: 252d84e2d6dc6604e91321bc2d912fc8, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 888165675229301945, guid: 252d84e2d6dc6604e91321bc2d912fc8, type: 3}
       propertyPath: m_LocalRotation.y
@@ -936,7 +936,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 888165675229301945, guid: 252d84e2d6dc6604e91321bc2d912fc8, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 888165675229301945, guid: 252d84e2d6dc6604e91321bc2d912fc8, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1293,6 +1293,10 @@ PrefabInstance:
     - target: {fileID: 7578940963505510212, guid: 252d84e2d6dc6604e91321bc2d912fc8, type: 3}
       propertyPath: m_LocalRotation.z
       value: 3.2005648e-16
+      objectReference: {fileID: 0}
+    - target: {fileID: 8134539601035861031, guid: 252d84e2d6dc6604e91321bc2d912fc8, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9071429233274860362, guid: 252d84e2d6dc6604e91321bc2d912fc8, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1955,7 +1959,7 @@ PlayableDirector:
   m_GameObject: {fileID: 901065982}
   m_Enabled: 1
   serializedVersion: 3
-  m_PlayableAsset: {fileID: 11400000, guid: 58997f2ae66c6554891bd1c8193bff53, type: 2}
+  m_PlayableAsset: {fileID: 11400000, guid: 794ca67f838b3ed43be3e90d850d5549, type: 2}
   m_InitialState: 1
   m_WrapMode: 2
   m_DirectorUpdateMode: 1
@@ -1971,9 +1975,20 @@ PlayableDirector:
     value: {fileID: 990679623}
   - key: {fileID: 3695733777294689978, guid: 58997f2ae66c6554891bd1c8193bff53, type: 2}
     value: {fileID: 0}
+  - key: {fileID: 3079937365284505694, guid: 794ca67f838b3ed43be3e90d850d5549, type: 2}
+    value: {fileID: 901065992}
+  - key: {fileID: -5669377555900518284, guid: 794ca67f838b3ed43be3e90d850d5549, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: 3695733777294689978, guid: 794ca67f838b3ed43be3e90d850d5549, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: 6876823798523583619, guid: 794ca67f838b3ed43be3e90d850d5549, type: 2}
+    value: {fileID: 700102407}
+  - key: {fileID: -4958262259315634728, guid: 794ca67f838b3ed43be3e90d850d5549, type: 2}
+    value: {fileID: 180426910}
   m_ExposedReferences:
     m_References:
     - 40651721844908e4fbe1e6c9d2838e88: {fileID: 0}
+    - 99b915c28223f6b4c8bd41559f5c4488: {fileID: 2091442388}
     - 43caac4064730ba4599bef12d44828ae: {fileID: 1209107467}
 --- !u!95 &901065992
 Animator:
