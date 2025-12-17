@@ -25,7 +25,7 @@ RenderSettings:
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
   m_AmbientIntensity: 1
   m_AmbientMode: 0
-  m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
+  m_SubtractiveShadowColor: {r: 0.37887147, g: 0.44786292, b: 0.6226415, a: 1}
   m_SkyboxMaterial: {fileID: 2100000, guid: f8a60d169ab8a46b09c9b01a3e51601f, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
@@ -93,7 +93,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 112000000, guid: 650e15606b75a40488809b1dc452238d, type: 2}
+  m_LightingDataAsset: {fileID: 112000000, guid: 4c7e1aa43a6a69440ab92c5aa3e3d48f, type: 2}
   m_LightingSettings: {fileID: 4890085278179872738, guid: 759ec53de59afb646bdb56616e57307f, type: 2}
 --- !u!196 &4
 NavMeshSettings:
@@ -609,7 +609,7 @@ Light:
   m_Enabled: 1
   serializedVersion: 11
   m_Type: 1
-  m_Color: {r: 0.3679245, g: 0.98716, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 0.45
   m_Range: 10
   m_SpotAngle: 30
@@ -653,7 +653,7 @@ Light:
   m_LightShadowCasterMode: 2
   m_AreaSize: {x: 0.5, y: 0.5}
   m_BounceIntensity: 1
-  m_ColorTemperature: 13780
+  m_ColorTemperature: 6648
   m_UseColorTemperature: 1
   m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 4e-45}
   m_UseBoundingSphereOverride: 0
@@ -672,13 +672,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 379546460}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.17837866, y: -0.26758105, z: 0.011357941, w: -0.9468118}
-  m_LocalPosition: {x: -67.87, y: 35.95, z: -36}
+  m_LocalRotation: {x: 0.1156643, y: -0.5994808, z: 0.13627137, w: 0.78017604}
+  m_LocalPosition: {x: -35.97, y: 35.95, z: -36}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 604712594}
-  m_LocalEulerAnglesHint: {x: 20.112001, y: -327.637, z: 4.517}
+  m_LocalEulerAnglesHint: {x: 20.112, y: -74.275, z: 4.517}
 --- !u!114 &379546463
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2823,7 +2823,7 @@ Light:
   m_Enabled: 1
   serializedVersion: 11
   m_Type: 1
-  m_Color: {r: 0.81382936, g: 0.36862743, b: 1, a: 1}
+  m_Color: {r: 1, g: 0.74863994, b: 0.36862743, a: 1}
   m_Intensity: 0.38
   m_Range: 10
   m_SpotAngle: 30
@@ -2867,7 +2867,7 @@ Light:
   m_LightShadowCasterMode: 2
   m_AreaSize: {x: 0.5, y: 0.5}
   m_BounceIntensity: 1
-  m_ColorTemperature: 13780
+  m_ColorTemperature: 6378
   m_UseColorTemperature: 1
   m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 4e-45}
   m_UseBoundingSphereOverride: 0
@@ -2886,13 +2886,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2000860945}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.038574334, y: -0.9349448, z: 0.10735003, w: 0.3359559}
+  m_LocalRotation: {x: 0.06423151, y: -0.82100344, z: 0.09426736, w: 0.5594117}
   m_LocalPosition: {x: -67.87, y: 35.95, z: -36}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 604712594}
-  m_LocalEulerAnglesHint: {x: 13.1, y: -140.47, z: 0}
+  m_LocalEulerAnglesHint: {x: 13.1, y: -111.461, z: 0}
 --- !u!114 &2000860948
 MonoBehaviour:
   m_ObjectHideFlags: 0
