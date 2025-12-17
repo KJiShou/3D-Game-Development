@@ -911,6 +911,8 @@ PlayableDirector:
     value: {fileID: 981513017}
   - key: {fileID: -7887913610831002027, guid: 7a77d8e13c9c10e40b9294393a2d7c47, type: 2}
     value: {fileID: 2137039833}
+  - key: {fileID: 8267702779099478777, guid: 7a77d8e13c9c10e40b9294393a2d7c47, type: 2}
+    value: {fileID: 2137039833}
   m_ExposedReferences:
     m_References: []
 --- !u!4 &578710900
@@ -2049,7 +2051,7 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2137039829}
   m_Enabled: 1
-  m_Alpha: 1
+  m_Alpha: 0
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
