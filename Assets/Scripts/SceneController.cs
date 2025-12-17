@@ -51,6 +51,12 @@ public class SceneController : MonoBehaviour
 
     IEnumerator LoadSceneAnim(string sceneName)
     {
+        if (string.IsNullOrEmpty(sceneName))
+        {
+            Debug.LogError("CRITICAL ERROR: SceneController was asked to load a scene with NO NAME! Check your Inspector buttons.");
+            Debug.Log(sceneName);
+            yield break;
+        }
         transitionAnim.SetTrigger("End");
         yield return new WaitForSeconds(1);
         SceneManager.LoadSceneAsync(sceneName);

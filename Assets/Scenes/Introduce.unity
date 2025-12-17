@@ -533,7 +533,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LoadOtherScene
   time: 11
-  SceneName: StartScene
+  SceneName: Narrator
 --- !u!4 &345559333
 Transform:
   m_ObjectHideFlags: 0
