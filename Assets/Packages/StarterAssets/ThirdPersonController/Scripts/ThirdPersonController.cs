@@ -197,6 +197,8 @@ namespace StarterAssets
 
         private void Start()
         {
+            Application.targetFrameRate = 120;
+            QualitySettings.vSyncCount = 0;
             _cinemachineTargetYaw = CinemachineCameraTarget.transform.rotation.eulerAngles.y;
             _hasAnimator = TryGetComponent(out _animator);
             _controller = GetComponent<CharacterController>();
@@ -280,6 +282,8 @@ namespace StarterAssets
             // ---- Landing Sound ----
             if (!wasGrounded && Grounded)
             {
+                walkSFXAudioSource.pitch = 1.0f;
+                walkSFXAudioSource.volume = 1.0f;
                 if (LandingAudioClip)
                 {
                     //walkSFXAudioSource.pitch = 0.3f;
@@ -410,7 +414,7 @@ namespace StarterAssets
             {
                 // reset the fall timeout timer
                 _fallTimeoutDelta = FallTimeout;
-
+                
                 // update animator if using character
                 if (_hasAnimator)
                 {
@@ -519,12 +523,11 @@ namespace StarterAssets
             //         }
             //     }
             // }
-
             if (animationEvent.animatorClipInfo.weight > 0.5f)
     {
         AudioClip clipToPlay = null;
         RaycastHit hit;
-        if (Physics.Raycast(transform.position, Vector3.down, out hit, 2f))
+                if (Physics.Raycast(transform.position, Vector3.down, out hit, 2f))
         {
             switch (hit.collider.tag)
             {
@@ -636,7 +639,7 @@ namespace StarterAssets
 
         IEnumerator WaitRestartLevel()
         {
-            if (GameManager.instance.GetLeftLife() > 0)
+            if (GameManager.instance.GetLeftLife() <5)
             {
                 if (RespawnManager.instance.currentRespawn == null)
                 {
@@ -655,6 +658,9 @@ namespace StarterAssets
                     skinnedMeshRenderer.material = idle;
 
                 }
+            }else
+            {
+                SceneController.instance.LoadScene("loseScene");
             }
 
         }

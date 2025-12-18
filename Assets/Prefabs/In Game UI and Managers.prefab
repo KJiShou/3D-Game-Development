@@ -9761,7 +9761,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2033274865827291957, guid: aa718f864df84ba46a88fb4057f6556b, type: 3}
       propertyPath: MoveSpeed
-      value: 20
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 2033274865827291957, guid: aa718f864df84ba46a88fb4057f6556b, type: 3}
       propertyPath: dirtVolume
@@ -9773,7 +9773,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2033274865827291957, guid: aa718f864df84ba46a88fb4057f6556b, type: 3}
       propertyPath: SprintSpeed
-      value: 40
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 2033274865827291957, guid: aa718f864df84ba46a88fb4057f6556b, type: 3}
       propertyPath: grassVolume
@@ -9825,15 +9825,15 @@ PrefabInstance:
       objectReference: {fileID: 8300000, guid: 4a3efba9f7f28c94a86dbc7cbfa7347c, type: 3}
     - target: {fileID: 3019726645391325757, guid: aa718f864df84ba46a88fb4057f6556b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.13421512
+      value: 31.02707
       objectReference: {fileID: 0}
     - target: {fileID: 3019726645391325757, guid: aa718f864df84ba46a88fb4057f6556b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.20020199
+      value: -0.6762781
       objectReference: {fileID: 0}
     - target: {fileID: 3019726645391325757, guid: aa718f864df84ba46a88fb4057f6556b, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -3.8250842
+      value: 24.732822
       objectReference: {fileID: 0}
     - target: {fileID: 3019726645391325757, guid: aa718f864df84ba46a88fb4057f6556b, type: 3}
       propertyPath: m_LocalRotation.w
