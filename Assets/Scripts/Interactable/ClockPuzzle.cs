@@ -39,9 +39,9 @@ public class ClockPuzzle : MonoBehaviour
 
     private void Start()
     {
-        hintText.Add("The statues seem to follow a certain order.");
-        hintText.Add("The statues' arrangement and the flowers' numbers seem to point to two different clues.");
-        hintText.Add("Statues guide the sequence. Flowers mark the number.");
+        hintText.Add("It looks like a clock, and the statues might indicate a specific order.");
+        hintText.Add("Each statue’s color corresponds to a flower color, while the mushrooms beside the pressure plates represent the clock positions.");
+        hintText.Add("Red -> Purple -> Yellow");
 
         hint.text = hintText[errorCount];
 
