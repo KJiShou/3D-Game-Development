@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class ClockPuzzlePressurePlate : MonoBehaviour
 {
+    public GameObject hint;
+    private StartMessage startMessage;
+
     private ClockPuzzle clockPuzzle;
     private string triggerTag = "Triggered Stone";
     private int selfChildIndex = 0;
@@ -26,6 +29,7 @@ public class ClockPuzzlePressurePlate : MonoBehaviour
         mat = r.material;
         mat.DisableKeyword("_EMISSION");
         mat.SetColor("_EmissionColor", Color.black);
+        startMessage = hint.GetComponent<StartMessage>();
     }
 
     //private void Update()
@@ -43,6 +47,12 @@ public class ClockPuzzlePressurePlate : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        if(other.gameObject.tag == "Player")
+        {
+            hint.SetActive(true);
+            startMessage.ResetTimer();
+        }
+
         if (other.gameObject.CompareTag(triggerTag) && !isTriggered && !isSuccess)
         {
             isTriggered = true;
