@@ -37,13 +37,13 @@ public class PortalInteractable : MonoBehaviour
             if (goNextLevel)
             {
                 GameManager.instance.ResetLeftLife();
-                if(currentScene.name != "Tutorial") GameManager.instance.UpdateCurrentLevel();
+                GameManager.instance.UpdateCurrentLevel();
                 SceneController.instance.NextLevel();
             } 
             else
             {
                 GameManager.instance.ResetLeftLife();
-                if (currentScene.name != "Tutorial") GameManager.instance.UpdateCurrentLevel();
+                GameManager.instance.UpdateCurrentLevel();
                 SceneController.instance.LoadScene(levelName);
             }
         }
