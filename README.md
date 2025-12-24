@@ -26,6 +26,9 @@ With determination, Chichi embarks on a journey to:
 - Parkour elements (platforming & obstacle traversal)
 - Puzzle exploration
 - Environment interaction  
+![main menu](image.png)
+![setting menu](image-2.png)
+![gameplay scene](image-1.png)
 
 ---
 
