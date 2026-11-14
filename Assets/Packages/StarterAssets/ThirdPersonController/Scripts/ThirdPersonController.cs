@@ -40,7 +40,7 @@ namespace StarterAssets
         public float MoveSpeed = 2.0f;
 
         [Tooltip("Sprint speed of the character in m/s")]
-        public float SprintSpeed = 5.335f;
+        public float SprintSpeed = 5.0f;
 
         public bool isSprint
         {
@@ -235,19 +235,12 @@ namespace StarterAssets
 
             _hasAnimator = TryGetComponent(out _animator);
 
-            JumpAndGravity();
             GroundedCheck();
+            JumpAndGravity();
             Move();
             if (getChasing && skinnedMeshRenderer.material != cry) skinnedMeshRenderer.material = cry;
             if (!getChasing && skinnedMeshRenderer.material != idle) skinnedMeshRenderer.material = idle;
 
-            if (_controller.isGrounded && _verticalVelocity < 0f)
-            {
-                _verticalVelocity = -2f;
-            }
-
-            _verticalVelocity += Gravity * Time.deltaTime;
-            _controller.Move(new Vector3(0f, _verticalVelocity, 0f) * Time.deltaTime);
         }
 
         private void LateUpdate()
@@ -350,30 +343,14 @@ namespace StarterAssets
                 // if there is no input, set the target speed to 0
                 if (_input.move == Vector2.zero) targetSpeed = 0.0f;
 
-                // a reference to the players current horizontal velocity
-                float currentHorizontalSpeed = new Vector3(_controller.velocity.x, 0.0f, _controller.velocity.z).magnitude;
+                float inputMagnitude = _input.analogMovement ? Mathf.Clamp01(_input.move.magnitude) : 1f;
 
-                float speedOffset = 0.1f;
-                float inputMagnitude = _input.analogMovement ? _input.move.magnitude : 1f;
+                // Keep locomotion speed independent of the last CharacterController.Move
+                // (for example, a knockback) and of the rendering frame rate.
+                float speedBlend = 1f - Mathf.Exp(-Mathf.Max(0f, SpeedChangeRate) * Time.deltaTime);
+                _speed = Mathf.Lerp(_speed, targetSpeed * inputMagnitude, speedBlend);
 
-                // accelerate or decelerate to target speed
-                if (currentHorizontalSpeed < targetSpeed - speedOffset ||
-                    currentHorizontalSpeed > targetSpeed + speedOffset)
-                {
-                    // creates curved result rather than a linear one giving a more organic speed change
-                    // note T in Lerp is clamped, so we don't need to clamp our speed
-                    _speed = Mathf.Lerp(currentHorizontalSpeed, targetSpeed * inputMagnitude,
-                        Time.deltaTime * SpeedChangeRate);
-
-                    // round speed to 3 decimal places
-                    _speed = Mathf.Round(_speed * 1000f) / 1000f;
-                }
-                else
-                {
-                    _speed = targetSpeed;
-                }
-
-                _animationBlend = Mathf.Lerp(_animationBlend, targetSpeed, Time.deltaTime * SpeedChangeRate);
+                _animationBlend = Mathf.Lerp(_animationBlend, targetSpeed, speedBlend);
                 if (_animationBlend < 0.01f) _animationBlend = 0f;
 
                 // normalise input direction
@@ -479,11 +456,8 @@ namespace StarterAssets
                 _input.jump = false;
             }
 
-            // apply gravity over time if under terminal (multiply by delta time twice to linearly speed up over time)
-            if (_verticalVelocity < _terminalVelocity)
-            {
-                _verticalVelocity += Gravity * Time.deltaTime;
-            }
+            // Integrate gravity once per frame and cap downward velocity.
+            _verticalVelocity = Mathf.Max(_verticalVelocity + Gravity * Time.deltaTime, -_terminalVelocity);
         }
 
         private static float ClampAngle(float lfAngle, float lfMin, float lfMax)

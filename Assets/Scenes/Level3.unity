@@ -41712,11 +41712,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9164127117676211459, guid: a95e3b76531dd6348b4886a9a3f96aa2, type: 3}
       propertyPath: MoveSpeed
-      value: 20
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 9164127117676211459, guid: a95e3b76531dd6348b4886a9a3f96aa2, type: 3}
       propertyPath: SprintSpeed
-      value: 40
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 9164127117676211459, guid: a95e3b76531dd6348b4886a9a3f96aa2, type: 3}
       propertyPath: walkSFXAudioSource

@@ -27,6 +27,9 @@ namespace UI
         public GameObject settingsPanel;
         private Animator settingsPanelAnim;
 
+        [SerializeField] private GameObject resetProgressPanel;
+        private bool restartingGame;
+
         public GameObject soundBtnObj;
         public Sprite soundBtnSpirte;
         public Sprite pressedSoundBtnSpirte;
@@ -60,7 +63,10 @@ namespace UI
         [Tooltip("This is only for the level 2 scenes")]
         public GameObject[] thunderUI;
         public Material thunderUIMat;
-        private ElectricCollect electricCollect;
+        private RawImage[] thunderImages;
+        private Color[] unchargedThunderColors;
+        private Material[] unchargedThunderMaterials;
+        private int displayedCharge = int.MinValue;
 
         [Header("Key UI")]
         public GameObject keyIcon;
@@ -73,6 +79,12 @@ namespace UI
         private void Awake()
         {
             instance = this;
+            CacheThunderImages();
+        }
+
+        private void OnEnable()
+        {
+            UpdateThunderCount();
         }
 
         private void Start()
@@ -101,7 +113,7 @@ namespace UI
                 }
                 else if (currentScene.name == "Level2")
                 {
-                    electricCollect = ElectricCollect.instance;
+                    UpdateThunderCount();
                     keyCollect = KeyCollect.instance;
                 }
                 respawnCount.text = "X " + gameManager.GetLeftLife();
@@ -110,6 +122,10 @@ namespace UI
 
         private void Update()
         {
+            // Also catch resets and charge restored before this UI was created.
+            if (displayedCharge != ElectricCollect.charge)
+                UpdateThunderCount();
+
             if(currentScene.name != "MainMenu")
             {
                 if (Input.GetKeyDown(KeyCode.Escape))
@@ -202,6 +218,29 @@ namespace UI
             StartCoroutine(CloseSettingsPanel());
         }
 
+        public void ResetProgressClicked()
+        {
+            if (restartingGame) return;
+            settingsPanel.SetActive(false);
+            resetProgressPanel.SetActive(true);
+        }
+
+        public void CancelResetProgress()
+        {
+            if (restartingGame) return;
+            resetProgressPanel.SetActive(false);
+            settingsPanel.SetActive(true);
+        }
+
+        public void ConfirmResetProgress()
+        {
+            if (restartingGame || !resetProgressPanel.activeSelf) return;
+            restartingGame = true;
+            gameManager.ResetProgress();
+            resetProgressPanel.SetActive(false);
+            gameManager.PlayCutScene();
+        }
+
         public void ExitGameClicked()
         {
             StartCoroutine(WaitBtnAnim());
@@ -244,13 +283,36 @@ namespace UI
         // ==============================
         public void UpdateThunderCount()
         {
-            if (!thunderUIMat) return;
+            if (thunderImages == null) CacheThunderImages();
+            displayedCharge = ElectricCollect.charge;
+            int litCount = Mathf.Clamp(displayedCharge, 0, thunderImages.Length);
+            for (int i = 0; i < thunderImages.Length; i++)
+            {
+                RawImage image = thunderImages[i];
+                if (image == null) continue;
 
-            if (electricCollect.GetCharge() > 4) return;
+                bool charged = i < litCount;
+                image.color = charged ? Color.white : unchargedThunderColors[i];
+                image.material = charged && thunderUIMat != null
+                    ? thunderUIMat : unchargedThunderMaterials[i];
+            }
+        }
 
-            RawImage image = thunderUI[electricCollect.GetCharge() - 1].gameObject.GetComponent<RawImage>();
-            image.color = Color.white;
-            image.material = thunderUIMat;
+        private void CacheThunderImages()
+        {
+            int count = thunderUI == null ? 0 : thunderUI.Length;
+            thunderImages = new RawImage[count];
+            unchargedThunderColors = new Color[count];
+            unchargedThunderMaterials = new Material[count];
+            for (int i = 0; i < count; i++)
+            {
+                if (thunderUI[i] == null) continue;
+                RawImage image = thunderUI[i].GetComponent<RawImage>();
+                thunderImages[i] = image;
+                if (image == null) continue;
+                unchargedThunderColors[i] = image.color;
+                unchargedThunderMaterials[i] = image.material;
+            }
         }
 
         public void UpdateKeyUI()

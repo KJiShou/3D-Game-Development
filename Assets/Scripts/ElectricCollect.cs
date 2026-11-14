@@ -9,27 +9,24 @@ public class ElectricCollect : MonoBehaviour
     public AudioClip collectSound;
     public float volume = 1.5f;
 
-    private UIManager uiManager;
+    private bool collected;
 
     private void Awake()
     {
         instance = this;
     }
 
-    private void Start()
-    {
-        uiManager = UIManager.instance;
-    }
-
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (!collected && other.CompareTag("Player"))
         {
-            charge++;
-            uiManager.UpdateThunderCount();
-            AudioSource.PlayClipAtPoint(collectSound, transform.position, volume);
-            //Destroy(gameObject);
+            // A player may have multiple colliders entering in the same physics step.
+            collected = true;
+            charge = Mathf.Clamp(charge + 1, 0, 4);
             gameObject.SetActive(false);
+            if (UIManager.instance != null) UIManager.instance.UpdateThunderCount();
+            if (collectSound != null)
+                AudioSource.PlayClipAtPoint(collectSound, transform.position, volume);
         }
     }
 

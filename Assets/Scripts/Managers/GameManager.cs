@@ -11,7 +11,7 @@ namespace Game
         private bool wawaIsSave = false;
         private bool passTutorial = false;
         private static int lifeLeft = 5;
-        private static int currentLevel = 0;
+        private static int currentLevel = 1;
         
         #endregion
 
@@ -81,6 +81,25 @@ namespace Game
 
         #endregion
         #region Public methods
+
+        public void ResetProgress()
+        {
+            // Reset both the save and the persistent manager's cached state.
+            // Display and audio preferences are independent of game progress.
+            passTutorial = false;
+            kakaIsSave = false;
+            wawaIsSave = false;
+            currentLevel = 1;
+            ResetLeftLife();
+            ElectricCollect.charge = 0;
+            KeyCollect.hasKey = false;
+
+            PlayerPrefs.SetInt("PassTutorial", 0);
+            PlayerPrefs.SetInt("KakaIsSaved", 0);
+            PlayerPrefs.SetInt("WawaIsSaved", 0);
+            PlayerPrefs.SetInt("CurrentLevel", 1);
+            PlayerPrefs.Save();
+        }
 
         public void DeductLife()
         {

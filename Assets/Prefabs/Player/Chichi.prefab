@@ -87,10 +87,12 @@ MonoBehaviour:
   cry: {fileID: 2100000, guid: 6fd4e6f657c95464580dc43cb4d49336, type: 2}
   angry: {fileID: 2100000, guid: 74869a5089ce32d49b9dc8bbdf55f036, type: 2}
   getChasing: 0
-  MoveSpeed: 40
-  SprintSpeed: 60
+  MoveSpeed: 2
+  SprintSpeed: 5
   RotationSmoothTime: 0.12
   SpeedChangeRate: 10
+  attackSFXAudioSource: {fileID: 0}
+  walkSFXAudioSource: {fileID: 0}
   LandingAudioClip: {fileID: 8300000, guid: 87f3d60c1111e1244a9816a076f8cb41, type: 3}
   JumpAudioClip: {fileID: 8300000, guid: 87f3d60c1111e1244a9816a076f8cb41, type: 3}
   attackAudioClip: {fileID: 8300000, guid: 0fc58c45bbcc3b540b1655e4eb6ab67f, type: 3}
@@ -98,6 +100,18 @@ MonoBehaviour:
   FootstepAudioClips:
   - {fileID: 8300000, guid: 87f3d60c1111e1244a9816a076f8cb41, type: 3}
   FootstepAudioVolume: 0.495
+  grassFootsteps: []
+  dirtFootsteps: []
+  woodFootsteps: []
+  snowFootsteps: []
+  grassVolume: 0.7
+  grassPitch: 1.1
+  woodVolume: 0.9
+  woodPitch: 0.95
+  snowVolume: 0.7
+  snowPitch: 1.1
+  dirtVolume: 0.9
+  dirtPitch: 0.95
   _jump: 0
   JumpSoundCooldown: 0.1
   JumpHeight: 1
@@ -431,6 +445,7 @@ GameObject:
   - component: {fileID: 1102935247980456530}
   - component: {fileID: 6808709587334602953}
   - component: {fileID: 6312995576305833948}
+  - component: {fileID: 6637530017125492071}
   m_Layer: 0
   m_Name: HitBox
   m_TagString: Untagged
@@ -489,6 +504,9 @@ MonoBehaviour:
   thirdPersonController: {fileID: 9164127117676211459}
   player: {fileID: 1517673331421535636}
   playerForce: 1
+  pushWoodSound: {fileID: 0}
+  pushPumpkinSound: {fileID: 0}
+  pushStoneSound: {fileID: 0}
 --- !u!54 &6312995576305833948
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -516,6 +534,103 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!82 &6637530017125492071
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2892769656845832232}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &5751014057570097039
 GameObject:
   m_ObjectHideFlags: 0

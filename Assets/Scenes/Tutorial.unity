@@ -939,7 +939,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3534505808965908305, guid: 76c4d4df09972554da0985ac89a239a4, type: 3}
       propertyPath: MoveSpeed
-      value: 30
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3534505808965908305, guid: 76c4d4df09972554da0985ac89a239a4, type: 3}
       propertyPath: dirtVolume
@@ -951,7 +951,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3534505808965908305, guid: 76c4d4df09972554da0985ac89a239a4, type: 3}
       propertyPath: SprintSpeed
-      value: 50
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 3534505808965908305, guid: 76c4d4df09972554da0985ac89a239a4, type: 3}
       propertyPath: grassVolume

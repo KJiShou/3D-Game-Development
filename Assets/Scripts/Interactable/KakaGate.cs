@@ -17,6 +17,7 @@ public class KakaGate : MonoBehaviour
 
     private StartMessage message;
     private GameManager gameManager;
+    private bool gateOpened;
 
     void Start()
     {
@@ -24,11 +25,19 @@ public class KakaGate : MonoBehaviour
         openButtonAnimator = openButton.GetComponent<Animator>();
         message = FindAnyObjectByType<StartMessage>().GetComponent<StartMessage>();
         gameManager = GameManager.instance;
+
+        // The final machine starts inactive in Level3. Restore its unlock when
+        // replaying/reloading with an already-saved rescue, not only on interaction.
+        if (destroyMachine != null &&
+            (isKaka ? gameManager.IsKakaSave() : gameManager.IsWawaSave()))
+        {
+            OpenGate(true);
+        }
     }
 
     void Update()
     {
-        if (!havePlayer) return;
+        if (gateOpened || !havePlayer) return;
 
         if (Input.GetKeyDown(KeyCode.E))
         {
@@ -54,26 +63,39 @@ public class KakaGate : MonoBehaviour
         }
     }
 
-    private void OpenGate()
+    private void OpenGate(bool restoring = false)
     {
+        if (gateOpened) return;
+        gateOpened = true;
         if (destroyMachine != null) destroyMachine.SetActive(true);
 
         havePlayer = false;
         openButtonAnimator.SetBool("HaveItem", false);
 
         animator.SetBool("Save", true);
-        Destroy(kaka, 10);
+        if (restoring)
+        {
+            // Do not replay the rescue or leave the rescued character in the cage.
+            if (kaka != null) kaka.SetActive(false);
+        }
+        else
+        {
+            Destroy(kaka, 10);
+        }
 
         openButton.SetActive(false);
         GetComponent<BoxCollider>().enabled = false;
 
-        if (isKaka) gameManager.SaveKaka();
-        if (!isKaka) gameManager.SaveWawa();
+        if (!restoring)
+        {
+            if (isKaka) gameManager.SaveKaka();
+            else gameManager.SaveWawa();
+        }
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (!other.CompareTag("Player")) return;
+        if (gateOpened || !other.CompareTag("Player")) return;
 
         havePlayer = true;
         openButtonAnimator.SetBool("HaveItem", true);
@@ -83,7 +105,7 @@ public class KakaGate : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (!other.CompareTag("Player")) return;
+        if (gateOpened || !other.CompareTag("Player")) return;
 
         havePlayer = false;
         openButtonAnimator.SetBool("HaveItem", false);
